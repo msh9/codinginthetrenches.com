@@ -1,0 +1,160 @@
+---
+title: Why dependency injection and what is it?
+author: Michaelhughes
+date: 08.10.2011
+filter: [rst, ]
+tags: [Java, OOP, Spring Framework]
+---
+
+At some point, usually early, in an `object oriented programming <http://en.wikipedia.org/wiki/Object-oriented_programming>`_ (OOP) education there will be a discussion of interfaces. The idea of an interface is key to OOP and an enabler of `polymorphism <http://en.wikipedia.org/wiki/Object-oriented_programming>`_. In more concrete terms, interfaces are important because they create a well defined relationship between objects. A simple (non programming related) diagram may help explain: `|Diagram showing a driving interface for vehicles| <http://mhughes.info/wp-content/uploads/2011/10/spring_ioc_article_resource.png>`_   If we step out of reality for a moment then we can make the observation that a driver only needs to know how to 'Drive'; the type of vehicle does not matter so long as it supports the operation 'Drive'. In the case of this example the vehicles 'F1 Racer', 'Truck', and 'Car' all support Drive and can therefore be driven by an individual that calls 'Drive'.  At a basic level the same concept applies to interfaces in Java,  class A which implements an interface B can be expected to have methods defined in B available to other classes which use A. A side effect of this is that once we (a client of another class, X) have the interface that class X implements we have knowledge of the methods that X defines **without **\ actually knowing specifically what class X is. Going back to the example, I'm a driver and suppose F1 Racer, Truck, and Car all implement Vehicle which defines the method drive. In this context, to drive a 'Vehicle' I only need to call the Drive method. A simple code example:
+
+::
+
+
+   public interface Vehicle {
+
+       void drive();
+
+   }
+
+
+   public class F1Racer implements Vehicle {
+
+     @override
+
+     public void drive() {
+
+       //TODO
+
+       return;
+
+     }
+
+   }
+
+
+   public class Truck implements Vehicle {
+
+     ...
+
+   }
+
+   ...
+
+   public class driver {
+
+     Vehicle vehicleTruck = new Truck();
+
+     Vehicle vehicleF1Racer = new F1Racer();
+
+     ...
+
+     //drive them
+
+     vehicleTruck.drive();
+
+     vehicleF1Racer.drive();
+
+   }
+
+
+In our example we assign the new Truck and F1Racer objects to Vehicle variables because we only need to know that those objects implement Vehicle to drive them.
+
+All the driver class needs to know to call drive is that a class implements the Vehicle interface, which is good because a driver in this example **should not care** about *how* (i.e. its implementation) a vehicle drives, just that is it capable of being driven (implements the vehicle interface). We want a `separation of concerns <http://en.wikipedia.org/wiki/Separation_of_concerns>`_, the driver should not need to know how a car drives, just that it does; interfaces help us to separate concerns in programs, but they are not a complete solution. In the above example, although the driver class makes a call through the Vehicle interface, it still needs to be aware of implementation details because we have to instantiate the Trunk and F1Racer objects *somewhere.* In other words the driver class is `coupled <http://en.wikipedia.org/wiki/Coupling_%28computer_programming%29>`_ to the Truck, Car, and F1Racer classes. At first glance coupled classes may not seem like a problem, however, suppose that one day the F1Racer class becomes deprecated and we replace it with the F5Racer class (because bigger is better) now in addition to changing the racers we also have to change **every** class that instantiates F1Racer. In our small example changing the driver class is trivial, in a large, complex application though changing or even finding all of the classes that instantiate and use F1Racer is a very nontrivial task.
+
+One solution to the coupling problem is to employ the idea of `inversion of control <http://en.wikipedia.org/wiki/Inversion_of_control>`_, in short the principle is to separate code that manages execution from code that solves a problem. In our above example we want to separate the class instantiation code (management), ``Vehicle vehicleTruck = new Truck();`` from the code that gets us somewhere (solving a problem), ``vehicleTruck.drive();``. By creating a separation between code types we decouple the driver class from the Truck, Car, etc classes, the driver will receive an object which implements Vehicle and will still be able to perform the same actions **without** knowing specific implementation details.
+
+Inversion of control though is more a principle or possibly a `software architecture <http://en.wikipedia.org/wiki/Software_architecture>`_ than an actual way of decoupling objects which brings us to dependency injection. At a high level `dependency injection <http://en.wikipedia.org/wiki/Dependency_injection>`_ is a way to take the dependencies of a unit of code  X,  manage their creation separately and then place those dependencies into X as needed. `There <http://java-source.net/open-source/containers>`_ `are <http://docs.castleproject.org/Windsor.MainPage.ashx>`_ a `large <http://copland.rubyforge.org/api/>`_ `number <http://mail.python.org/pipermail/python-list/2009-April/1200015.html>`_ of frameworks (or containers) that implement dependency injection for many different programming languages, since I am familiar with `Spring Framework <http://www.springsource.org/documentation>`_ for java, we'll use that for our example. Before proceeding it is also worth pointing out that dependency injection is a pattern that doesn't need a 3rd party framework to implement, for instance `this is an example <http://richnewman.wordpress.com/dependency-injection-example-interface-injection/>`_ of dependency injection (interface injection specifically) sans a framework in C#.  Frameworks like Spring make it easier though to manage a large number dependencies in complex projects.
+
+A very simple example Spring application as an `Springsource Tool Suite <http://www.springsource.com/developer/sts>`_ project can be downloaded `here (zip file) <http://www.mhughes.info/downloads/simpleDemoWithSpring.zip>`_, please note that the classpath will likely need to be changed before the project will be runnable. I'll just describe the key points of dependency injection using small code snippets from the example.
+
+At a high level we have 4 service classes, two generate data about cars and another two generate data about individuals. In a real application we could have classes that interface with different storage engines, in the example CarParameterDBSvc and CarParameterXMLSvc both just serve static data. The service classes implement two interfaces, CarParameters and PersonParameters. Finally we have a 'business logic' class, PersonCarLookup which uses both services to match individuals to car and then return some information about the matching pairs. In a traditional application, a dependency graph (I'm using the term loosely) may look like this:
+
+`|Example Project dependency graph| <http://mhughes.info/wp-content/uploads/2011/10/simpleDemoWithSpringGraph.png>`_\ This graph is already a mess, primarily because PersonCarLookup must have references to **everything** beneath it to instantiate either or both of the DB and XML service classes for cars and persons, add spring DI to the mix though and the graph becomes much cleaner:\ `|Example dependency graph with dependency injection| <http://mhughes.info/wp-content/uploads/2011/10/simpleDemoWithSpringGraphWithDI.png>`_
+
+
+Let's look at a snippet of code, the PersonCarLookup class:
+
+::
+
+
+   public class PersonCarLookup implements IPersonCarLookup {
+
+
+       public class PersonCarLookup implements IPersonCarLookup {
+
+
+       @Autowired
+
+       private IPersonParameters personParameters;
+
+
+       @Autowired
+
+       private ICarParameters carParameter;
+
+
+The above code is it, these statements plus the Java import to define @Autowired is all that is needed to create usable car and person service objects in a PersonCarLookup object. It is important to note that Spring also handles the instantiation of the PersonCarLookup object in our main method, but that is outside of the current discussion's scope. Essentially at runtime whenever this class is instantiated by spring, the framework searches for a class that implements the IPersonParameters and ICarParameters interfaces and places those objects into the fields personParameters and carParameters respectively. Magic. Not quite. I don't want to dive deeply into how Spring Framework does this because I want this post to be of reasonable length, but in brief:
+
+1) We marked our service classes, such as PersonParameterDBSvc with some Spring specific annotations like so:
+
+::
+
+
+   @Service("personParameters")
+
+   public class PersonParameterDBSvc implements IPersonParameters {
+
+
+The @Service annotation is one of a `handful of annotations <http://static.springsource.org/spring/docs/2.5.x/reference/beans.html#auto-detecting-components>`_ that are used by Spring to indicate that a class is a candidate to be automatically injected into another class based on implemented interfaces.
+
+2) In the primary application configuration file used by Spring in our example project, appContext.xml we added a directive to scan classes in the package for autowiring candidates (like the one defined in #1), the following is the relevant line:
+
+::
+
+
+The primary caveat to this method is that there can only be one implementer of the autowired interface. We can add `@Qualifier <http://static.springsource.org/spring/docs/2.5.x/reference/beans.html#fine-tuning-annotation-based-autowiring-with-qualifiers>`_ annotations though to specify which object to inject when we have multiple injection candidates. Before wrapping up we need to address the primary issue raised earlier, suppose we suddenly want to use a XML service instead of a database? Simple. We could add the new class:
+
+::
+
+
+   @Service("personParamterXML")
+
+   public class PersonParameterXMLSvc implements IPersonParameters {
+
+   ...
+
+
+And then add qualifiers to our PersonCarLookup class:
+
+::
+
+
+   public class PersonCarLookup implements IPersonCarLookup {
+
+
+       @Autowired
+
+       @Qualifier("personParametersXML")
+
+       private IPersonParameters personParameters;
+
+
+       @Autowired
+
+       @Qualifier("carParametersXML")
+
+       private ICarParameters carParameter;
+
+
+And done, no other changes necessary. This route still requires some bookkeeping to be done within the project to set qualifier names, if we wanted to we could have just removed the old database service classes and put the xml service classes in their place without changing anything else, dependency management done.
+
+I have mostly focused on reasons why to use DI, with a sprinkling of examples using Spring Framework, for more examples (of Spring and DI) I suggest:
+
+-  Martin Folwer's\ `post on the topic <http://martinfowler.com/articles/injection.html>`_
+-  A `good introductory post <http://www.vogella.de/articles/SpringDependencyInjection/article.html>`_ by Lars Vogel
+-  Or ultimately the `Spring in Action <http://www.manning.com/walls4/>`_ manual by Craig Walls
+
+.. |Diagram showing a driving interface for vehicles| image:: http://mhughes.info/wp-content/uploads/2011/10/spring_ioc_article_resource.png
+.. |Example Project dependency graph| image:: http://mhughes.info/wp-content/uploads/2011/10/simpleDemoWithSpringGraph.png
+.. |Example dependency graph with dependency injection| image:: http://mhughes.info/wp-content/uploads/2011/10/simpleDemoWithSpringGraphWithDI.png

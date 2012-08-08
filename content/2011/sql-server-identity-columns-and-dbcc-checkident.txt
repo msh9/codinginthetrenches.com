@@ -1,0 +1,75 @@
+---
+title: SQL Server Identity columns and DBCC CHECKIDENT
+author: Michaelhughes
+date: 24.11.2011
+filter: [rst, ]
+tags: [SQL, Windows]
+---
+
+I recently ran across a problem in a production `MS SQL Server <http://msdn.microsoft.com/en-us/library/bb545450.aspx>`_ database where a column's identity counter had become misaligned with the current table row count. This post offers a solution to get the identity and row count realigned.
+
+Let us back up though and introduce some concepts first. Microsoft SQL Server is, like PostgreSQL and MySQL a `relational <http://en.wikipedia.org/wiki/Relational_model>`_ `database management system <http://en.wikipedia.org/wiki/Database_management_system>`_. Database theory is a topic for many other posts, here we will focus on one of the primary entities of SQL Server, the humble table. As in, a table:\ `|An image of a basic table| <http://mhughes.info/wp-content/uploads/2011/11/mock_table.png>`_
+
+Not very exciting. Most tables in a DB will have some column or field that has values which uniquely identify rows in the table, this is commonly known as a 'primary key'. Although not strictly necessary, a primary key (or set of columns that form a key) is generally needed in any sensible table. Since the point of a primary key is to be unique we need a way to ensure that values inserted into it are indeed unique. We'll ignore the case of multi-column primary keys and focus on the very common case of a single column containing a number, typically an integer or larger data type that identifies a row.
+
+The authoritative ANSI SQL standard does not specify a mechanism for a DBMS to manage the creation of unique data in primary key columns. For instance the following SQL will create a table with two fields:
+
+::
+
+
+   CREATE TABLE test (
+
+     pkey INTEGER PRIMARY KEY
+
+     , data varchar(255) )
+
+
+The above creates a table with two columns, one of them being the primary key for the table. When we insert into the table we must specify a key and that key must be unique, but how do we pick a unique key?
+
+Many DBMS contain extensions to the SQL standard. `Transact SQL <http://msdn.microsoft.com/en-us/library/ms365303.aspx>`_, the SQL variant used by SQL Server has the `identity <http://msdn.microsoft.com/en-us/library/ms186775.aspx>`_ property. For example:
+
+::
+
+
+   CREATE TABLE test (
+
+     pkey INTEGER IDENTITY(1,1) PRIMARY KEY
+
+     , data varchar(255))
+
+
+The identity property automatically fills a field's value on insert with the next value in a numeric sequence. The default values are shown in the above SQL, the first parameter to the identity property is the starting value and the second value is the increment amount. So the first row inserted in the table will be identified by 1, the second by 2, etc. Now do not need to specify the primary key value on insert into the table. For example we can now insert into the table using the following SQL:
+
+::
+
+
+   INSERT INTO test (data) VALUES('Hello World!');
+
+
+We do not need to specify the primary key field since it is auto-populated with a value.
+
+Identity is a great property that helps to create unique values, however problems can arise if the identity seed becomes misaligned with the total number of rows in the table. A common symptom of misalignment is the following error: Violation of PRIMARY KEY constraint 'Table\_name'. Cannot insert duplicate key in object 'Your schema.your table'. Generally this will happen when the identity becomes set to something less than the current row count. For example if there are 300 entries in the table and the identity is set to 50, then the next insert will attempt to insert 51 into the primary key field. Inserting 51 into the primary key field will likely result in a primary key constrain violation.
+
+The `DBCC CHECKIDENT <http://msdn.microsoft.com/en-us/library/ms176057.aspx>`_ command is part of Transact SQL and helps to manage identity columns. To check the current row count and identity without changing anything you run the following command:
+
+::
+
+
+   DBCC CHECKIDENT('test',NORESEED)
+
+
+An example of the command's output is as follows:
+
+``Checking identity information: current identity value '352', current column value '352'. DBCC execution completed. If DBCC printed error messages, contact your system administrator.``
+
+When a identity seed is not aligned with the current row count the above values will be not equal. Realigning the identity seed with the current row count requires running the CHECKIDENT command again with different arguments. For instance, if we wanted to the set the identity seed to the current column value in the above example we would run the following SQL:
+
+::
+
+
+   DBCC CHECKIDENT('test',RESEED,352);
+
+
+The above will set the current identity seed to 352. The next insert into the table will use the value 353 for the primary key field and will not cause a primary key violation. Using the DBCC CHECKIDENT command to set the identity seed to the current row count resolved the problem I had on my production database. A word of warning though, the identity seed need not always be equal to the current row count. For instance, after a `merge <http://technet.microsoft.com/en-us/library/bb510625.aspx>`_ the identity seed may not equal the current row count, but may not need to be reseeded.
+
+.. |An image of a basic table| image:: http://mhughes.info/wp-content/uploads/2011/11/mock_table.png

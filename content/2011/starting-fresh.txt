@@ -1,0 +1,9 @@
+---
+title: Starting fresh
+author: Michaelhughes
+date: 11.05.2011
+filter: [rst, ]
+tags: [administrivia]
+---
+
+This domain previously held another wordpress blog of mine that had been going for a couple of years. The purpose of that blog changed and lost focus over time, so I'm starting fresh hoping to keep focused. There likely won't be many posts for a couple months at first since I am in a transitional phase of my life, but then I hope to pick up the pace and make this a useful source of information.

@@ -1,0 +1,39 @@
+---
+title: Terminal Vim and pasting
+author: Michaelhughes
+date: 25.05.2011
+filter: [rst, ]
+tags: [Editing, Linux]
+---
+
+I like Vim; its simple when I want it to be and smart when needed. If I need to write some C for a project, Vim intelligently handles indenting, line wrapping, bracket balancing, and syntax highlighting. Similarly when I need to jot a quick note, Vim starts quickly, saves a file in 3 key strokes, and generally gets out of my way.
+
+I use Vim almost exclusively in a terminal emulator, such as konsole which in turn lives within a larger GUI environment. Often I find that I need to copy paste from elsewhere into Vim, for example  a URL from firefox in a quick note in Vim. Other times I need to paste large blocks of text with pre-existing indentations. The console version of Vim (as opposed to gvim) has no way of distinguishing between text that is pasted and text that is typed, so any pre-existing indentation may become malformed depending on the indentation rules in use by Vim at that moment.
+
+Fortunately Vim has a way around the paste problem, paste mode. Paste mode tries to handle pasted (go figure) text more intelligently, by among other things, turning off auto-indentation. The simple way of turning on paste mode:
+
+#. Enter normal mode, generally by pressing ``<esc>``
+#. Type ``:set paste``
+
+
+To turn off paste mode:
+
+#. Enter normal mode, generally by pressing ``<esc>``
+#. Type ``:set nopaste``
+
+
+There is an even easier thing to do, since this is a common operation it can be easy assigned to a specific key, often <F2>, but others can be used this is done by:
+
+#. Open the .vimrc file, most likely in your home directoy on linux, ``vim ~/.vimrc``
+#. Add the following to a newline: ``set pastetoggle=<F2>``
+#. Save the .vimrc file and close Vim
+
+
+The ``<F2>`` key will now conviently toggle paste mode on and off as needed.
+
+More information can be found by accessing Vim's internal help system in normal mode, or visiting the following links:
+
+-  ``:help paste``
+-  ``:help pastetoggle``
+-  `Paste Mode <http://vimdoc.sourceforge.net/htmldoc/options.html#%27paste%27>`_
+-  `Pastetoggle <http://vimdoc.sourceforge.net/htmldoc/options.html#%27pastetoggle%27>`_

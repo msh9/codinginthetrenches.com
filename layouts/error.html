@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ conf.sitename }} - 40X Error
+{% endblock %}
+
+{% block content %}
+    <p>Whoops you encountered a page that doesn't exist or that you do not have permissions to view.
+    Please head to another page, the <a href="{{ env.path + '/' }}">home page</a> perhaps?</p>
+{% endblock %}
+
+

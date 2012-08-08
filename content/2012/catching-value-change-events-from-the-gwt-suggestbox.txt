@@ -1,0 +1,65 @@
+---
+title: Catching value change events from the GWT SuggestBox
+author: Michaelhughes
+date: 25.03.2012
+filter: [rst, ]
+tags: [GWT, Java, Javascript]
+---
+
+`Google Web Toolkit <http://code.google.com/webtoolkit/overview.html>`_ (GWT) is a useful framework for building asynchronous web applications. Among other features, GWT handles the Javascript (hereafter JS) engine differences between various versions of Internet Explorer, Chrome, and Firefox, can handle UI layout, and comes with a number of pre-built interactive components.
+
+One of GWT's primary feature is generating JS from Java code, JS that handle events, user interactions, or any number of other applications. The short summary of GWT is that Google has implemented a portion of the Java Runtime Environment in JS, built a cross-compiler for Java to JS, and has built up reusable libraries that simplify client server communication for web applications.
+
+The purpose of this post though is to be brief and focused. GWT provides an event system that will execute code based on user interaction with the toolkit's pre-built UI components. One example of a widget which we may wish to execute code based upon is the `GWT SuggestBox <http://google-web-toolkit.googlecode.com/svn/javadoc/latest/com/google/gwt/user/client/ui/SuggestBox.html>`_ widget, the widget is a text box with built in \ `incremental search <http://en.wikipedia.org/wiki/Incremental_search>`_ capabilities or in other words it has the ability to make completion suggestions as the user types input. Recently I worked on a project where I needed to know when the user had **either** selected a choice from the widget or finished typing input and had moved on to interacting with something else. Unfortunately at time of writing the SuggestBox widget has couple bugs associated with it.
+
+There are two GWT bugs relevant to this blog post, `issue 3958 <http://code.google.com/p/google-web-toolkit/issues/detail?id=3958>`_ and `issue 1634 <http://code.google.com/p/google-web-toolkit/issues/detail?id=1634>`_. When a user selects a SuggestBox suggestion as his or her input, the `ValueChangeEvent <http://google-web-toolkit.googlecode.com/svn/javadoc/latest/com/google/gwt/event/logical/shared/ValueChangeEvent.html>`_ is fired *before* the value of the change is stored. The ValueChangeEvent object is a generic class that is instantiated with a type for the kind of event data that it will transfer. In the case of the SuggestBox, when handled the ValueChangeEvent object should contain the string value of the new text in the SuggestBox. Instead the ValueChangeEvent always contains the previous value of the SuggestBox instead of the user's new choice. There is a way around issues 3958 and 1634 though. In addition to an event being fired whenever the value of the SuggestBox changes, an event is also fired the user makes a selection. The following work around uses the selection event to fire a ValueChange event and is mostly thanks to "happyi...@gmail.com" and "jakub.marton" in the issue 1634 thread. The issue with their existing workaround is that the text typed in by the user *before* a suggestion is selected is also fired as a ValueChangeEvent. Ideally we only want to fire a ValueChangeEvent when the user is actually done with the SuggestBox, i.e. the box has lost the browser's focus. My work around comes in two parts, first the part from "jakub.marton", the part that fires the ValueChangeEvent.
+
+::
+
+
+   inputBox.addSelectionHandler(
+
+     new SelectionHandler() {
+
+       @Override
+
+       public void onSelection(SelectionEvent event) {
+
+         String selected = event.getSelectedItem().getReplacementString();
+
+         ValueChangeEvent.fire(box, selected);
+
+       }
+
+     }
+
+   );
+
+
+The second part of the solution is the event handler. I'll first show the code then discuss it:
+
+::
+
+
+   new ValueChangeHandler() {
+
+     @Override
+
+     public void onValueChange(ValueChangeEvent event) {
+
+       Widget eventSource = (Widget)event.getSource();
+
+       if(inputBox == eventSource && //check if the object that sourced the event is referentially the object we want to handle events for
+
+           !((DefaultSuggestionDisplay)inputBox.getSuggestionDisplay()).isSuggestionListShowing()) {
+
+         //do something with the new value / react to the value change here
+
+       }
+
+     }
+
+   };
+
+
+The above code creates an anonymous class to handle a ValueChange event. I make a couple of assumptions, first, everything that we will handle events for inherits from the `Widget <http://google-web-toolkit.googlecode.com/svn/javadoc/latest/com/google/gwt/user/client/ui/Widget.html>`_ base class and second, the SuggestBox is using the GWT `DefaultSuggestionDisplay <http://google-web-toolkit.googlecode.com/svn/javadoc/latest/com/google/gwt/user/client/ui/SuggestBox.DefaultSuggestionDisplay.html>`_ instead of a custom display. My assumptions are made apparent by the explicit casts to Widget and DefaultSuggestionDisplay respectively in the above code. The key piece of code is the cast to DefaultSuggestionDisplay which defines the isSuggestionListShowing() method. In short if isSuggestionListShowing() returns true then the user has entered text in the box (and thus a ValueChange event has been fired), but we should ignore it because the user is still interacting with the SuggestBox and may make a choice.

@@ -1,0 +1,91 @@
+---
+title: Collecting web service timing data with JMeter
+author: Michaelhughes
+date: 20.01.2012
+filter: [rst, ]
+tags: [Instrumentation, Web Services]
+---
+
+**Update: March 25th, 2012**
+
+Someone correctly pointed out that I never provided the results of running the test cases described in this post. To recap I tested the Google standard homepage versus the personalized home page for load times without any browser caching or cookies. In summary, there were not any surprises, the standard home page loaded faster:
+
+`|Google home page average load times| <http://mhughes.info/wp-content/uploads/2012/01/home_page_avg.png>`_\ The right column in the bar graph is the personalized home page and the left column is default home page. A few more statistics from the test runs, please note that times are in milliseconds:
+
+Samples
+
+Average
+
+Median
+
+90% line
+
+Standard homepage
+
+25
+
+168
+
+131
+
+195
+
+Personalized homepage
+
+25
+
+1424
+
+1397
+
+1622
+
+--------------
+
+
+Recently I have been working with a web service that is comprised of several components. Some of the components of the service are written in ASP.NET 4.0 and served from AWS (US East Region) while other components are served from AWS CloudFront. I wanted to know (roughly) what the response time was for all of the pieces of the web service. In short, I wanted to instrument the web service to answer the overarching question: What is average time needed for a user to pass through the service during normal load? To help answer this and other questions I used the tool \ `JMeter <http://jmeter.apache.org/index.html>`_.
+
+JMeter is a testing tool designed to generate load on an application and collect data about the behavior of the application under test. It has a very generic definition because JMeter is a very flexible application, although designed to test web services it can also test a host of other applications too. Today though we will walk through using JMeter to sample the response times of a live website in production. The goal is to answer the question: How fast does Google's basic homepage load vs. Google personalized homepage for a user who is not logged in to iGoogle?
+
+JMeter can be run with a GUI or in a headless, GUI-less mode in a distributed fashion. When run without a GUI a configuration file or test plan can be specified at start up. For testing the response times of a web page though we can use the GUI to both design and execute the test plan. A JMeter test plan is comprised of a set of components each of which controls some aspect of the test(s) to be run. Most JMeter test plans will have some common elements,  in particular test plans will include a `ThreadGroup <http://jmeter.apache.org/usermanual/test_plan.html#thread_group>`_ component, one or more `Samplers <http://jmeter.apache.org/usermanual/test_plan.html#samplers>`_, and one or more `Listeners <http://jmeter.apache.org/usermanual/test_plan.html#listeners>`_. As the name implies the ThreadGroup element controls how many (generally concurrent) threads a test plan creates and therefore how many users the test plan simulates. In other words if the test plan has 5 threads then it simulates 5 separate users simultaneously executing the test plan. Samplers, take samples, a sample may be a SOAP request, a HTTP request, or some other kind of request. Samplers are the test plan element which instruct the threads defined by a ThreadGroup to generate load on an application under test. Finally, listeners record and display data collected from the execution of a sampler component.
+
+Building the test:
+^^^^^^^^^^^^^^^^^^
+
+To do anything we need to add a ThreadGroup to the JMeter test plan. The thread group sets up 5 users, which are started with a second delay between each other ("Ramp-Up Period") and loop over the tests 10 times. Currently there are no samplers as part of the thread group, we'll add some along with a listener.\ `|image1| <http://mhughes.info/wp-content/uploads/2012/01/just_threadgroup.png>`_
+
+We'll use a standard HTTP sampler since the items under test are web pages. Although JMeter's built in data visualization tools are useful, it's best to just save the raw test data for later analysis. Using just a simple listener to save test result data directly to file helps save memory (and ensures that the testing system doesn't become a bottleneck) and saves the data for later analysis. Finally one last note, JMeter has the ability to maintain variables in test plans. For example I set a variable called **server** to "www.google.com" in the `User Defined Variables <http://jmeter.apache.org/usermanual/test_plan.html#using_variables>`_ section of the test plan. Once the user variable has been set in an element it is available to any children of that element. In my example test plan the variable is defined in the Test Plan and it therefore available everywhere in the test. We use the server variable in the HTTP sampler as follows:
+
+`|A JMeter HTTP sampler| <http://mhughes.info/wp-content/uploads/2012/01/http_sampler_and-variable.png>`_
+
+To access the server variable and set the server name which the HTTP sampler will use we add a dollar sign and curly braces to the variable name. A listener has also been added here, the Simple Data Writer listener. The Simple Data Writer listener does not visualize the test data and instead just writes it to file as the test progress. We could use this test plan to test a website now, but it would be useful to be able to manage the cache and cookies a website sets. Two configuration components provided with JMeter allows us control whether the cache and cookies are maintained across test iterations, and in the case of cookies preset values. I have always been most interested in the speed a user experiences when they first enter a page so we'll clear the cookies and cache on each run. Finally the goal of this test was to compare the default home page against another page. The simplest way to test two pages it to add a second HTTP sampler.
+
+`|The configuration for a HTTP Sampler| <http://mhughes.info/wp-content/uploads/2012/01/http_request_personalized.png>`_
+
+In the HTTP request sampler we set the path ("ig") and the arguments needed ("hl=en"). Now though the test plan has multiple HTTP samplers which both point to the same **server** variable. If we wanted to change the name of the server variable we would need to change it in multiple places. Instead we can set a default HTTP server that all HTTP samplers will use **unless** the "Server Name or IP" section is set. The configuration component to set a default HTTP server (among other options) is called "HTTP Request Defaults" by default.
+
+`|JMeter HTTP default component| <http://mhughes.info/wp-content/uploads/2012/01/http_default.png>`_
+
+After setting the default server we can leave the "Server Name or IP" field blank in the HTTP sampler components.
+
+Running the test and analysis:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+At this point we can run the test (Ctrl-R) and it will save the output to file. Now for the analysis, one of the simpler things that can be done with the data (and so far the only analysis I have needed) is to generate aggregate reports. The aggregate report takes data from JMeter samplers and compiles useful statistics such as: the 90th percentile reponse time, the total number of samples, the average response time, and median response time. The Aggregate Report component can be added to a test plan like the Simple Data Writer listener; when added to a test plan the Aggregate Report will display statistics real time as the test runs. In our example we have written the result to file so instead I will add the Aggregate Report listener to the Workbench section and load the data file.
+
+`|image5| <http://mhughes.info/wp-content/uploads/2012/01/aggregate_repot.png>`_
+
+Conveniently the aggregate statistics table can then be saved as a CSV file by clicking on "Save Table Data". For my use the aggregate statistics was all that I needed, however JMeter comes with a variety of listeners including listeners that generate graphs and trees of the data. In this post I have only scratched the surface of JMeter, it is a very flexible and powerful tool. Fortunately JMeter comes with sane defaults and it easy to use despite its power. In later posts I will cover using JMeter in a distributed fashion and we will look at the Thread Group component more closely.
+
+Addendum:
+
+-  The WorkBench has been described as a `JMeter newbie trap <http://www.sourcepole.ch/2011/1/4/the-jmeter-workbench-a-trapdoor-for-the-newbie>`_. The name WorkBench has a very literal meaning in the case of JMeter, nothing in the WorkBench is saved when the test plan is saved (i.e. Ctrl-S **does not** save the contents of the WorkBench). I think of the WorkBench as a temporary workspace and nothing more.
+-  To test the full response time of website I check  the "Retrieve All Embedded Resources from HTML Files" option in the HTTP Request Defaults component. I set the retrieve all option because I want to know the response time for **everything** on the page put together.
+-  My sample test plan can be download `here <http://www.mhuges.info/downloads/googleCom.jmx>`_
+
+.. |Google home page average load times| image:: http://mhughes.info/wp-content/uploads/2012/01/home_page_avg.png
+.. |image1| image:: http://mhughes.info/wp-content/uploads/2012/01/just_threadgroup.png
+.. |A JMeter HTTP sampler| image:: http://mhughes.info/wp-content/uploads/2012/01/http_sampler_and-variable.png
+.. |The configuration for a HTTP Sampler| image:: http://mhughes.info/wp-content/uploads/2012/01/http_request_personalized.png
+.. |JMeter HTTP default component| image:: http://mhughes.info/wp-content/uploads/2012/01/http_default.png
+.. |image5| image:: http://mhughes.info/wp-content/uploads/2012/01/aggregate_repot.png
