@@ -25,9 +25,10 @@ VIEWS = {
 
     '/articles/': {'view': 'articles'},
 
+    '/:slug/':{'view':'page'}, # static pages
+
     '/sitemap.xml': {'view': 'sitemap'},
 
-    '/40X.html': {'view':'error'}
 
     # Here are some more examples
 
@@ -56,6 +57,5 @@ ENGINE = 'acrylamid.templates.jinja2.Environment'
 # Tuples are (name, link)
 BLOGROLL = [ 
     ('Acrylamid', 'http://posativ.org/acrylamid/'),
-    ('Yet another blogroll', 'http://example.com/')
 ]
 
