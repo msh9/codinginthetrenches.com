@@ -1,4 +1,3 @@
-.cache
 *.py[co]
 
 # Packages
@@ -14,7 +13,12 @@ sdist
 develop-eggs
 .installed.cfg
 
-output/.*
+# Acrylamid specific directories to ignore
+output
+.cache
+
+# vim swap files
+*.swp
 
 # Installer logs
 pip-log.txt
