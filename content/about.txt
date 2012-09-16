@@ -1,0 +1,11 @@
+---
+title: About
+type: page
+---
+
+Hello I am Michael Hughes. I work as an IT Consultant in the Seattle, WA area and enjoy writing and
+reading about technology among other things. Coding in the trenches is a place for me to write about
+things that are interesting and hopefully help to other people in their pursuit of software
+development.
+
+Thanks for reading!

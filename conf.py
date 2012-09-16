@@ -50,3 +50,12 @@ TAG_CLOUD_START_INDEX=0
 TAG_CLOUD_MAX_ITEMS=10
 TAG_CLOUD_STEPS=4
 
+THEME = 'shadowplay'
+ENGINE = 'acrylamid.templates.jinja2.Environment'
+
+# Tuples are (name, link)
+BLOGROLL = [ 
+    ('Acrylamid', 'http://posativ.org/acrylamid/'),
+    ('Yet another blogroll', 'http://example.com/')
+]
+
