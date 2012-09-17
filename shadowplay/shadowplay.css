@@ -221,15 +221,15 @@ nav ul li a:hover {
 }
 
 #site_content {
-  width: 875px;
+  width: 900px;
   margin-top: 10px;
   overflow: hidden;
 }
 
 .sidebar {
   float: right;
-  width: 178px;
-  padding: 20px 25px 15px 15px;
+  width: 200px;
+  padding: 20px 5px 15px 10px;
   min-height: 400px;
 }
 
@@ -259,7 +259,7 @@ nav ul li a:hover {
 
 #content {
   text-align: justify;
-  width: 624px;
+  width: 675px;
   float: left;
   padding: 20px 10px 15px 0px;
 }

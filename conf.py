@@ -56,6 +56,9 @@ ENGINE = 'acrylamid.templates.jinja2.Environment'
 
 # Tuples are (name, link)
 BLOGROLL = [ 
-    ('Acrylamid', 'http://posativ.org/acrylamid/'),
+    ('Acrylamid', 'http://posativ.org/acrylamid/')
 ]
 
+DEPLOYMENT = {
+    "copy_local":"rsync -av --delete $OUTPUT_DIR /srv/http/codinginthetrenches.com/"
+}
