@@ -1,0 +1,34 @@
+---
+author: Michael Hughes
+title: Nginx server_name directive: Commas and Spaces
+date: 18.09.2012
+tags: [Linux, Web Service, Tips]
+---
+
+While moving this blog over to a new host, blog system, and format I decided
+to use Nginx_ as my content server. In order to use Nginx I needed to setup
+multiple server_ blocks that would host the content for multiple domains
+(roughly the equivalent of creating Apache HTTPD vhosts). One of
+directives the Nginx uses to determine which server block to process a request
+with is the server_name_ directive.
+
+Now for the tip: When using the server_name directive ensure that domain names
+are **space** separated. For example::
+
+    server {
+        server_name codinginthetrenches.com www.codinginthetrenches.com
+        ...
+    }
+
+I initially (and erroneously) comma separated the domain names. Interestingly
+using comma separated values in the server_name directive will not stop Nginx from
+starting nor will it throw an error. When domains are comma separated Nginx will
+serve all requests from the first server block defined in it's configuration file.
+
+I don't blame the software for this since *it is* documented in the
+server_name_ documentation--I just wish there had been a warning thrown so I
+didn't spend so much time tracking down my own typo.
+
+.. _Nginx: http://nginx.org/en/
+.. _server_name: http://wiki.nginx.org/HttpCoreModule#server
+.. _server: http://wiki.nginx.org/HttpCoreModule#server_name
