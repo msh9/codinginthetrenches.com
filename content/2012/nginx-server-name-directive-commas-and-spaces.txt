@@ -2,7 +2,7 @@
 author: Michael Hughes
 title: Nginx server_name directive: Commas and Spaces
 date: 18.09.2012
-tags: [Linux, Web Service, Tips]
+tags: [Linux, Web Services, Tips]
 ---
 
 While moving this blog over to a new host, blog system, and format I decided
