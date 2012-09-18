@@ -27,7 +27,6 @@ h1, h2, h3, h4 {
 }
 
 h1, h3 {
-  text-transform: uppercase;
   margin: 10px 0px 20px 0px;
   padding: 5px 20px 5px 0px;
   border-bottom: 1px solid #CCC6B4;
@@ -339,4 +338,22 @@ table {
 
 .floatleft {
   float: left;
+}
+
+/* Tag CSS*/
+
+.tag-0 {
+    font-size: .75em;
+}
+
+.tag-1 {
+    font-size: .85em;
+}
+
+.tag-2 {
+    font-size: .95em;
+}
+
+.tag-3 {
+    font-size: 1.05em;
 }
