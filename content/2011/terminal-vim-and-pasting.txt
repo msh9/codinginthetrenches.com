@@ -1,8 +1,7 @@
 ---
 title: Terminal Vim and pasting
-author: Michaelhughes
+author: Michael Hughes
 date: 25.05.2011
-filter: [rst, ]
 tags: [Editing, Linux]
 ---
 

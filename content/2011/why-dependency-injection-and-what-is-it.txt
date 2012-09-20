@@ -1,8 +1,7 @@
 ---
 title: Why dependency injection and what is it?
-author: Michaelhughes
+author: Michael Hughes
 date: 08.10.2011
-filter: [rst, ]
 tags: [Java, OOP, Spring Framework]
 ---
 
