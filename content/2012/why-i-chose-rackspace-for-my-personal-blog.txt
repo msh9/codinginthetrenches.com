@@ -2,15 +2,13 @@
 title: Why I chose Rackspace AND AWS for my blogs
 date: 19.09.2012
 author: Michael Hughes
-Tags: [Linux, Web Services, Rackspace, AWS]
+tags: [Linux, Web Services, Rackspace, AWS]
 ---
 
 Summary
-=======
-
-Rackspace provides me with a cost effective way to create on-demend servers that I use for hosting my
-domains. I spent time comparing Rackspace's OpenCloud and Amazon Web Services and found that a
-combination of the two serves my current uses the best.
+    Rackspace provides me with a cost effective way to create on-demand servers that I use for hosting my
+    domains. I spent time comparing Rackspace's OpenCloud and Amazon Web Services and found that a
+    combination of the two serves my current uses the best.
 
 ----
 
@@ -19,9 +17,64 @@ with regard to hosts. For some time this blog has been hosted using Wordpress ru
 shared host--this is a fine setup for a low traffic website. Recently though my website got
 exploited twice because I let my Wordpress installation fall behind for a month and I decided that I
 wanted a substantially faster hosting configuration. After my experience with Wordpress I wanted a
-blogging system that handled input in the manner I wanted (restructured text) and was extremely
-secure with upgrades.
+blogging system that handled input in the manner I wanted (restructured text)
+and would be harder to exploit.
 
-The result of the above decisions/events was a switch to a static blogging system, acrylamid
-specifically which will be the subject of a later host. The switch in blogging systems also
-engendered
+The result of the above decisions/events was a switch to a static blogging
+system, acrylamid_ specifically which will be the subject of a later post. The switch in blogging
+systems also engendered a change in hosts. My criteria for a new hosting
+solution were the following:
+
+- Be flexible & configurable
+- Be (relatively) inexpensive
+- Be able to handle lots of traffic
+- Be able to handle several static blog domains
+
+The first criteria meant that my choices to investigate where `Virtual Private
+Servers`_, cloud based solutions, dedicated hosts, and `AWS S3/CloudFront`_.
+
+The second criteria easily ruled out dedicated hosts since I have no need of
+nor want to pay the costs associated with leasing an entire server. The price
+criteria also pushed me in the direction of cloud based solutions and a AWS
+S3/CloudFront solution since in both those cases bandwidth is billed for on a
+usage basis--no visits = no charge.
+
+The third criteria did not rule out any of the remaining solutions because I knew
+ahead of time that only static content would be served. Even if a couple
+dynamic pages are added processor power and RAM is not really a concern since the 
+majority of the content would be static.
+
+The fourth criteria is what (indirectly) ruled out the AWS S3/Cloudfront
+hosting solution. The S3/CloudFront solution requires 3rd party help to handle
+requests don't include the www subdomain, see the comments on the linked post
+for more information on the issue. Furthermore changing the name of
+this blog was going to require a dynamic redirect any way--the result: Why not
+just setup a full server anyway?
+
+After considering the above criteria I chose Rackspace for the host because
+they happened to offer a cloud server configuration close to my needs and in
+the right price range. I found that a lot VPS hosts offered included bandwidth,
+but in return offered poorer host specifications. Additionally being able to
+chose `Arch linux`_ as the operating system of my host made Rackspace
+appealing. To address the elephant in the room: I didn't consider AWS EC2
+because my needs feel between the EC2 micro and small instances where EC2 has
+no offerings.
+
+Hosts are only one component though of my web site, another component is
+the DNS. 
+Rackspace offers a DNS which I compared to `AWS Route53`_, Amazon's DNS.
+In general Rackspace's cloud management panel is much simpler than AWS'
+management console (it offers less enterprise level options too, but I don't
+need those options anyway). In the case of DNS, Route53 and Rackspace's DNS
+were equally intuitive and Route53 offered better DNS record management. For 
+DNS this blog's domain name is routed using AWS Route53.
+
+I haven't finished this configuration yet: I still plan to incorporate a CDN in
+my strategy but for now Route53 and Rackspace Open Cloud servers are working
+well together.
+
+.. _AWS Route53: http://aws.amazon.com/route53/
+.. _AWS S3/CloudFront: http://aws.typepad.com/aws/2011/02/host-your-static-website-on-amazon-s3.html
+.. _Arch linux: http://www.archlinux.org/
+.. _Virtual Private Servers: http://en.wikipedia.org/wiki/Virtual_private_server
+.. _acrylamid: https://github.com/posativ/acrylamid/
