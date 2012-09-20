@@ -6,7 +6,7 @@ SITENAME = 'Coding in the trenches'
 WWW_ROOT = 'http://codinginthetrenches.com/'
 
 AUTHOR = 'Michael Hughes'
-EMAIL = 'michael@codinginthetrenches.com'
+EMAIL = 'michael@mihughes.com'
 
 TYPOGRAPHY_MODE = "2"
 
