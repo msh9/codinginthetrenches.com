@@ -47,7 +47,7 @@
         <!-- insert your sidebar items here -->
         <h3>Tags</h3>
         <ul>
-        {% for tag in env.tag_cloud if tag.step < 2 %}
+        {% for tag in env.tag_cloud %}
           <li class="tag-{{ tag.step }}"><a href="/tag/{{ tag.name | safeslug }}/">{{ tag.name }}</a></li>
         {% endfor %}
         </ul>
