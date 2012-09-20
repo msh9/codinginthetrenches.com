@@ -1,14 +1,11 @@
 ---
 title: The idea of locks
-author: Michaelhughes
+author: Michael Hughes
 date: 18.06.2011
-filter: [rst, ]
 tags: [C, Linux, pthreads]
 ---
 
-First some background, even someone with a single day's worth of programming experience has likely used a '++' operator or something similar to it. For instance, suppose I have a variable called size that counts the number of items in a list and every time I add something to the list size it is incremented by 1. The snippet might be like the following (using a vaguely C like 'faux' object structure pattern):
-
-::
+First some background, even someone with a single day's worth of programming experience has likely used a '++' operator or something similar to it. For instance, suppose I have a variable called size that counts the number of items in a list and every time I add something to the list size it is incremented by 1. The snippet might be like the following (using a vaguely C like 'faux' object structure pattern)::
 
 
    list_add(list_t *list, void *item) {

@@ -1,8 +1,7 @@
 ---
 title: Starting fresh
-author: Michaelhughes
+author: Michael Hughes
 date: 11.05.2011
-filter: [rst, ]
 tags: [administrivia]
 ---
 
