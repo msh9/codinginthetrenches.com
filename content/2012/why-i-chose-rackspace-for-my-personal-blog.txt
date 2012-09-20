@@ -1,0 +1,27 @@
+---
+title: Why I chose Rackspace AND AWS for my blogs
+date: 19.09.2012
+author: Michael Hughes
+Tags: [Linux, Web Services, Rackspace, AWS]
+---
+
+Summary
+=======
+
+Rackspace provides me with a cost effective way to create on-demend servers that I use for hosting my
+domains. I spent time comparing Rackspace's OpenCloud and Amazon Web Services and found that a
+combination of the two serves my current uses the best.
+
+----
+
+One of the reasons for the dormancy of this blog over the last couple months have been my indecision
+with regard to hosts. For some time this blog has been hosted using Wordpress running on top of a
+shared host--this is a fine setup for a low traffic website. Recently though my website got
+exploited twice because I let my Wordpress installation fall behind for a month and I decided that I
+wanted a substantially faster hosting configuration. After my experience with Wordpress I wanted a
+blogging system that handled input in the manner I wanted (restructured text) and was extremely
+secure with upgrades.
+
+The result of the above decisions/events was a switch to a static blogging system, acrylamid
+specifically which will be the subject of a later host. The switch in blogging systems also
+engendered
