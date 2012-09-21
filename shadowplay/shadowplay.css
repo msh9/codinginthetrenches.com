@@ -357,3 +357,10 @@ table {
 .tag-3 {
     font-size: 1.05em;
 }
+
+.highlight pre { 
+    font-family: "Lucida Sans Typewriter",
+                 "DejaVu Sans Mono",
+                 "Lucida Console",
+                 monospace;
+}
