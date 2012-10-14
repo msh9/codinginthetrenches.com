@@ -3,7 +3,7 @@ title: SQL Server Identity columns and DBCC CHECKIDENT
 author: Michaelhughes
 date: 24.11.2011
 filter: [rst, ]
-tags: [SQL, Windows]
+tags: [T-SQL, Windows, Database]
 ---
 
 I recently ran across a problem in a production `MS SQL Server <http://msdn.microsoft.com/en-us/library/bb545450.aspx>`_ database where a column's identity counter had become misaligned with the current table row count. This post offers a solution to get the identity and row count realigned.
