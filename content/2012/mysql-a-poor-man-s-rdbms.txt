@@ -63,10 +63,10 @@ problem? Yes it does, MySQL is a fine, upstanding RDBMS and has many fine featur
 are generally only used in special situations, but that doesn't change that I feel like MySQL
 is just the tiniest bit inferior to other options.
 
-.. MySQL: http://dev.mysql.com/
-.. SQLServer: http://www.microsoft.com/sqlserver/en/us/default.aspx
-.. PostgreSQL: http://www.postgresql.org/
-.. ACID compliant: http://en.wikipedia.org/wiki/ACID
-.. T-SQL syntax: http://msdn.microsoft.com/en-us/library/ms174979.aspx
-.. pgSQL syntax: http://www.postgresql.org/docs/9.2/static/sql-createtable.html
-.. MySQL syntax: http://dev.mysql.com/doc/refman/5.5/en/create-table.html
+.. _MySQL: http://dev.mysql.com/
+.. _SQLServer: http://www.microsoft.com/sqlserver/en/us/default.aspx
+.. _PostgreSQL: http://www.postgresql.org/
+.. _ACID compliant: http://en.wikipedia.org/wiki/ACID
+.. _T-SQL syntax: http://msdn.microsoft.com/en-us/library/ms174979.aspx
+.. _pgSQL syntax: http://www.postgresql.org/docs/9.2/static/sql-createtable.html
+.. _MySQL syntax: http://dev.mysql.com/doc/refman/5.5/en/create-table.html
