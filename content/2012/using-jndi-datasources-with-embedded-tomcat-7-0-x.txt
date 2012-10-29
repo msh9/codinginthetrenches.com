@@ -1,0 +1,62 @@
+---
+title: Using JNDI Datasources with Embedded Tomcat 7.0.x
+date: 28.10.2012
+author: Michael Hughes
+tags: [java, Web Services, Tomcat, Tips]
+---
+
+Summary
+    I spent a number of hours fighting with an obscure exception message trying to get the embedded
+    version of `Tomcat 7.0.x`_ to provide a JNDI_ data source to my application. As it turns out it takes
+    knowing the correct undocumented options and calling methods in the correct order to enable the
+    data source.
+
+Recently I have begun work on a new project that is being implemented using Java. It be a servlet application
+running on Tomcat 7. One of my goals for the project was to have roundtrip testing of the application and database
+integrated into our local (development workstation) environment. The idea is that it's easier for a single
+developer to catch a new bug in feature with local **feature** tests prior to the code being released to a central
+test server.
+
+Asking the developer to manually deploy to a locally installed Tomcat instance was not an option because I wanted 
+the tests to be as automated as possible--the more automated the tests are the more likely they won't be ignored. To
+avoid a Tomcat deployment I setup the feature tests to use the embedded Tomcat API which underwent some simplification
+and clean up for version 7. Unfortunately it appears that some of the changes caught people off guard and documentation
+for the API hasn't caught up to its usage. Aside from the lack of documentation though the most frustrating about trying
+to get the application stack working was the following error:
+
+.. sourcecode:: java
+
+    SQLException: Cannot create JDBC driver of class '' for connect URL 'null'
+
+Searching for "embedded tomcat JDBC" and the exception above will return a number of responses some of which were helpful,
+some of which were outdated (for Tomcat 6 APIs vs. Tomcat 7 APIs), and some of which were deadends. 
+
+Here is what I have found: **If** the following are given:
+
+- Using embedded Tomcat
+- Have a context.xml file
+- Have a web.xml file
+- Are using the addWebApp_ method of the embedding API
+
+Then the above exception is *essentially* saying that embedded Tomcat couldn't read the context.xml file. The other symptome
+of Tomcat not being able to read a given context.xml file is that the JDBC_ driver it is attempting to use it **not** the one
+defined by resource definition in context.xml. To helpfully help other developers along their way the rest of this post is an
+example set of files that should hopefully provide a working Tomcat 7.0.x configuration with a JNDI data source.
+
+context.xml:
+
+.. sourcecode:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Context antiJARLocking="true" path="/ApplicationPath">
+        <Resource name="jdbc/resourcename" auth="Container" type="javax.sql.DataSource"
+            maxActive="100" maxIdle="30" maxWait="5000"
+            username="your_db_user" password="your_db_password" driverClassName="com.your.jdbc.driver"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            url="jdbc:/your/jdbc/connection/url" />
+    </Context>
+
+
+web.xml:
+
+.. sourcecode:: xml

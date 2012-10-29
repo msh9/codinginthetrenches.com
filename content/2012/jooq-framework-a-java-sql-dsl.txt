@@ -1,0 +1,16 @@
+---
+title: jOOQ Framework - A Java SQL DSL
+date: 25.10.2012
+author: Michael Hughes
+tags: [SQL, Java, Open Source]
+---
+
+Summary
+    After reviewing higher level abstractions like EcpliseLink_and TopLink_ for tieing a service application to a database
+    I chose to use jOOQ_ because of its flexibility and ability to provide tight control over the SQL being executed in the application's
+    data layer.
+
+----
+
+I recently start work on a new project that involved a Java application stack running on top of a MySQL database. 
+

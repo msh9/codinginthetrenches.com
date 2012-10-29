@@ -44,6 +44,8 @@ VIEWS = {
     #                  'view': 'entry'}
 }
 
+STATIC = 'static/'
+
 PERMALINK_FORMAT = '/:year/:slug/index.html'
 DATE_FORMAT = '%d.%m.%Y'
 
@@ -55,8 +57,10 @@ THEME = 'shadowplay'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 
 # Tuples are (name, link)
-BLOGROLL = [ 
-    ('Acrylamid', 'http://posativ.org/acrylamid/')
+BLOGROLL = [
+    ('Acrylamid', 'http://posativ.org/acrylamid/'),
+    ('XCKD','http://www.xkcd.com'),
+    ('ars technica','http://www.arstechnica.com')
 ]
 
 DEPLOYMENT = {
