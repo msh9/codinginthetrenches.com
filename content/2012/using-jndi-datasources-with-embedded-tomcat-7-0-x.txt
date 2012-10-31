@@ -10,6 +10,8 @@ Summary
     a Tomcat managed database connection pool accessible by JNDI_. I found out through experimentation that
     the order of method calls influences whether Tomcat reads important configuration files.
 
+----
+
 Recently I began work on a new project that is being implemented using Java. It will be a servlet application
 running on Tomcat 7. One of my goals for the project was to have round trip testing of the application and database
 integrated into our local (development workstation) environment. The idea is that it's easier for a single
