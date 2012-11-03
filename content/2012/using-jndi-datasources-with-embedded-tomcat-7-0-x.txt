@@ -6,11 +6,13 @@ tags: [java, Web Services, Tomcat, Tips]
 ---
 
 Summary
-    The following is a post on my experience with using the embedded version of `Tomcat 7.0.x`_ to setup
+    The following is a post on my experience using the embedded version of `Tomcat 7.0.x`_ to setup
     a Tomcat managed database connection pool accessible by JNDI_. I found out through experimentation that
-    the order of method calls influences whether Tomcat reads important method calls.
+    the order of method calls influences whether Tomcat reads important configuration files.
 
-Recently I  began work on a new project that is being implemented using Java. It will be a servlet application
+----
+
+Recently I began work on a new project that is being implemented using Java. It will be a servlet application
 running on Tomcat 7. One of my goals for the project was to have round trip testing of the application and database
 integrated into our local (development workstation) environment. The idea is that it's easier for a single
 developer to catch a new bug in feature with local feature tests prior to the code being released to a central
@@ -18,7 +20,7 @@ test server.
 
 Asking the developer to manually deploy to a locally installed Tomcat instance was not an option because I wanted
 the tests to be as automated as possible--the more automated the tests are the more likely they won't be ignored. To
-avoid a Tomcat deployment I setup the feature tests to use the embedded Tomcat API which underwent some simplification
+avoid a Tomcat deployment I set up the feature tests to use the embedded Tomcat API which underwent some simplification
 and clean up for version 7. Unfortunately it also appears that some of the changes caught people off guard and documentation
 for the API hasn't caught up to its usage. Aside from the lack of documentation though the most frustrating thing about trying
 to get the application stack working was the following error:
