@@ -22,7 +22,7 @@ a strong following.
 The above said, if MySQL is popular as a RDBMS, I failed to see why: (Begin rant)
 
 - Error handling in stored procedures. This seems like it should be a basic feature--a procedure
-  stored and run in a database system should have a way catch errors encountered and **report
+  stored and run in a database system should have a way to catch errors encountered and **report
   about them.** In T-SQL, Microsoft has provided a familiar Try-Catch construct for
   error handling and reporting error status. In PostgreSQL we get BEGIN-EXCEPTION-END blocks
   that can handle errors and report where they occurred. In MySQL we get...exception handlers that

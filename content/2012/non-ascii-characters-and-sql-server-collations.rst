@@ -36,9 +36,9 @@ by the following T-SQL which defines a table:
 
 .. sourcecode:: sql
 
-CREATE TABLE MyTable (
-    CharacterColumn NVARCHAR(10) COLLATE Latin1_General_BIN
-);
+    CREATE TABLE MyTable (
+        CharacterColumn NVARCHAR(10) COLLATE Latin1_General_BIN
+    );
 
 **Aside**: "code point" refers to number assigned to every character in a character encoding. Computers
 need a way to numerically refer to characters to work with them. Different encoding systems may assign
