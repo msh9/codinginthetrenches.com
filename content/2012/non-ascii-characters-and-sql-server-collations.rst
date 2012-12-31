@@ -9,35 +9,45 @@ Summary
     On a recent project I discovered that in the default US SQL Server collation Microsoft
     has implemented an unexpected (to me) portion of the `Unicode Standard`_. The standard
     states_ that in Unicode certain characters, such as 'ß' and 'ss' are equivalent. For the
-    we needed those characters to not be equivalent, what follows is a description of a work
+    project we needed those characters to not be equivalent, what follows is a description of a work
     around and associated pitfalls.
 
 ----
 
-Collations_ contain among other things, comparison rules for text stored in character fields
+Collations_ contain, among other things comparison rules for text stored in character fields
 in SQL Server. One such comparison rule determines whether characters are equivalent, by default
-the follow are equivalent 'straussberg' and 'straußberg', try it with the follow T-SQL:
+the following are equivalent 'straussberg' and 'straußberg', try it with the following T-SQL:
 
 .. sourcecode:: sql
 
     SELECT CASE WHEN N'staussberg' = N'straußberg' THEN 1 ELSE 0;
 
 At this point it is important to note that in some (many?) situations this may be desired behavior.
-Quiet possible from the perspective of a German typing 'straussberg' into his or her keyboard this
+Quite possibly from the perspective of a German user typing 'straussberg' into his or her keyboard this
 is correct behavior. For the client of my project though this was not desired behavior and the two
-words need to be handled differently. The collation needs to be changed to alter how SQL Server 
-compares strings and thus the result of evaluating the above T-SQL. In a addition to localized
+words needed to be handled differently. The collation needs to be changed to alter how SQL Server 
+compares strings and thus the result of evaluating the above T-SQL. In addition to localized
 collation rules, SQL Server also ships with a binary collation. `Binary collations`_ in SQL Server
 provide comparison rules that operate on the code points of the characters in strings.
+
+Since setting the binary collation to be the default collation for the entire database is not ideal, we
+only set the binary collation to affect the desire text fields. Setting the collation of field can be done
+by the following T-SQL which defines a table:
+
+.. sourcecode:: sql
+
+CREATE TABLE MyTable (
+    CharacterColumn NVARCHAR(10) COLLATE Latin1_General_BIN
+);
 
 **Aside**: "code point" refers to number assigned to every character in a character encoding. Computers
 need a way to numerically refer to characters to work with them. Different encoding systems may assign
 different values to the same character.
 
-Since 'ß' and 'ss' have (very) different code points the above SQL will evaluate to 0 the desired
+Since 'ß' and 'ss' have (very) different code points the above SQL will evaluate to 0, the desired
 behavior for my project. There are a number of pitfalls to be aware of though when using binary collations:
 
-* Lexical_ sorting just went out the window: Collations are normal locale specific and provide lexically correct
+* Lexical_ sorting just went out the window: Collations are normally locale specific and provide lexically correct
   sorting rules for that given locale, e.g. A > B. The sorting rules in a binary collection are based on code
   points which means that in some, or many cases we'll get B > A.
 * The default SQL Server collation makes comparisons case insensitive, e.g. a = A. Binary collations are case
