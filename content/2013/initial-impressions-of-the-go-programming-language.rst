@@ -19,7 +19,7 @@ area. Also it is likely that the following paragraphs will compare Java and Go, 
 this an unfriendly comparison, but since that is the realm of my experience those are the 
 comparisons that will get made.
 
-#. One of the things about Go that I like actually isn't a component of the language, but of the Go
+#. One of the things about Go that I like isn't actually a component of the language, but of the Go
    ecosystem instead, the go `command and associated path settings`_. The best way to describe the 
    command from what I have
    seen so far is as a much saner version of Maven. The go commands allows a user to build packages
@@ -68,7 +68,7 @@ comparisons that will get made.
          return t.myField
      }
    
-   Those familiar with Go already with likely notice that the two code blocks don't define the exact same
+   Those familiar with Go already with likely notice that the two code blocks don't define the exactly same
    structures (in fact Go does not implement classes as they exist in Java), but they're close enough for
    my purpose. In Go (somewhat like C++), the definition of a type and the methods that act on a type are
    two different entities that may be located in different places. Additionally I am not forced into odd
@@ -78,12 +78,17 @@ comparisons that will get made.
    original (Java-like) class definition.
 #. I also like the simplicity of Go's module system. File names **are** meaningful in Go, but instead of
    signifying the name of the class contained therein, the name of file indicates the module it defines.
-   In this 
+   In the brief example code above the Go type definitions *by convention* would be part of the "types"
+   package since the name of the file is types.go. Note: The name of the package could be something
+   else if need be, but that would break the conventions followed by Go's packages. Additionally the
+   name used to import a package for use also indicates where the package is from, the best examples
+   of this are given by the document for the `go command`_.
 
-At a more general level Go is designed in a way that I appreciate, minimalism.
+At a more general level Go is designed in a way that I appreciate, it is minimalistic and the rules it
+enforces are consistent, make sense, and help the developer write better code.
 
-* Why should I, the developer need to separately define a project configuration file when the filesytem
-  structure and source code already define the necessary project properties.
-* The statement to import another package for use in a source file also defines where that package came
-  from--again avoiding the repetition of information.
-* 
+.. _go command: http://golang.org/doc/code.html#tmp_4
+.. _command and associated path settings: http://golang.org/doc/code.html
+.. _Ocaml: http://caml.inria.fr/ocaml/
+.. _Go: http://golang.org/
+.. _a big mess: http://en.wikipedia.org/wiki/Spaghetti_code

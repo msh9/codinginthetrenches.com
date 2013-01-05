@@ -37,7 +37,7 @@ The above said, if MySQL is popular as a RDBMS, I failed to see why: (Begin rant
 - In the SQL standard, T-SQL, and pgSQL an entity name can be double quoted (") to enable case
   sensitivity or to avoid conflict with a keyword. In MySQL the grave accent (`) should be used to
   do the same. Now I am aware that MySQL has an "ANSI SQL Compliance" option that allows a user to
-  using double quotes instead of the grave accent, this totally beside the point. Why does the
+  using double quotes instead of the grave accent, this is totally beside the point. Why does the
   **default** syntax enforce a non-standards compliant, non-portable format? Why?
 - Materialized views--they don't exist. Enough said.
 - Full text search is only half supported--it's only supported by the MyISAM Engine and not
@@ -45,7 +45,7 @@ The above said, if MySQL is popular as a RDBMS, I failed to see why: (Begin rant
   data store and doesn't support foreign keys.
 - Outer Joins? SQLServer and PostgreSQL have them. MySQL? Nope.
 - MySQL has bad documentation. Documentation quality is a subjective point, but it's also the
-  one that annoys me the most. Comparing the following pages on creating tables for `T-SQL syntax`_
+  one that annoys me the most. Compare the following pages on creating tables for `T-SQL syntax`_
   `pgSQL syntax`_, and `MySQL syntax`_. Now assume that you have zero knowledge of SQL syntax and need
   to create a simple table quickly, which one of the prior links is the hardest to use?
 

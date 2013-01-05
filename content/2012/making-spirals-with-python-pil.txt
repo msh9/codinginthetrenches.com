@@ -1,8 +1,0 @@
----
-author: Michael Hughes
-title: Making spirals with Python PIL
-date: 14.10.2012
-tags: [Linux, Python, Fun]
----
-
-
