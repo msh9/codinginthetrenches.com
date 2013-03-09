@@ -27,7 +27,7 @@ be specified when a new field is created.
 The following is some example SQL to get the new identity field
 populated properly without losing existing information:
 
-.. sourcecode:: SQL
+.. sourcecode:: sql
 
     --sample table
     CREATE TABLE example (
@@ -57,7 +57,7 @@ populated properly without losing existing information:
 
     ALTER TABLE example ADD CONSTRAINT pk_example_id(id);
 
-    INSERT INTO eample
+    INSERT INTO example
     SELECT *
     FROM @temp;
 
