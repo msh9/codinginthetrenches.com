@@ -8,25 +8,27 @@ tags: [SQL Server,T-SQL,Tips]
 Summary
     This is a brief post of how to correctly add an identity column as a primary key
     to an existing table. I know the information definitely applies to SQL Server 2008, 2008R2
-    and SQL Server 2012 and may apply to other version of SQL Server.
+    and SQL Server 2012 and may apply to other versions of SQL Server.
 
 ----
 
 Earlier this week I needed to convert an entity from using a `natural primary key`_ to a 
-`surrogate key`_. To add a surrogate key we added a new identity field to the entity. SQL Server
+`surrogate key`_. To create a surrogate key I added a new identity field to the entity. SQL Server
 identities_ made nice primary keys because they automatically increment and ensure that
 different tranactions inserting data into the entity will get different values for the 
-primary key field.
+field.
 
 Unfortunately, identity fields are not automatically populated for existing data in a table. Additionally
 identity fields *cannot* be populated by a update statement--they can only be populated by an 
 identity insert where the value is specified or by a regular insert where the value is automatically
-populated by the database engine. Finally the identity property cannot be added an existing column.
+populated by the database engine. Finally the identity property cannot be added an existing column, it must
+be specified when a new field is created.
 
-The follow is some example SQL to get the new identity field
+The following is some example SQL to get the new identity field
 populated properly without losing existing information:
 
-.. sourcecode:: sql
+.. sourcecode:: SQL
+
     --sample table
     CREATE TABLE example (
       some_data VARCHAR(10)
@@ -61,7 +63,7 @@ populated properly without losing existing information:
 
 Essentially the method is to extract the row data from the entity and then re-insert the data after
 setting up the identity primary key. In the example SQL above a `table variable`_ is used to make the
-process speedy--if the example entity contains a large amount of date then a `temporary table`_ would be
+process speedy--if the example entity contains a large amount of data then a `temporary table`_ would be
 more appropriate.
 
 .. _natural primary key: http://en.wikipedia.org/wiki/Natural_key
