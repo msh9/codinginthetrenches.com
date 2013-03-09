@@ -24,7 +24,7 @@ entities means we don't have simple relationships between tables and (lists of) 
 are created from select projections of a couple different tables--in other cases objects are persisted in the database by means of stored
 procedures that define ETL processes in SQL.
 
-Under auspice of increasing productivity I tried to use EclipseLink only to find out that it doesn't do something as simple as fully integrate
+Under the auspice of increasing productivity I tried to use EclipseLink only to find out that it doesn't do something as simple as fully integrate
 stored procedures. Yes I am aware that EclipseLink *can* call a stored procedure, but it is clearly a 1/4 baked throw-on addition to the tool.
 Bluntly put there are bulk data operations that a RDBMS will always be better at than application code, that is why stored procedures exist.
 
