@@ -59,7 +59,7 @@ ENGINE = 'acrylamid.templates.jinja2.Environment'
 # Tuples are (name, link)
 BLOGROLL = [
     ('Acrylamid', 'http://posativ.org/acrylamid/'),
-    ('XCKD','http://www.xkcd.com'),
+    ('XKCD','http://www.xkcd.com'),
     ('ars technica','http://www.arstechnica.com')
 ]
 
