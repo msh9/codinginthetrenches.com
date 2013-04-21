@@ -13,6 +13,9 @@ Summary
 
 ----
 
+Let me open with a disclaimer. For the rest of this post I'll be referring
+almost exclusively to non-hobby software projects. 
+
 We'll start with the idea of being done. It's likely safe to say that many things have
 a specific and ideal state that can be described as done, software and the problems that
 it tends to solve is not among those things. For example, when I brew a
@@ -35,10 +38,28 @@ with the system today making minor modifications to it.
 
 Some software projects are still approached with a waterfall project management mentality.
 For sake of humor let's compare some of the above situations to other projects that use
-waterfall. Suppose I give you a house, no a warehouse (to make it more of an 'enterprisey'
+waterfall. Suppose I build you a house, no a warehouse (to make it more of an 'enterprisey'
 situation). The warehouse is very modern--it has an automated robotic storage system, RFID
 tagging of the goods it stores, and is meant to be operated 24/7/365. Then suppose that this 
-warehouse works fine for a few years, but you discover come the when the date January 1, 2036 rolls around suddenly
+warehouse works fine for a few years, but you discover come that when the date January 1, 2036 
+rolls around suddenly your warehouse returns to operating like the early 1970s. This is
+not exactly ideal. Continuing the goods distribution theme, suppose I build you a delivery
+trunk in the early 80s. Now suppose that 30 years later you're still using the same basic
+delivery truck but have changed the driver, increased payload by 200%, changed the wheels to treads, and
+removed the doors (because they weighed too much). Sounds absurd, no?
+
+The comparisons I'm making are silly without a doubt, but that's the point. It's silly to
+approach the ideas of doneness and final delivery of software from the same perspective
+as other business products.
 
 If we just accept for the moment that the majority of software solutions are never
 completed then we can start thinking about reasons why this might be.
+
+
+.. _date and time bugs: http://en.wikipedia.org/wiki/Year_2000_problem#Background
+.. _introduced by IBM: http://en.wikipedia.org/wiki/IBM_System_i
+.. _updating Curiosity's code: http://www.nasa.gov/home/hqnews/2012/aug/HQ_12-276_Curiosity_Rover_Software_Update.html
+.. _SABRE: http://en.wikipedia.org/wiki/Sabre_(computer_system)
+.. _Programmed Airine Reservation System: http://en.wikipedia.org/wiki/Programmed_Airline_Reservation_System
+.. _Transaction Processing Facility: http://en.wikipedia.org/wiki/Transaction_Processing_Facility
+.. _evolving TPS: http://enterprisesystemsmedia.com/article/tpf-modernizing-the-other-operating-system
