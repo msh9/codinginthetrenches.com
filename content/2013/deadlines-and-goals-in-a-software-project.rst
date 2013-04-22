@@ -28,11 +28,11 @@ of a solution's lifecycle, but it's probably better picture of reality than othe
 
 It's worth addressing systems that have been around for some time now which may be used
 as counterpoint to the idea that software is never complete. During the late 90's COBOL
-programmers made good money fixing date and time bugs in software--software that had
+programmers made good money fixing `date and time bugs`_ in software--software that had
 existed for some time prior to that decade. I'd like to imagine that for a time heads of
 IT departments at some enterprises forgot that these pieces of software existed. A company
 that I have had a project with in the past uses a inventory tracking system based on
-technology introduced by IBM in the mid-80s. Does the inventory tracking system exist
+technology `introduced by IBM`_ in the mid-80s. Does the inventory tracking system exist
 as a static solution with other changes occurring around it? No. Developers still work
 with the system today making minor modifications to it. 
 
@@ -50,16 +50,31 @@ removed the doors (because they weighed too much). Sounds absurd, no?
 
 The comparisons I'm making are silly without a doubt, but that's the point. It's silly to
 approach the ideas of doneness and final delivery of software from the same perspective
-as other business products.
+as other business products. So from this point lets make the assumption that software
+is never done at least in the sense that it can be stamped out onto a bunch gold
+vynel records and never updated.
 
-If we just accept for the moment that the majority of software solutions are never
-completed then we can start thinking about reasons why this might be.
+Why is software not a finished product? A number of reasons come to mind:
 
+- Bad assumptions
+- Human error
+- Changing requirements
+- Regressions
+- ...
+
+3 items on the above list require software to maintained in terms of patches over time. The other,
+4th item, changing requirements can cause small feature or drastic rearchitectures over time. A great
+example of a couple items on the above list are airline reservation systems. SABRE_, introduced by 
+American Airlines and IBM a revolutionary product--it automated the process of accurately booking flights
+and assigning seats to travelers. It was a good product for the time, but eventually newer faster
+hardware (also introducted by IBM) came onto the market and airlines grew larger and demanded
+greater booking capacity. The reservation products named SABRE eventually became the `Programmed
+Airline Reservation System`_ which itself `evolved into TPS`_. 
 
 .. _date and time bugs: http://en.wikipedia.org/wiki/Year_2000_problem#Background
 .. _introduced by IBM: http://en.wikipedia.org/wiki/IBM_System_i
 .. _updating Curiosity's code: http://www.nasa.gov/home/hqnews/2012/aug/HQ_12-276_Curiosity_Rover_Software_Update.html
 .. _SABRE: http://en.wikipedia.org/wiki/Sabre_(computer_system)
-.. _Programmed Airine Reservation System: http://en.wikipedia.org/wiki/Programmed_Airline_Reservation_System
+.. _Programmed Airline Reservation System: http://en.wikipedia.org/wiki/Programmed_Airline_Reservation_System
 .. _Transaction Processing Facility: http://en.wikipedia.org/wiki/Transaction_Processing_Facility
-.. _evolving TPS: http://enterprisesystemsmedia.com/article/tpf-modernizing-the-other-operating-system
+.. _evolved into TPS: http://enterprisesystemsmedia.com/article/tpf-modernizing-the-other-operating-system
