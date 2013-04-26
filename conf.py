@@ -60,7 +60,8 @@ ENGINE = 'acrylamid.templates.jinja2.Environment'
 BLOGROLL = [
     ('Acrylamid', 'http://posativ.org/acrylamid/'),
     ('XKCD','http://www.xkcd.com'),
-    ('ars technica','http://www.arstechnica.com')
+    ('ars technica','http://www.arstechnica.com'),
+    ('My GitHub','https://www.github.com/msh9')
 ]
 
 DEPLOYMENT = {
