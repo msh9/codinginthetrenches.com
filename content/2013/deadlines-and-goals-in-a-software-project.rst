@@ -1,15 +1,13 @@
 ---
-title: Deadlines and goals in a software project
+title: When is software done and how to (not) get there
 date: 19.04.2013
 author: Michael Hughes
-tags: [Philosophy,Design]
+tags: [Philosophy,Design,Fun]
 ---
 
 Summary
-    I'm going to abuse an old addage--Every software project has it's day. Today's
-    article is not about solving a specific technical problem. Instead I'm going
-    to offer some thoughts on whether software projects are ever complete and what
-    I should be striving for in a solution.
+    In this post I'll give a discussion on what it means for a piece of software
+    to be done (if ever) and some of the implications of that.
 
 ----
 
@@ -22,9 +20,9 @@ it tends to solve is not among those things. For example, when I brew a
 batch of brew there is a point where a particular batch is done. The batch has been cooked,
 fermented, conditioned, bottled, distributed, and aged--at this point not calling it done
 and then drinking it would be a crying shame. I've never felt this kind of completeness 
-when working on a software solution. There's another addage (maybe, enough people refer to it),
+when working on a software solution. There's an adage (maybe, enough people refer to it),
 software is never done, only abandoned. This is a somewhat dim view of the final stages
-of a solution's lifecycle, but it's probably better picture of reality than other comparisons.
+of a solution's lifecycle, but it's probably a better picture of reality than other comparisons.
 
 It's worth addressing systems that have been around for some time now which may be used
 as counterpoint to the idea that software is never complete. During the late 90's COBOL
@@ -34,7 +32,7 @@ IT departments at some enterprises forgot that these pieces of software existed.
 that I have had a project with in the past uses a inventory tracking system based on
 technology `introduced by IBM`_ in the mid-80s. Does the inventory tracking system exist
 as a static solution with other changes occurring around it? No. Developers still work
-with the system today making minor modifications to it. 
+with the system today making modifications to it. 
 
 Some software projects are still approached with a waterfall project management mentality.
 For sake of humor let's compare some of the above situations to other projects that use
@@ -50,9 +48,14 @@ removed the doors (because they weighed too much). Sounds absurd, no?
 
 The comparisons I'm making are silly without a doubt, but that's the point. It's silly to
 approach the ideas of doneness and final delivery of software from the same perspective
-as other business products. So from this point lets make the assumption that software
-is never done at least in the sense that it can be stamped out onto a bunch gold
-vynel records and never updated.
+as other business products. 
+
+With all of the above said it's worth throwing down a definition for when a project is done: software is 'done'
+when the usage threshold fails below what is required to get engineers to develop it.
+In other words, the project is done when no one thinks that it's worth maintaining. There's a flip side to
+this rule that appears when evaluating open source projects. Whether a project is active or not can count
+for or against it's use respectively. This may be a "duh" statement, particularly for business applications
+since it effectively says that a stakeholder must find something useful enough to pay for it. 
 
 Why is software not a finished product? A number of reasons come to mind:
 
@@ -67,13 +70,47 @@ Why is software not a finished product? A number of reasons come to mind:
 example of a couple items on the above list are airline reservation systems. SABRE_, introduced by 
 American Airlines and IBM a revolutionary product--it automated the process of accurately booking flights
 and assigning seats to travelers. It was a good product for the time, but eventually newer faster
-hardware (also introducted by IBM) came onto the market and airlines grew larger and demanded
+hardware (also introduced by IBM) came onto the market and airlines grew larger and demanded
 greater booking capacity. The reservation products named SABRE eventually became the `Programmed
 Airline Reservation System`_ which itself `evolved into TPS`_. 
 
+To me though the implications of this definition of done are more interesting to me than the definition itself.
+
+An implication of the above is for the life of a project *someone somewhere* will be working on it. Even when
+that someone is on earth while the target `platform is on Mars`. After the
+initial construction of an application that someone very likely won't be the original individual. This is even
+more important when the application is being built by a vendor for a non-technical organization (i.e. one that 
+will likely hiring another vendor for ongoing support). Probably the best example of this is the inventory tracking
+system mentioned above, a system that has been maintained by an organization for the last couple **decades.**
+This may be yet another "duh" point, but if nothing else it hits on the issue that there has to be a developer 
+to developer handoff for an application. 
+
+Another implication is that an application needs to solve a problem. It's helpful if it's a problem that people
+with money care about. As an engineer I love to play around with code and experiment. As an engineer working
+as a consultant I have to keep in mind that while design and architecture are vital, software also has to solve
+the client's problem. The problem that software has to solve *will* change over time. American Airlines originally
+needed to replace humans looking up airlines reservations paper cards--now they have to manage thousands of
+flights per day for customers around the world.
+
+Zombie software will exist. That is software which was built to solve a problem, but due to the last two
+implications has mutated over time into a piece of code which munches through the minds of poor unsuspecting
+software teams. Zombie software may still solve a good problem, but is a candidate for a large scale refactoring
+effort. It's up to team leads and eventually project managers to make sure that appropriate actions are taken.
+
+It's worth spending time thinking about when a project will be finished. A piece of software that will only be
+used for a couple years does not deserve that same level of rigour as a big iron ERP system meant to last a decade.
+
+Ghost software will exist. This is probably the most unfortunate implication of the above definition of done. Some
+problems don't exist for enough people to meet the threshold where an individual actually maintains a solution. It's
+incredibly frustrating to find a potential solution to problem only to discover that it hasn't been maintained
+actively for the last 7 years.
+
+
+
+
 .. _date and time bugs: http://en.wikipedia.org/wiki/Year_2000_problem#Background
 .. _introduced by IBM: http://en.wikipedia.org/wiki/IBM_System_i
-.. _updating Curiosity's code: http://www.nasa.gov/home/hqnews/2012/aug/HQ_12-276_Curiosity_Rover_Software_Update.html
+.. _platform is on Mars: http://www.nasa.gov/home/hqnews/2012/aug/HQ_12-276_Curiosity_Rover_Software_Update.html
 .. _SABRE: http://en.wikipedia.org/wiki/Sabre_(computer_system)
 .. _Programmed Airline Reservation System: http://en.wikipedia.org/wiki/Programmed_Airline_Reservation_System
 .. _Transaction Processing Facility: http://en.wikipedia.org/wiki/Transaction_Processing_Facility
