@@ -16,11 +16,11 @@ almost exclusively to non-hobby software projects.
 
 We'll start with the idea of being done. It's likely safe to say that many things have
 a specific and ideal state that can be described as done, software and the problems that
-it tends to solve is not among those things. For example, when I brew a
+it tends to solve are not among those things. For example, when I brew a
 batch of brew there is a point where a particular batch is done. The batch has been cooked,
 fermented, conditioned, bottled, distributed, and aged--at this point not calling it done
 and then drinking it would be a crying shame. I've never felt this kind of completeness 
-when working on a software solution. There's an adage (maybe, enough people refer to it),
+when working on a software solution. There's an adage (maybe, enough people refer to it) that
 software is never done, only abandoned. This is a somewhat dim view of the final stages
 of a solution's lifecycle, but it's probably a better picture of reality than other comparisons.
 
@@ -39,7 +39,7 @@ For sake of humor let's compare some of the above situations to other projects t
 waterfall. Suppose I build you a house, no a warehouse (to make it more of an 'enterprisey'
 situation). The warehouse is very modern--it has an automated robotic storage system, RFID
 tagging of the goods it stores, and is meant to be operated 24/7/365. Then suppose that this 
-warehouse works fine for a few years, but you discover come that when the date January 1, 2036 
+warehouse works fine for a few years, but you discover that when January 1, 2036 
 rolls around suddenly your warehouse returns to operating like the early 1970s. This is
 not exactly ideal. Continuing the goods distribution theme, suppose I build you a delivery
 trunk in the early 80s. Now suppose that 30 years later you're still using the same basic
@@ -48,7 +48,9 @@ removed the doors (because they weighed too much). Sounds absurd, no?
 
 The comparisons I'm making are silly without a doubt, but that's the point. It's silly to
 approach the ideas of doneness and final delivery of software from the same perspective
-as other business products. 
+as other business products. Warehouses don't come with date and time bugs (although the software
+running them might). Similarly UPS buys a delivery truck and uses it--they don't modify the **same**
+truck over the course of 2 decades.
 
 With all of the above said it's worth throwing down a definition for when a project is done: software is 'done'
 when the usage threshold fails below what is required to get engineers to develop it.
@@ -65,22 +67,20 @@ Why is software not a finished product? A number of reasons come to mind:
 - Regressions
 - ...
 
-3 items on the above list require software to maintained in terms of patches over time. The other,
-4th item, changing requirements can cause small feature or drastic rearchitectures over time. A great
+3 items on the above list require software to maintained in terms of patches over time. The other
+item, changing requirements can cause small feature or drastic re-architectures over time. A great
 example of a couple items on the above list are airline reservation systems. SABRE_, introduced by 
-American Airlines and IBM a revolutionary product--it automated the process of accurately booking flights
+American Airlines and IBM was at the time a revolutionary product--it automated the process of accurately booking flights
 and assigning seats to travelers. It was a good product for the time, but eventually newer faster
 hardware (also introduced by IBM) came onto the market and airlines grew larger and demanded
 greater booking capacity. The reservation products named SABRE eventually became the `Programmed
 Airline Reservation System`_ which itself `evolved into TPS`_. 
 
-To me though the implications of this definition of done are more interesting to me than the definition itself.
+Reasons for why software is never complete aside, to me though the implications of this definition of 'done' 
+are more interesting than the definition itself.
 
 An implication of the above is for the life of a project *someone somewhere* will be working on it. Even when
-that someone is on earth while the target `platform is on Mars`. After the
-initial construction of an application that someone very likely won't be the original individual. This is even
-more important when the application is being built by a vendor for a non-technical organization (i.e. one that 
-will likely hiring another vendor for ongoing support). Probably the best example of this is the inventory tracking
+that someone is on earth while the target `platform is on Mars`. Probably the best example of this is the inventory tracking
 system mentioned above, a system that has been maintained by an organization for the last couple **decades.**
 This may be yet another "duh" point, but if nothing else it hits on the issue that there has to be a developer 
 to developer handoff for an application. 
@@ -104,9 +104,6 @@ Ghost software will exist. This is probably the most unfortunate implication of 
 problems don't exist for enough people to meet the threshold where an individual actually maintains a solution. It's
 incredibly frustrating to find a potential solution to problem only to discover that it hasn't been maintained
 actively for the last 7 years.
-
-
-
 
 .. _date and time bugs: http://en.wikipedia.org/wiki/Year_2000_problem#Background
 .. _introduced by IBM: http://en.wikipedia.org/wiki/IBM_System_i
