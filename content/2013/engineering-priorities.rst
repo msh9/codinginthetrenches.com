@@ -39,7 +39,7 @@ Final Production Grade:
 #. Correctness (Our sales force is better leveraged--sales went up 15%)
 #. Reliability (The app is important to business sales, give me 99% uptime--that's ~3.65 days / year of downtime by the way)
 #. Performance (It needs to go just fast enough to get the job done)
-#. Novelty (Your platform choices are Java 1.6, JBoss 6, Spring 3.1.0, and Hibernate 4--wait did we say 'choices?')
+#. Novelty (Your platform choices are Java 1.6, JBoss 6, Spring 3.1.0, and Hibernate 4--wait did we say 'choices'?)
 
 Obviously not all applications follow this pattern. There are many hobby applications that evolve into production grade
 applications used by enterprises (the linux kernel for example). Similarly there are production applications
