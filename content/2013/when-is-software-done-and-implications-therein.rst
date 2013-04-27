@@ -68,7 +68,7 @@ Why is software not a finished product? A number of reasons come to mind:
 - ...
 
 3 items on the above list require software to be maintained in terms of patches over time. The other
-item, changing requirements can cause small feature or drastic re-architectures over time. A great
+item, changing requirements can cause small feature changes or drastic re-architectures over time. A great
 example of a couple items on the above list are airline reservation systems. SABRE_, introduced by 
 American Airlines and IBM was at the time a revolutionary product--it automated the process of booking flights
 and assigning seats to travelers. It was a good product for the time, but eventually newer faster
