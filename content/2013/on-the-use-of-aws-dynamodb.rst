@@ -55,7 +55,12 @@ Essentially uses for DynamoDB end up looking like the following:
      query end point takes advantage of DynamoDB's data structure requirements (covered later) to
      provide very fast access to stored data.
    
-   So with the 
+   To sum it up DynamoDB is good for situations where fast CRUD performance is required over
+   large and growing data sets. Sounds like:
+   
+   - Click stream trackers
+   - Database driven (non-financial) web sites
+   - 
 
 
 .. _AWS DynamoDB: http://aws.amazon.com/dynamodb/
