@@ -60,8 +60,43 @@ Essentially uses for DynamoDB end up looking like the following:
    
    - Click stream trackers
    - Database driven (non-financial) web sites
-   - 
+   - Application user session storage
+   - Staging data storage and de-duplication
+   
+   We'll look at some of the tradeoffs made in using DynamoDB, but let it suffice to say
+   that it should not be used *casually*. A project considering DynamodDB really needs
+   (at a high level) to have **a lot** of queries which look like the following in order
+   to justify using DynamodDB:
+   
+   .. image:: /images/dynamodb-query.png
+     :align: center
+     :alt: A hypothetical query for an item in a set
 
+   The above picture represents what should be a common query pattern. The application asks
+   for a single or small set of records (ABC) all associated with a single identifier ('A' in this
+   case.) If the project is not expected to benefit for high performance single record
+   or **small** batch crud operations then stop here and consider another techology.
+
+#. Second we'll look at the reasons why DynamoDB might be inappropriate for an application even
+   if it is might otherwise provide value. DynamoDB requires a very particular "shape" of data to
+   operate well. Let's first illustrate with a couple diagrams then discuss what they mean; first
+   hash keys should identify small sets of data like the following:
+   
+   .. image:: /images/dynamodb-small-hk-collection.png
+     :align: center
+     :alt: A small collection of records identified by a hash key
+     
+   and definitely **not** like the following:
+   
+   .. image:: /images/dynamodb-large-hk-collection.png
+     :align: center
+     :alt: A large collection of records identified by a hash key
+     
+   Finally queries into the data set should look like the one above in #1 and **not** like the following:
+   
+   .. image:: /images/dynamodb-scan.png
+    :align: center
+    :alt: A query that resulted in a scan of records
 
 .. _AWS DynamoDB: http://aws.amazon.com/dynamodb/
 .. _PaaS: http://en.wikipedia.org/wiki/Platform_as_a_service
