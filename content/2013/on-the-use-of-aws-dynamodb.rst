@@ -16,16 +16,16 @@ DynamoDB is fast, highly scalable database service offered
 by Amazon Web Services. DynamoDB provides table oriented
 storage of records with variable attributes on each record.
 
-Like any other data storage system DynamoDB has tradeoffs between
-its features and capabilities which makes is more appropriate for some
+Like any other data storage system DynamoDB has trade offs between
+its features and capabilities which makes it more appropriate for some
 applications than others. The point of this post is cover some reasons
 why (and why not) to use DynamoDB as the database for a project. A way
 of evaluating the appropriateness of DynamoDB for a project is to first
 consider **could I use it** then consider **can I use it**. The ordering
 used is to first consider if the system is of any use the project, if it's
-not then move on to another techology, SQL Server perhaps? The second
+not then move on to another technology, SQL Server perhaps? The second
 consideration is necessary to take into account that in some cases
-the tradeoffs that DynamoDB makes may make it inappropriate for applications
+the trade offs that DynamoDB makes may make it inappropriate for applications
 that it would otherwise work well for.
 
 Essentially uses for DynamoDB end up looking like the following:
@@ -43,15 +43,15 @@ Essentially uses for DynamoDB end up looking like the following:
      and throughput calculations may be hard to figure out initially, once you have
      the rules you can predict the general throughput cost of an operation and determine
      the overall IO potential of the system.
-   - **Size scability**: Scaling a other data storage systems involves adding
+   - **Size scability**: Scaling another data storage systems may involve adding
      volumes, copying data, or adding whole new data node to a cluster (think of
      SQL Server or Hadoop). Scaling DynamoDB (with one *very* important exception) just
-     involves adding more data to the sytem. This bullit point could really be rewritten
+     involves adding more data to the system. This bullet point could really be rewritten
      as the advantage of DynamoDB being a PaaS_.
-   - **A hash based query interface**: I mention this item here because it's the reasonmy current
+   - **A hash based query interface**: I mention this item here because it's the reason my current
      project uses the service. The query interface gives bulk and single record CRUD access to
      data stored in DynamoDB. A good analogy that I have often used for DynamoDB is that the
-     query interface gives the client CRUD access to a very large remote hashmap (or dictionary). The
+     query interface gives the client CRUD access to a very large remote hash map (or dictionary). The
      query end point takes advantage of DynamoDB's data structure requirements (covered later) to
      provide very fast access to stored data.
    
@@ -63,10 +63,10 @@ Essentially uses for DynamoDB end up looking like the following:
    - Application user session storage
    - Staging data storage and de-duplication
    
-   We'll look at some of the tradeoffs made in using DynamoDB, but let it suffice to say
-   that it should not be used *casually*. A project considering DynamodDB really needs
+   We'll look at some of the trade offs made in using DynamoDB, but let it suffice to say
+   that it should not be used *casually*. A project considering DynamoDB really needs
    (at a high level) to have **a lot** of queries which look like the following in order
-   to justify using DynamodDB:
+   to justify using DynamoDB:
    
    .. image:: /images/dynamodb-query.png
      :align: center
@@ -75,10 +75,10 @@ Essentially uses for DynamoDB end up looking like the following:
    The above picture represents what should be a common query pattern. The application asks
    for a single or small set of records (ABC) all associated with a single identifier ('A' in this
    case.) If the project is not expected to benefit for high performance single record
-   or **small** batch crud operations then stop here and consider another techology.
+   or **small** batch CRUD operations then stop here and consider another technology.
 
 #. Second we'll look at the reasons why DynamoDB might be inappropriate for an application even
-   if it is might otherwise provide value. DynamoDB requires a very particular "shape" of data to
+   if it might otherwise provide value. DynamoDB requires a very particular "shape" of data to
    operate well. Let's first illustrate with a couple diagrams then discuss what they mean; first
    hash keys should identify small sets of data like the following:
    
@@ -97,6 +97,11 @@ Essentially uses for DynamoDB end up looking like the following:
    .. image:: /images/dynamodb-scan.png
     :align: center
     :alt: A query that resulted in a scan of records
+    
+   In words the important take away from these diagrams is that data should be stored in small hunks; hash keys
+   in DynamoDB should only identify 1 or a small number of records. Similarly a frequently repeated request
+   should use a hash key to retrieve a small number of records at a time (although there are benefits to batch
+   reads in this case).
 
 .. _AWS DynamoDB: http://aws.amazon.com/dynamodb/
 .. _PaaS: http://en.wikipedia.org/wiki/Platform_as_a_service
