@@ -101,7 +101,14 @@ Essentially uses for DynamoDB end up looking like the following:
    In words the important take away from these diagrams is that data should be stored in small hunks; hash keys
    in DynamoDB should only identify 1 or a small number of records. Similarly a frequently repeated request
    should use a hash key to retrieve a small number of records at a time (although there are benefits to batch
-   reads in this case).
+   reads in this case). There are couple reasons why data should be worked with in small 'hunks' in DynamoDB.
+   
+   - **JSON API**: The base API for DynamoDB (even if your project uses the Java SDK) is a JSON HTTP interface. For
+     every request to get data from and put data in DynamoDB there is the overhead of de/serializing JSON and making
+     a HTTP request. Serializing and deserializing JSON is not a bad thing in and of itself, but doing it thousands
+     of times **is** if it needs to be done on every request--hence why data should be interacted with in small sets.
+   - **Design Limitations**: Placing large data sets underneath any given hash key means that a client application has
+     to sort through all of the data for a hash key to find a needed record. The 
 
 .. _AWS DynamoDB: http://aws.amazon.com/dynamodb/
 .. _PaaS: http://en.wikipedia.org/wiki/Platform_as_a_service
