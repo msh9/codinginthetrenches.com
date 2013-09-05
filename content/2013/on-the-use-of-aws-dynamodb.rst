@@ -108,7 +108,30 @@ Essentially uses for DynamoDB end up looking like the following:
      a HTTP request. Serializing and deserializing JSON is not a bad thing in and of itself, but doing it thousands
      of times **is** if it needs to be done on every request--hence why data should be interacted with in small sets.
    - **Design Limitations**: Placing large data sets underneath any given hash key means that a client application has
-     to sort through all of the data for a hash key to find a needed record. The 
+     to sort through all of the data for a hash key to find a needed record. Additionally the use of local secondary 
+     indices places hard limitations on the amount of data assocated with any given hash key in the system.
+   - **Load Balancing & Performance**: This next point could also be placed under design limitations. The provisioned
+     throughput units in DynamoDB are allocated across hash keys stored in a table. Access hot spots wnere an application
+     very frequently updates or inserts records under the same hash key can lead to poor performance since not all of
+     provisioned throughput for a table is available to a single hash key.
+     
+   DymanoDB has the above limitations and some others--there are situations where DynamoDB would be an inappropriate
+   choice:
+   
+   - Data warehousing
+   - Applications where relationships between data sets must be enforced
 
+#. Thirdly...should you use DynamoDB?
+
+   Maybe, it depends on if your project's would benefit from the good things DynamoDB has to offer and wouldn't
+   be otherwise be affected by DynamoDB's weaknesses. Chances are that not everything in a project fits into DynamoDB;
+   only some of a project's data sets may fit the table store model. I am fan of the idea of `polyglot persistence`_, 
+   essentially storing data in different system depending on how it will be used. Since DynamoDB *is* easy to get started
+   with it's possible to store the biggest, most IO intensive, UI driving data sets in DynamoDB and then store other
+   project data in different systems. For example on my current project we drive the user interface
+   using DynamoDB in order to make it speedy and take weekly dumps of the data set to load into a relational system for
+   analysis and reporting.
+     
 .. _AWS DynamoDB: http://aws.amazon.com/dynamodb/
 .. _PaaS: http://en.wikipedia.org/wiki/Platform_as_a_service
+.. _polyglot persistence: http://www.martinfowler.com/bliki/PolyglotPersistence.html
