@@ -28,7 +28,8 @@ consideration is necessary to take into account that in some cases
 the trade offs that DynamoDB makes may make it inappropriate for applications
 that it would otherwise work well for.
 
-Essentially uses for DynamoDB end up looking like the following:
+As a preview how a application uses Dynamo should look like the follow, much
+more explanation to following:
 
 .. image:: /images/dynamodb-choice.png
   :align: center
@@ -66,7 +67,7 @@ Essentially uses for DynamoDB end up looking like the following:
    We'll look at some of the trade offs made in using DynamoDB, but let it suffice to say
    that it should not be used *casually*. A project considering DynamoDB really needs
    (at a high level) to have **a lot** of queries which look like the following in order
-   to justify using DynamoDB:
+   to justify using it:
    
    .. image:: /images/dynamodb-query.png
      :align: center
@@ -111,11 +112,11 @@ Essentially uses for DynamoDB end up looking like the following:
      to sort through all of the data for a hash key to find a needed record. Additionally the use of local secondary 
      indices places hard limitations on the amount of data assocated with any given hash key in the system.
    - **Load Balancing & Performance**: This next point could also be placed under design limitations. The provisioned
-     throughput units in DynamoDB are allocated across hash keys stored in a table. Access hot spots wnere an application
+     throughput units in DynamoDB are allocated across hash keys stored in a table. Hot spots where an application
      very frequently updates or inserts records under the same hash key can lead to poor performance since not all of
-     provisioned throughput for a table is available to a single hash key.
+     provisioned throughput for a table is available to any single hash key.
      
-   DymanoDB has the above limitations and some others--there are situations where DynamoDB would be an inappropriate
+   DymanoDB has the above limitations and some others, which leads us to situations where DynamoDB would be an inappropriate
    choice:
    
    - Data warehousing
