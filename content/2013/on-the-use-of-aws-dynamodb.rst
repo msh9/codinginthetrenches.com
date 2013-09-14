@@ -28,8 +28,7 @@ consideration is necessary to take into account that in some cases
 the trade offs that DynamoDB makes may make it inappropriate for applications
 that it would otherwise work well for.
 
-As a preview how a application uses Dynamo should look like the follow, much
-more explanation to following:
+The below workflow is what we will step through:
 
 .. image:: /images/dynamodb-choice.png
   :align: center
