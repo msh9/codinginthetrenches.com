@@ -11,5 +11,5 @@ deployment:
     publication:
         branch: master
         commands:
-            - make publish ${CIRCLE_ARTIFACTS}
+            - make publish TARDIR=${CIRCLE_ARTIFACTS}
             - make s3_upload
