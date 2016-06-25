@@ -2,8 +2,14 @@ machine:
     timezone:
         America/Denver
     python:
-        3.5.1
+        version:
+            3.5.1
 dependencies:
     pre:
-        - sudo apt-get install -y make
-        - pip install pelican typogrify
+        - pip install pelican typogrify fabric
+deployment:
+    publication:
+        branch: master
+        commands:
+            - fab build
+            - cp -r output/* $CIRCLE_ARTIFACTS
