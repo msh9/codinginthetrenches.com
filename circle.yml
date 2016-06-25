@@ -1,0 +1,9 @@
+machine:
+    timezone:
+        America/Denver
+    python:
+        3.5.1
+dependencies:
+    pre:
+        - sudo apt-get install -y make
+        - pip install pelican typogrify
