@@ -6,10 +6,10 @@ machine:
             3.5.1
 dependencies:
     pre:
-        - pip install pelican typogrify fabric
+        - pip install pelican typogrify
 deployment:
     publication:
         branch: master
         commands:
-            - fab build
+            - make html
             - cp -r output/* $CIRCLE_ARTIFACTS
