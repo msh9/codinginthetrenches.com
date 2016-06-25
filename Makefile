@@ -81,7 +81,7 @@ ifdef TARDIR
 endif
 
 s3_upload: publish
-	aws s3 cp output/* s3://$(S3_BUCKET)/ --recursive --exclude "*" --include "*.html" --content-language "en" --cache-control "max-age:3600"
-	aws s3 cp output/* s3://$(S3_BUCKET)/ --recursive --exclude "*.html" --cache-control "max-age:43000"
+	aws s3 cp output s3://$(S3_BUCKET)/ --recursive --exclude "*" --include "*.html" --content-language "en" --cache-control "max-age:3600"
+	aws s3 cp output s3://$(S3_BUCKET)/ --recursive --exclude "*.html" --cache-control "max-age:43000"
 
 .PHONY: html help clean regenerate serve serve-global devserver publish s3_upload
