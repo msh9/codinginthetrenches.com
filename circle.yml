@@ -6,10 +6,10 @@ machine:
             3.5.1
 dependencies:
     pre:
-        - pip install pelican typogrify
+        - pip install pelican typogrify awscli
 deployment:
     publication:
         branch: master
         commands:
-            - make html
-            - cp -r output/* $CIRCLE_ARTIFACTS
+            - make publish ${CIRCLE_ARTIFACTS}
+            - make s3_upload
