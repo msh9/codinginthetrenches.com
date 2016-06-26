@@ -1,6 +1,4 @@
 machine:
-    timezone:
-        America/Denver
     python:
         version:
             3.5.1
