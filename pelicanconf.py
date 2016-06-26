@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Michael Hughes'
 SITENAME = 'Coding In The Trenches'
 SITEURL = 'https://codinginthetrenches.com'
+THEME = 'theme'
 
 PATH = 'content'
 
