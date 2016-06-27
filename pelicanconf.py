@@ -13,6 +13,10 @@ TIMEZONE = 'America/Denver'
 
 DEFAULT_LANG = 'en'
 
+USE_TYPEKIT = True
+DISPLAY_PAGES = True
+DISPLAY_CATEGORIES_ON_MENU = True
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None

@@ -4,6 +4,10 @@
         {% block head %}
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
+        {% if USE_TYPEKIT %}
+        <script src="https://use.typekit.net/qny7nnp.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        {% endif %}
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
@@ -35,30 +39,24 @@
 
 <body id="index" class="home">
 
-        <header id="banner" class="body">
+        <header id="banner" class="body u-full-width">
                 <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
         </header><!-- /#banner -->
         <nav id="menu"><ul>
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for p in pages %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        {% else %}
-          {% if DISPLAY_CATEGORIES_ON_MENU %}
-            {% for cat, null in categories %}
-              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-            {% endfor %}
-          {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% for cat, null in categories %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+        {% endfor %}
         {% endif %}
         </ul></nav><!-- /#menu -->
         {% block content %}
         {% endblock %}
-        <footer id="contentinfo" class="body">
+        <footer id="contentinfo" class="body u-full-wdidth">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                Powered by <a href="http://getpelican.com/">Pelican</a>,
                 which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
         </footer><!-- /#contentinfo -->
