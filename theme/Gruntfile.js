@@ -7,7 +7,8 @@ module.exports = function(grunt) {
         cssmin: {
             target: {
                 files: {
-                    'static/css/vendor.css': ['static-source/css/*.css']
+                    'static/css/vendor.css': ['static-source/css/vendor/*.css'],
+                    'static/css/main.css': ['static-source/css/*.css']
                 }
             }
         }
