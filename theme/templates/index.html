@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<section id="content container">
+<section id="content">
     <!--<div class="one-third column">
         <h3>Pages</h3>
         {% if DISPLAY_PAGES %} 
@@ -8,10 +8,17 @@
         {% endfor %}
         {% endif %}
     </div>-->
-    <div class="two-thirds column">
+
+    <div class="twelve column">
         {% block content_title %}
         <h2>All articles</h2>
         {% endblock %}
+        {% if articles_page.has_other_pages() %}
+        <div class="">
+            {% include 'pagination.html' %}
+        </div>
+        {% endif %}
+        <hr>
         <ul id="post-list">
             {% for article in articles_page.object_list %}
             <li>
@@ -35,7 +42,7 @@
         <!-- /#posts-list -->
     </div>
     {% if articles_page.has_other_pages() %}
-    <div class="row">
+    <div class="u-cf u-pull-right">
         {% include 'pagination.html' %}
     </div>
     {% endif %}
