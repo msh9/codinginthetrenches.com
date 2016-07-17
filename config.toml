@@ -10,7 +10,6 @@ paginate = 10
 footnotereturnlinkcontents = "↩"
 theme = "hugo-icarus-theme"
 
-
 [permalinks]
     post = "/:year/:month/:day/:slug"
 
@@ -23,6 +22,7 @@ theme = "hugo-icarus-theme"
     copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
     avatar = "images/michael-hughes.jpg"
     logo = ""
+    disable_comments = true
 
     # Format dates with Go's time formatting
     date_format = "2006-01-02"
