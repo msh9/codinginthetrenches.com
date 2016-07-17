@@ -17,12 +17,12 @@ theme = "hugo-icarus-theme"
 [params]
     # Tell me who you are
     author = "Michael Hughes"
-    bio = ""
+    bio = "Technologist working in software development and related fields"
     location = "Earth"
-    site_description = "Thoughts on development technology"
+    site_description = "Coding in the Trenches is thoughts, tips, and methodologies for technology, typically in relation to full-stack web development"
     copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    avatar = "css/images/avatar.png"
-    logo = "css/images/logo.png"
+    avatar = "images/michael-hughes.jpg"
+    logo = ""
 
     # Format dates with Go's time formatting
     date_format = "2006-01-02"
