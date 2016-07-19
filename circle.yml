@@ -10,7 +10,7 @@ checkout:
     - git submodule update --init
 dependencies:
     pre:
-        - pip install pelican typogrify awscli
+        - pip install awscli
         - docker pull msh9/hugo-builder
 deployment:
     publication:
