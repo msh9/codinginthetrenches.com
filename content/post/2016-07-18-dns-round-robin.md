@@ -58,18 +58,32 @@ to have a designated load balancing intermediary, such as load balancing request
 
 Load balancing is not just for handling public traffic though. It's useful to load balance traffic inside a data center. Several of my recent projects for work have involved build sets of applications
 which make calls to each other in order to return a response to an external request. These systems are typically designed to scale outwards, or in other words, are designed to handle more load by adding
-addition instances of applications running. I won't go into details here, but let it suffice to say that my most recent project used an internal DNS service which shuffled IP address orders in order to provide DNS load balancing for calls
+addition instances of applications running. I won't go into details here, but let it suffice to say that my most recent project used an internal DNS service which shuffled IP address orders in order to provide DNS 
+load balancing for calls
 between services. The idea was to avoid setting up an intermediary proxy server just for internal cluster API calls. Unfortunately things didn't work as intended and we ran into some problems.
 
-1. Some of our applications are written using node.js. node.js' standard library, to the developer's credit, has [two ways of resolving names][7]. One uses the underlying operating system's name resolver 
+1. Some of our applications are written using Node.js. Node.js' standard library, to the developer's credit, has [two ways of resolving names][7]. One uses the underlying operating system's name resolver 
     (specifically via `getaddrinfo` in libuv) and the other directly queries DNS servers. The method which directly queries DNS servers returns round robin like results as expected, the other doesn't work for reasons
     listed in #3.
 2. Some of our *other* applications are written using the Java programming language. The DNS resolution library in Java's virtual machine has a [security feature][6] which, by default, caches DNS name resolutions
     forever. This breaks cluster load balancing when it is based on DNS name resolution since our Java applications would resolve a name to an IP address once and then never call the DNS server again. Unfortunately,
-    if this feature is disabled then the JVM uses the same underlying operating system call used by node.js.
-3. 
+    if this feature is disabled then the JVM uses the same underlying operating system call used by enode.js.
+3. Most problematically we discovered that the GNU C library, glibc, which both Java and Node.js use reorders DNS responses without regard for the order returned by the DNS server.
+    The C library's DNS resolver imposes a ordering on returned records as part of its implementation of [RFC 6724][8]. The implementation does some useful things like
+    prefer IPv6 addresses instead of IPv4 and prefer IPv4 addresses in subnets closer to the requesting host. Unfortunately, as documented in long and winding Debian bug 
+    [thread][9] the implemenation also breaks DNS based round robin load balancing. 
 
+In summary, don't try to use DNS based load balancing for distributing server to server traffic inside of a cluster. Any benefit from shuffling DNS record order
+is negated by caching and the vagaries of resolver libraries. Let's discuss a few alternatives.
 
+- SRV records: I've [previously written][10] about DNS SRV records. SRV records are convenient because they contain all of the servers which can be called
+    along with priorities in case certain servers should be preferred. It is up to clients, however, to use the information returned by a SRV record and
+    , currently, few applications implement appropriate logic.
+- Using an intermediary: a working solution is to add dedicated proxy to the environment which routes internal traffic similarly to how public traffic
+    would be load balanced. Adding an intermediary has its own drawbacks, in particular, management of the proxy itself and additional call latency due to
+    the extra network hop imposed by routing via a proxy instead of directly.
+
+For us the solution has been to use instances of haproxy already running in our application environments in order to load balance internal traffic.
 
 [1]: http://www.haproxy.org/ "haproxy"
 [2]: http://trafficserver.apache.org/ "Apache Traffic Server"
@@ -78,3 +92,6 @@ between services. The idea was to avoid setting up an intermediary proxy server 
 [5]: https://aws.amazon.com/cloudfront/ "CloudFront"
 [6]: http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html "networkaddress.cache.ttl"
 [7]: https://nodejs.org/api/dns.html#dns_implementation_considerations "node.js DNS module"
+[8]: https://tools.ietf.org/html/rfc6724 "RFC 6724
+[9]: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=438179 
+[10]: https://codinginthetrenches.com/2015/05/02/srv-records-as-service-locators/ "SRV records as locators"
