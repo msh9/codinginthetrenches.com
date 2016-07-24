@@ -36,12 +36,16 @@ a question of why are we (or other applications that we write!) interested in th
 ![Operation Crossroads Baker - Source: https://commons.wikimedia.org/wiki/File%3AOperation_Crossroads_Baker_Edit.jpg ](/images/2016-07-24-why-logging/Operation_Crossroads_Baker_Edit.jpg "Operation Crossroads")
 
 For those that are unfamiliar with the US' history of nuclear testing, the above photo is of the second test, baker, conducted during Operation Crossroads. The test is interesting to think about in the context
-of reactive use of logs since it represents a g
+of reactive use of logs since it represents a gl...lkjsadfjfjllksadflksjflkdsajf something
 
-At least in my
-case I'm often interested in the state of a running application because it is in a state that it is not supposed to be in. The hypothetical horror story here
+At least in my case I'm often interested in the state of a running application when it reaches a state that it is not suppose to (be able to reach). The hypothetical horror story here
 is some support engineering being woken as 03:00 in the morning by an alarm and needing to review an application's logs in order to determine how to quickly fix
-the issue.
+the issue. Later in the day, a developer perhaps will also review application logs from the in order to understand why and where a failure occurred in the application.
+
+In short, logs are needed in order to respond to failures. A log can be generated from an error thrown within frameworks that the application relies on or generated from logic
+added by the application developer to indicate the application has reached an inappropriate state.
+
+Without a developer survey, I cannot say with complete confidence that this is most common use case for logs, but it certainly seems like it.     
 
 
 [1]:https://www.freedesktop.org/wiki/Software/systemd/journal-files/
