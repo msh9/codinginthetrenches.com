@@ -618,6 +618,7 @@ a:visited {
   float: left;
   width: 21.5384615384615%;
   margin: 0 0.7692307692308%;
+  display: none; 
 }
 @media screen and (min-width: 1200px) {
   #profile {
