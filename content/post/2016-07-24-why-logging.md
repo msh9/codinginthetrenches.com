@@ -36,17 +36,32 @@ a question of why are we (or other applications that we write!) interested in th
 ![Operation Crossroads Baker - Source: https://commons.wikimedia.org/wiki/File%3AOperation_Crossroads_Baker_Edit.jpg ](/images/2016-07-24-why-logging/Operation_Crossroads_Baker_Edit.jpg "Operation Crossroads")
 
 For those that are unfamiliar with the US' history of nuclear testing, the above photo is of the second test, baker, conducted during Operation Crossroads. The test is interesting to think about in the context
-of reactive use of logs since it represents a gl...lkjsadfjfjllksadflksjflkdsajf something
+of reactive use of logs. The 
 
 At least in my case I'm often interested in the state of a running application when it reaches a state that it is not suppose to (be able to reach). The hypothetical horror story here
 is some support engineering being woken as 03:00 in the morning by an alarm and needing to review an application's logs in order to determine how to quickly fix
 the issue. Later in the day, a developer perhaps will also review application logs from the in order to understand why and where a failure occurred in the application.
 
 In short, logs are needed in order to respond to failures. A log can be generated from an error thrown within frameworks that the application relies on or generated from logic
-added by the application developer to indicate the application has reached an inappropriate state.
+added by the application developer to indicate the application has reached an inappropriate state. The important thing for a log to do in this scenario is to capture the state
+the application reached. An Java based example of the full application state is capturing a full stacktrace, error message, and arguments to the current function call. More generally speaking,
+logging the [full call stack][3] is important in most language and frameworks since reactive log use involves trying to understand why and how and application reached a particular state.
 
-Without a developer survey, I cannot say with complete confidence that this is most common use case for logs, but it certainly seems like it.     
+Without a developer survey, I cannot say with complete confidence that this is most common use case for logs, but it certainly seems like it.
+
+## Being proactive ##
+
+![An apple a day keeps the doctor away](/images/2016-07-24-why-logging/apple.jpg "A red apple")
+
+Proactive logging means puts log statements into an application to expose state information which might be useful at some point in the future. Logging when certain methods are called, when
+the application started, stop, and when certain external inputs are received are all valid forms of proactive logging. The point here is not to track the full call stack of the application
+as much as tracking the application over time.
+
+## Being...aware? (collecting status) ##
+
+A subset of being proactive, but worth mentioning separately.
 
 
 [1]:https://www.freedesktop.org/wiki/Software/systemd/journal-files/
 [2]:https://commons.wikimedia.org/wiki/File:Operation_Crossroads_Baker_Edit.jpg
+[3]:https://en.wikipedia.org/wiki/Call_stack
