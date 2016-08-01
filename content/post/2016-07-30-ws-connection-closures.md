@@ -21,6 +21,10 @@ heartbeat messaging to WebSocket clients and servers.
 
 <!--more-->
 
+When developing web applications, web sites, even just clients of web services it kind be very tempting to take a simple view of the network between client and server.
+
+![An idealistic looking network](/images/2016-07-30-ws-conn/in-theory-network.svg "A client and server talking to each other")
+
 
 [1]:http://queue.acm.org/detail.cfm?id=2655736
 [2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
