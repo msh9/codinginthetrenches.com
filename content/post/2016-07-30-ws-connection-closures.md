@@ -25,6 +25,16 @@ When developing web applications, web sites, even just clients of web services i
 
 ![An idealistic looking network](/images/2016-07-30-ws-conn/in-theory-network.svg "A client and server talking to each other")
 
+It is very appealing to think of terms of "my application makes a call to the server and opens a connection." Unfortunately, reality is annoyingly
+complex.
+
+![An (more realistic) looking network](/images/2016-07-30-ws-conn/reality-network.svg "A client and server talking to each other")
+
+A connection to a remote host likely traverses several networks, firewalls, routers, and reverse proxies. A break in a WebSocket connection can
+occur at any point due to persistent connection timeouts, hardware failure, or even something like planned maintenance. All of this isn't to say that
+as web application developers we shouldn't use WebSockets, but rather we need to be cognizant of the protocol being different from HTTP and that appropriate
+connection failure mitigations are needed.
+
 
 [1]:http://queue.acm.org/detail.cfm?id=2655736
 [2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
