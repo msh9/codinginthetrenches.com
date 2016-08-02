@@ -33,9 +33,14 @@ complex.
 A connection to a remote host likely traverses several networks, firewalls, routers, and reverse proxies. A break in a WebSocket connection can
 occur at any point due to persistent connection timeouts, hardware failure, or even something like planned maintenance. All of this isn't to say that
 as web application developers we shouldn't use WebSockets, but rather we need to be cognizant of the protocol being different from HTTP and that appropriate
-connection failure mitigations are needed.
+connection failure mitigations are needed. Not appropriately handling network disconnects can lead to poor, unresponsive, user experience and possible data
+loss in web applications.
+
+Fortunately, the [WebSocket standard][4] has some built in error detection capability and also defines the ability to add handlers which are called
+when an error occurs. 
 
 
 [1]:http://queue.acm.org/detail.cfm?id=2655736
 [2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 [3]:http://www.websocket.org/aboutwebsocket.html
+[4]:https://tools.ietf.org/html/rfc6455
