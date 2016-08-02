@@ -37,10 +37,16 @@ connection failure mitigations are needed. Not appropriately handling network di
 loss in web applications.
 
 Fortunately, the [WebSocket standard][4] has some built in error detection capability and also defines the ability to add handlers which are called
-when an error occurs. 
+when an error occurs. The most important thing we can do on either side of a WebSocket is to detect a loss of connection and, if needed, attempt to reconnect.
+Detecting the loss of connection prevents the poor user experience of informing the user that the application is hypothetically connected and receiving
+data, but under test is not actually connected. The WebSocket standard defines Ping and Pong frameworks which can be initiated by either end of the connection.
 
+Once either end of the connection sends a Pong frame the receiving end should reply back with a Ping framework. This does two things for the application, it
+helps to ensure that the socket is not closed due to inactivity, and it certifies that the replying end of the socket is still connected. **Unfortunately,** 
+the browser JavaScript API for WebSockets does not expose the ability to send a frame or specifically a Ping frame. 
 
-[1]:http://queue.acm.org/detail.cfm?id=2655736
-[2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-[3]:http://www.websocket.org/aboutwebsocket.html
-[4]:https://tools.ietf.org/html/rfc6455
+[1]:http://queue.acm.org/detail.cfm?id=2655736 "ACM Communications"
+[2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "Hypertext Transfer Protocol"
+[3]:http://www.websocket.org/aboutwebsocket.html "About WebSockets"
+[4]:https://tools.ietf.org/html/rfc6455 "RFC 6455 - WebSocket"
+[5]:https://tools.ietf.org/html/rfc6455#section-5.5.2 "RFC6455 - Ping and Pong Frames"
