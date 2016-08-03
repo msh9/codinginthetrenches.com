@@ -59,8 +59,10 @@ A simplistic alternative is shown above. The client sends a heartbeat message on
 attempt to validate that heartbeat messages arrive on any interval, but instead sends a ping frame on a fixed interval. Sending periodic, outbound messages
 in both the client and server logic enables us to detect failures within a fixed amount of time.
 
-It is also important to handle errors thrown from the socket. This involves adding a `onerror` handle in the client and implementing an erorr handler in
-the server ([see here for ws example][8] and implement a handler for the `error` event)
+It is also important to handle errors thrown from the socket. This involves adding an `onerror` handler in the client and implementing an error handler in
+the server, [see here for ws example.][8]
+
+An error handler can be as simple as [noting the error and attempting to re-open][9].
 
 [1]:http://queue.acm.org/detail.cfm?id=2655736 "ACM Communications"
 [2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "Hypertext Transfer Protocol"
@@ -70,3 +72,4 @@ the server ([see here for ws example][8] and implement a handler for the `error`
 [6]:https://github.com/websockets/ws "Node ws library"
 [7]:https://developer.mozilla.org/en-US/docs/Web/API/WebSocket "Mozilla Developer Network - WebSocket"
 [8]:https://github.com/websockets/ws#error-handling-best-practices "ws error best practices"
+[9]:https://gist.github.com/msh9/56d5d551680488e3f3c4283d50ab5aa9 "Simplistic WS client error handler" 
