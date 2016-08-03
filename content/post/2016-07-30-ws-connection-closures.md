@@ -36,17 +36,37 @@ as web application developers we shouldn't use WebSockets, but rather we need to
 connection failure mitigations are needed. Not appropriately handling network disconnects can lead to poor, unresponsive, user experience and possible data
 loss in web applications.
 
-Fortunately, the [WebSocket standard][4] has some built in error detection capability and also defines the ability to add handlers which are called
+The [WebSocket standard][4] has some built in error detection capability and also defines the ability to add handlers which are called
 when an error occurs. The most important thing we can do on either side of a WebSocket is to detect a loss of connection and, if needed, attempt to reconnect.
 Detecting the loss of connection prevents the poor user experience of informing the user that the application is hypothetically connected and receiving
 data, but under test is not actually connected. The WebSocket standard defines Ping and Pong frameworks which can be initiated by either end of the connection.
 
 Once either end of the connection sends a Pong frame the receiving end should reply back with a Ping framework. This does two things for the application, it
 helps to ensure that the socket is not closed due to inactivity, and it certifies that the replying end of the socket is still connected. **Unfortunately,** 
-the browser JavaScript API for WebSockets does not expose the ability to send a frame or specifically a Ping frame. 
+the browser JavaScript API for WebSockets does not expose the ability to send a frame or specifically a Ping frame. Server side NodeJS libraries, like [ws][6],
+do have the capability though and fortunately ping frames may be sent from either end of the socket.
+
+The bad news continues though, on the client side we don't have a built in way of detecting connection failures
+ because the [browser JavaScript API][7] does not expose a way to directly work with ping or pong frames. 
+
+![Bi-directional heartbeat](/images/2016-07-30-ws-conn/heartbeat.svg "A client and server sending heartbeats to each other")
+
+One option would be to implement a heartbeat in the client and logic in the server to keep track of the last seen heartbeat from every client. The server
+can then take appropriate action for connection failures based on whether it has or has not received a heartbeat message from a client after a certain
+amount of time. This can become taxing or annoying to implement for WebSocket servers that handle a larger number of clients.
+
+A simplistic alternative is shown above. The client sends a heartbeat message on a fixed interval, but doesn't expect a response. The server doesn't
+attempt to validate that heartbeat messages arrive on any interval, but instead sends a ping frame on a fixed interval. Sending periodic, outbound messages
+in both the client and server logic enables us to detect failures within a fixed amount of time.
+
+It is also important to handle errors thrown from the socket. This involves adding a `onerror` handle in the client and implementing an erorr handler in
+the server ([see here for ws example][8] and implement a handler for the `error` event)
 
 [1]:http://queue.acm.org/detail.cfm?id=2655736 "ACM Communications"
 [2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "Hypertext Transfer Protocol"
 [3]:http://www.websocket.org/aboutwebsocket.html "About WebSockets"
 [4]:https://tools.ietf.org/html/rfc6455 "RFC 6455 - WebSocket"
 [5]:https://tools.ietf.org/html/rfc6455#section-5.5.2 "RFC6455 - Ping and Pong Frames"
+[6]:https://github.com/websockets/ws "Node ws library"
+[7]:https://developer.mozilla.org/en-US/docs/Web/API/WebSocket "Mozilla Developer Network - WebSocket"
+[8]:https://github.com/websockets/ws#error-handling-best-practices "ws error best practices"
