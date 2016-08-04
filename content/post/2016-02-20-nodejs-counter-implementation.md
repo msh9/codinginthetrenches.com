@@ -13,6 +13,9 @@ tags:
 ---
 Performance counters can be implemented in applications to help operators determine where bottlenecks are in the design. Microsoft has a decent page, that’s somewhat Windows centric, about [performance counters][1]. This post is about implementing the most basic type of counter, a value which monotonically increases, in JavaScript for NodeJS and the performance implications of different designs.
 
+
+ [1]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa371643(v=vs.85).aspx
+
 <!--more-->
 
 Normally I take [issue with being][2] overly [worried about][3] performance before finishing a piece of logic, [particularly so if it means using less than normal coding][4] conventions.
@@ -53,7 +56,6 @@ Something else interesting to note, at least with NodeJS 4.3.0 the [KISS][6] me
 
 In conclusion, if you don&#8217;t need variable increments method #4 looks the best, otherwise method #2 looks good. As with all benchmarking please do not take these numbers out of context and remember that these are timing values for **10 million total** operations. In other words, every method presented here is very fast in all but the most extreme of circumstances.
 
- [1]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa371643(v=vs.85).aspx
  [2]: https://codinginthetrenches.com/2014/09/10/java-arraylist-resize-costs/
  [3]: https://codinginthetrenches.com/2014/09/01/how-long-it-takes-to-throw-an-exception-in-java/
  [4]: https://codinginthetrenches.com/2015/03/15/loops-in-nodejs/

@@ -19,6 +19,10 @@ the public internet, where failures may occur at any time, because the protocol 
 however, do use a persistent TCP connection. A connection that can cut or closed without warning. Today's post is a short commentary on adding error handlers and
 heartbeat messaging to WebSocket clients and servers.
 
+[1]:http://queue.acm.org/detail.cfm?id=2655736 "ACM Communications"
+[2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "Hypertext Transfer Protocol"
+[3]:http://www.websocket.org/aboutwebsocket.html "About WebSockets"
+
 <!--more-->
 
 When developing web applications, web sites, even just clients of web services it kind be very tempting to take a simple view of the network between client and server.
@@ -28,7 +32,7 @@ When developing web applications, web sites, even just clients of web services i
 It is very appealing to think of terms of "my application makes a call to the server and opens a connection." Unfortunately, reality is annoyingly
 complex.
 
-![An (more realistic) looking network](/images/2016-07-30-ws-conn/reality-network.svg "A client and server talking to each other")
+![A more realistic looking network](/images/2016-07-30-ws-conn/reality-network.svg "A client and server talking to each other")
 
 A connection to a remote host likely traverses several networks, firewalls, routers, and reverse proxies. A break in a WebSocket connection can
 occur at any point due to persistent connection timeouts, hardware failure, or even something like planned maintenance. All of this isn't to say that
@@ -60,13 +64,28 @@ attempt to validate that heartbeat messages arrive on any interval, but instead 
 in both the client and server logic enables us to detect failures within a fixed amount of time.
 
 It is also important to handle errors thrown from the socket. This involves adding an `onerror` handler in the client and implementing an error handler in
-the server, [see here for ws example.][8]
+the server, [see here for a ws based example.][8]
 
-An error handler can be as simple as [noting the error and attempting to re-open][9].
+An error handler can be as simple as [noting the error and attempting to re-open][9]. Note in the linked example we also set up a simple heartbeat message
+using the `setInterval` function:
 
-[1]:http://queue.acm.org/detail.cfm?id=2655736 "ACM Communications"
-[2]:https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol "Hypertext Transfer Protocol"
-[3]:http://www.websocket.org/aboutwebsocket.html "About WebSockets"
+```
+socket.onopen = function (event) {
+    sendMessage(socket);
+    setInterval(function () { sendUnidirectionHeartbeat(socket) }, 30000);
+```
+
+Similarly the server application can be configured to send a heartbeat every so often.
+
+```
+wss.on('connection', function connection(ws) {
+  setInterval(function () { ws.ping()}, 20000);
+});
+```
+
+Using 
+
+
 [4]:https://tools.ietf.org/html/rfc6455 "RFC 6455 - WebSocket"
 [5]:https://tools.ietf.org/html/rfc6455#section-5.5.2 "RFC6455 - Ping and Pong Frames"
 [6]:https://github.com/websockets/ws "Node ws library"
