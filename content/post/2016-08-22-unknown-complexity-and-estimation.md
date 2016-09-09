@@ -44,9 +44,25 @@ both of these unknown factors influencing the project's real schedule.
 ![An estimate for three serial items with more unknowns](/images/2016-08-22-unknown-complexity/unknown-unknown.svg "Time estimates with unknowns")
 
 The above diagram shows a near worst case scenario, known tasks take longer than estimated and there are a couple unknown tasks which also have to be completed. Above, several types of
-unknown are on display, uncertainly in knowing the work involved in the project, uncertainly in the longest series of tasks, and uncertainly in the length of known tasks in the project. Together these kinds of
- unknowns make long term project planning challenging, perhaps impossible for large new projects. Returning to the opening point, a project is late or over budget only relative to some predetermined time or monetary value.
- There are methodologies for project planning in the software estimation methods 
+unknown are on display, uncertainly in knowing the work involved in the project, uncertainly in the longest series of tasks, and uncertainly in the length of known tasks in the project. Together these kinds of 
+unknowns make long term project planning challenging, perhaps impossible for large new projects. Returning to the opening point, a project is late or over budget only relative to some predetermined time or monetary value.
+There are methodologies for project planning in the software estimation methods link above, they even including proprietary software that purports to use long tuned algorithms for accurately estimating projects. These 
+methodologies all rely on the premise that future projects will resemble past projects and may, as a result, miss complexity present in new projects or features. 
+
+Given unknown unknowns though, one approach, the approach I advocate for is to call a project finished when it's finished.
+
+This is a rhetorical tautology. There is a relevant point here though.
+
+The point is that at the beginning of a project it is vital to admit that the project is not finished (obviously) and that the finish date is essentially unknown. **Rough** estimates as provided by expert analysis or formal
+methods is only useful a way of placing possible upper bounds in place and determining if the is worth executing at all. These estimates should not be used as sell by dates because we need to admit that our
+ability to estimate new work is limited and any precise looking estimates will likely be wrong. Again there is nothing wrong with forecast, estimating a 6 month effort in order to guess what it might cost and weigh against
+other 6 month estimates is fine. A *rough* estimate that says a project will cost $10 million dollars is very useful if that same project is only estimated to return $40,000 in annual revenue--that estimate will have saved valuable
+development resources to be spent elsewhere. We get tripped up when we take what was is a rough cost of project estimate (~$10 million dollars, ~6 months) and then tie explicit sales dates to that estimate, essentially
+pinning the company's delivery reputation to a rough estimate of how long a project will take.
+
+Seriously. Don't promise huge new features or new software 6 months or more in advance. Just don't do it.
+
+A
 
 [1]:https://en.wikipedia.org/wiki/Software_development_effort_estimation Estimation Methods
 [2]:https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month Mythical Man-Month
