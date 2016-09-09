@@ -43,8 +43,10 @@ both of these unknown factors influencing the project's real schedule.
 
 ![An estimate for three serial items with more unknowns](/images/2016-08-22-unknown-complexity/unknown-unknown.svg "Time estimates with unknowns")
 
-The above diagram shows a near worst case scenario since nobody gets fired for delivering early and under budget (that is, where things take an unexpected small amount of time). Above, several types of
-unknown are on display, uncertainly in knowing the work involved in the project, uncertainly in the longest series of tasks, and uncertainly in the length of known tasks in the project.
+The above diagram shows a near worst case scenario, known tasks take longer than estimated and there are a couple unknown tasks which also have to be completed. Above, several types of
+unknown are on display, uncertainly in knowing the work involved in the project, uncertainly in the longest series of tasks, and uncertainly in the length of known tasks in the project. Together these kinds of
+ unknowns make long term project planning challenging, perhaps impossible for large new projects. Returning to the opening point, a project is late or over budget only relative to some predetermined time or monetary value.
+ There are methodologies for project planning in the software estimation methods 
 
 [1]:https://en.wikipedia.org/wiki/Software_development_effort_estimation Estimation Methods
 [2]:https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month Mythical Man-Month
