@@ -54,15 +54,15 @@ Given unknown unknowns though, one approach, the approach I advocate for is to c
 This is a rhetorical tautology. There is a relevant point here though.
 
 The point is that at the beginning of a project it is vital to admit that the project is not finished (obviously) and that the finish date is essentially unknown. **Rough** estimates as provided by expert analysis or formal
-methods is only useful a way of placing possible upper bounds in place and determining if the is worth executing at all. These estimates should not be used as sell by dates because we need to admit that our
-ability to estimate new work is limited and any precise looking estimates will likely be wrong. Again there is nothing wrong with forecast, estimating a 6 month effort in order to guess what it might cost and weigh against
-other 6 month estimates is fine. A *rough* estimate that says a project will cost $10 million dollars is very useful if that same project is only estimated to return $40,000 in annual revenue--that estimate will have saved valuable
-development resources to be spent elsewhere. We get tripped up when we take what was is a rough cost of project estimate (~$10 million dollars, ~6 months) and then tie explicit sales dates to that estimate, essentially
+methods are only useful a way determining if the project is worth executing at all. These estimates should not be used as sell by dates because we need to admit that our
+ability to estimate new work is limited and any precise looking estimates will likely be wrong. Again there is nothing wrong with estimating a 6 month effort in order to guess what it might cost and weigh it against
+other 6 month estimates. A *rough* estimate that says a project will cost $10 million dollars is very useful if that same project is only estimated to return $40,000 in annual revenue--that estimate will have saved valuable
+development resources to be spent elsewhere. We get tripped up when we take what was a rough cost of project estimate (~$10 million dollars, ~6 months) and then tie explicit sales dates to that estimate, essentially
 pinning the company's delivery reputation to a rough estimate of how long a project will take.
 
 Seriously. Don't promise huge new features or new software 6 months or more in advance. Just don't do it.
 
-A
+
 
 [1]:https://en.wikipedia.org/wiki/Software_development_effort_estimation Estimation Methods
 [2]:https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month Mythical Man-Month
