@@ -23,23 +23,9 @@ In other words the next sprint will delivery a specific set of features to the b
 
 [<img class="size-full wp-image-67" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png" alt="Clear steps with no blurriness" width="178" height="226" />][4]<figcaption class="wp-caption-text">Clear steps with no blurriness</figcaption></figure> 
 
-This is not an unreasonable ask, consulting is often an expensive service and typically we&#8217;ve been asked to solve a severe pain point (or several severe pain points) in the business. The stake holder&#8217;s perspective is that he or she needs to know when specific components will be completed. Additionally, contracts often have end dates by which all functionality must be delivered.
+This is not an unreasonable ask, consulting is often an expensive service and typically we&#8217;ve been asked to solve a severe pain point (or several severe pain points) in the business. The stake holder&#8217;s perspective is that he or she needs to know when specific components will be completed. Additionally, contracts often have end dates by which all functionality must be delivered. 
 
-Unfortunately, executing in this manner, with a specific focus on a goal that must be achieved is akin to the [IT consulting is an odd place to be when it comes to software engineering practices. We often end up writing software for business groups that have fixed budgets and more importantly fixed deadlines. We also try to follow an agile methodology for software development that roughly [follows scrum][1] (warning: PDF), but with defined roles for a project manager and a development lead. Today’s post discusses some of the difficulties seen in using Agile to deliver business software and how we can mitigate those difficulties, basically things that worked and things that didn’t.
-
-<!--more-->
-
-Certain agile (many?) methodologies lay importance on decreasing the resolution of goals that are further into the future.<figure id="attachment_66" style="width: 178px" class="wp-caption aligncenter">
-
-[<img class="size-full wp-image-66" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png" alt="Increasingly Blurry" width="178" height="226" />][2]<figcaption class="wp-caption-text">Increasingly blurry, you get the idea.</figcaption></figure> 
-
-In other words the next sprint will delivery a specific set of features to the business (although there is no guarantee on what order the developers will work on the tasks). All that may be known about the next month’s sprints though is that they will broadly address certain requests or architectural components (possibly [epics][3]). The business managers we work with often want the following though:<figure id="attachment_67" style="width: 178px" class="wp-caption aligncenter">
-
-[<img class="size-full wp-image-67" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png" alt="Clear steps with no blurriness" width="178" height="226" />][4]<figcaption class="wp-caption-text">Clear steps with no blurriness</figcaption></figure> 
-
-This is not an unreasonable ask, consulting is often an expensive service and typically we&#8217;ve been asked to solve a severe pain point (or several severe pain points) in the business. The stake holder&#8217;s perspective is that he or she needs to know when specific components will be completed. Additionally, contracts often have end dates by which all functionality must be delivered.
-
-Unfortunately, executing in this manner, with a specific focus on a goal that must be achieved is akin to the][5] down the barrel of a gun. It represents an unchanging focus on the long distance goal, James Bond in this terrible analogy, without regard for issues and goals in the near future. A [waterfall][6] style project model tries to account for near-term goals and problems with detailed planning and preparation—this approach has been seen to fail a number of times in large software projects.
+Unfortunately, executing in this manner, with a specific focus on a goal that must be achieved is akin to the [opening scene present in every James Bond movie made of staring][5] down the barrel of a gun. It represents an unchanging focus on the long distance goal, James Bond in this terrible analogy, without regard for issues and goals in the near future. A [waterfall][6] style project model tries to account for near-term goals and problems with detailed planning and preparation—this approach has been seen to fail a number of times in large software projects.
 
 An approach with strict upfront planning and preparation does, however, provide a detailed schedule and delivery date (however realistic this may be) to the owners of the project.  This seems to be a core conflict in the area of software project planning. How can we provide visibility into a project’s long term deliverables while at the same time ensure that _something_ is actually delivered in a **working state** on a deadline.
 
