@@ -1,14 +1,14 @@
 +++
 author = "Michael Hughes"
 banner = ""
-categories = ['software-management']
+categories = ["software-management"]
 date = "2016-08-22T07:28:24-06:00"
 description = "Developing software can involve unknown amounts of complexity; this looks at some of our limitations when it comes to estimation and what is implied by those limits."
 draft = true
 images = []
 layout = "post"
 menu = ""
-tags = [pm, philosophy, agile]
+tags = ["pm", "philosophy", "agile"]
 title = "Unknown complexity and estimation"
 
 +++
