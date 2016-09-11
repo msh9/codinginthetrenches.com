@@ -95,9 +95,9 @@ In short we should be humble about estimation, particularly with regard to long 
 
 I hope this was a helpful when considering how to approach planning a new project.
 
-[1]:https://en.wikipedia.org/wiki/Software_development_effort_estimation Estimation Methods
-[2]:https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month Mythical Man-Month
-[3]:/2014/11/30/agilefall-gracefully-delivering-some-part-of-a-project-on-a-fixed-deadline/ Agilefall
-[4]:https://en.wikipedia.org/wiki/Dr._Strangelove Dr. Strangelove
-[5]:http://www.agile-process.org/honest.html Honest plans
-[6]:https://www.scruminc.com/product-backlog-refinement/ Backlog Grooming
+[1]:https://en.wikipedia.org/wiki/Software_development_effort_estimation "Estimation Methods"
+[2]:https://en.wikipedia.org/wiki/The_Mythical_Man-Month#The_mythical_man-month "Mythical Man-Month"
+[3]:/2014/11/30/agilefall-gracefully-delivering-some-part-of-a-project-on-a-fixed-deadline/ "Agilefall"
+[4]:https://en.wikipedia.org/wiki/Dr._Strangelove "Dr. Strangelove"
+[5]:http://www.agile-process.org/honest.html "Honest plans"
+[6]:https://www.scruminc.com/product-backlog-refinement/ "Backlog Grooming"
