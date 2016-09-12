@@ -55,8 +55,8 @@ This is a rhetorical tautology. There is a relevant point here though.
 The point is that at the beginning of a project it is vital to admit that the project is not finished and that the finish date is essentially unknown. *Rough* estimates as provided by expert analysis or formal
 methods are only useful as a way determining if the project is worth executing at all. These estimates should not be used as sell by dates because we need to admit that our
 ability to estimate new work is limited and any precise looking estimates will likely be wrong. Again there is nothing wrong with estimating a 6 month effort in order to guess what it might cost and weigh it against
-other 6 month estimates. A *rough* estimate that says a project will cost $10 million dollars is very useful if that same project is only estimated to return $40,000 in annual revenue--that estimate *may* save valuable
-development resources. We get tripped up when we take what was a rough cost of project estimate (~$10 million dollars, ~6 months) and then tie explicit sales dates to that estimate, essentially
+other 6 month estimates. A *rough* estimate that says a project will cost 10 million dollars is very useful if that same project is only estimated to return $40,000 in annual revenue; that estimate *may* save valuable
+development resources. We get tripped up when we take what was a rough cost of project estimate (~10 million dollars, ~6 months) and then tie explicit sales dates to that estimate, essentially
 pinning the company's delivery reputation to a rough estimate of how long a project will take.
 
 Don't promise large new features or new software 6 months or more in advance. Just don't do it.
