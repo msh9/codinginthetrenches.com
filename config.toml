@@ -9,6 +9,7 @@ googleAnalytics = ""
 paginate = 10
 footnotereturnlinkcontents = "↩"
 theme = "hugo-icarus-theme"
+PygmentsCodeFences = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
