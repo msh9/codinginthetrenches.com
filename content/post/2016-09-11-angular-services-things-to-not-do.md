@@ -21,7 +21,7 @@ covers some logic in AngularJS services which should be avoided save for rare ex
 In particular, today we're going to look at Angular 1.x services and factories. Sorry folks on 2.0, fortunately because of broad similarities in Angular 1.x's and 2.x's dependency
 injection systems much of the following will still apply. 
 
-First, the difference between and Angular factory and service. In Angular code can and should be placed into separate [modules][1] based on some schema (business relationship, functionality, something).
+First, the difference between and Angular [factory][2] and [service][3]. In Angular code can and should be placed into separate [modules][1] based on some schema (business relationship, functionality, something).
 Services and factories can be registered by name within a module. Other services, factories, controllers, and directives can subsequently use the registered service or factory by referencing it by name.
 With all that said, the minor, but confusing difference between the two is that a function registered in a module as a service will be called with `new` whereas a function registered in a module as a
 factory will be called as a normal function.
@@ -74,8 +74,18 @@ app.factory('Thinger', ['$http',
 
 app.factory('OtherThing', ['Thinger', 
   function otherThingFactory(thinger) {
-    var theThinger = new thinger();
+    var somethingInMyOtherThing = {}
+    var theThinger = new thinger(somethingInMyOtherThing);
 }]);
 ```
 
+There's a couple things wrong here. The lessor of the two issues is that Angular already provides the service pattern 
+if we need to create a new object with `new`. The greater issue is more insidious though and that is the code above breaks
+dependency injection. One of the great things about Angular (1 and 2!) is that it provides a built-in DI system which instantiates
+objects as needed and then injects them based on name. This great feature is both ignored and circumvented by using a factory
+to inject a constructor. 
+
+
 [1]:https://docs.angularjs.org/api/ng/type/angular.Module "Angular Module"
+[2]:https://docs.angularjs.org/api/auto/service/$provide#factory "module.factory"
+[3]:https://docs.angularjs.org/api/auto/service/$provide#service "module.service"
