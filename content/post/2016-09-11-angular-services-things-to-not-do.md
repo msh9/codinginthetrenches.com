@@ -83,7 +83,49 @@ There's a couple things wrong here. The lessor of the two issues is that Angular
 if we need to create a new object with `new`. The greater issue is more insidious though and that is the code above breaks
 dependency injection. One of the great things about Angular (1 and 2!) is that it provides a built-in DI system which instantiates
 objects as needed and then injects them based on name. This great feature is both ignored and circumvented by using a factory
-to inject a constructor. 
+to inject a constructor. It means among other things that `var theThinger` in the above example cannot be used for sharing state. post
+injection instantiation also means that the dependent controller / directive / service is knows more about the service than necessary (eg
+how to build the service). Testing 'OtherThing' is just a little bit more difficult now because we cannot directly spy on or create mocks
+of `theThinger` since it was instantiated in place.
+
+All in all, while there may some times be valid reasons for injecting a constructor function, as a general rule this is best avoided.
+
+This leads nicely into our next topic.
+
+### Passing your directive's or controller's scope to a service.
+
+The worst case I have seen with this is injecting a constructor function and then constructing a service with the scope as parameter. Less worse is
+injecting a service and passing the scope to one of the service's methods. First a couple code samples to illustrate the description,
+
+```javascript
+var app = angular.module('app',[]);
+app.factory('Thinger', ['$http', 
+  function thingerFactory($http) {
+    function TheThinger(randomStuff) {
+        this.randomStuff = randomStuff;
+    } 
+
+    TheThinger.prototype.thingIt = function () {
+        console.log('thinged');
+    }
+
+    TheThinger.prototype.scopeIt = function (scope) {
+        scope.thing = 'thinged';
+    }
+
+    return TheThinger;
+
+}]);
+
+app.controller('MyController', ['$scope', 'Thinger', function($scope, TheThinger) {
+  var theThinger = new TheThinger($scope);
+  theThinger.thingIt();
+}]);
+app.controller('OtherController', ['$scope', 'Thinger', function($scope, TheThinger) {
+  var theThinger = new TheThinger('SomeVariable');
+  theThinger.scopeIt($scope)
+}]);
+```
 
 
 [1]:https://docs.angularjs.org/api/ng/type/angular.Module "Angular Module"
