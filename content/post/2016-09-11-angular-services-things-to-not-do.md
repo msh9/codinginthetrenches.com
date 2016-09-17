@@ -127,7 +127,84 @@ app.controller('OtherController', ['$scope', 'Thinger', function($scope, TheThin
 }]);
 ```
 
+[Scope in Angular][6] is analogous to the "model" found in [many][4] [mv*][5] design patterns for user interfaces. Depending on your reading
+of what constitutes a models it may or may not be okay to pass model into a backend service.
+
+I tend to fall on the side of not okay. The Angular framework provides both directives and controllers that are expressly for logic which
+reacts to UI changes and in turn affect changes to the UI. Services created by either Angular's factory or service patterns on the other hand 
+tend to be more focused on interacting with http services, sharing state, or non-UI related functionality within the application. The division
+between functionality is visible in the frameworks provided services and the controller/directive examples. Given this context, passing a scope
+object to service violates separation of concerns because by passing the scope in we give the service capability to modify the presentation
+shown to the end user.
+
+Instead of passing the scope object to a service consider having the service return promises (generated [by $q][7]) which can then be used by
+the controller or directive to update the scope as necessary. Alternatively if you are passing the scope to service in order to broadcast and
+listen to events then it is worth considering the [observer pattern][8] for the service and controller. Broad and hard to debug event broadcasts
+can by making an injected service observable and then appropriately routing actions that need to be observed through the shared service 
+instance. 
+
+In other cases a less than ideal service pattern, like `new` of an injected constructor, arises not due to need to add something to the object, but
+instead a bit of over-engineering.
+
+## Over-engineering objects into services
+
+First let us look a quick example that has been paraphrased from source application:
+
+
+```javascript
+var app = angular.module('app',[]);
+app.factory('Stack', function Stack() {
+    function Stack() {
+        this.ary = [];
+    } 
+
+    Stack.prototype.push = function (val) {
+        this.ary.push(val)
+    }
+
+    Stack.prototype.pop = function (val) {
+        return this.ary.pop(val)
+    }
+
+    Stack.prototype.peek = function () {
+        return this.ary[this.ary.length - 1]
+    }
+
+    return Stack;
+
+});
+
+app.controller('MyController', ['$scope', 'Stack', function($scope, Stack) {
+  var stack = new stack($scope);
+  stack.push(1);
+  console.log(stack.peek())
+}]);
+
+```
+
+The above code is OK, the problem with it is that if we really need broad Stack like, array based, data structures in our application
+then we could also just do the following,
+
+```javascript
+Array.prototype.peek = function() { if (this.length > 0) { return this[this.length - 1]; } else { return undefined } }
+```
+
+That's it. Our arrays now have peek functionality without having to inject anything, create an Angular service, or unnecessarily wrap
+the `Array` object's existing methods. To be clear, I'm personally normally against [monkey-patching][9] built-in library objects and is
+broadly not considered a good idea. For a real project I would recommend creating an object that inherits from Array and is included as a
+raw script like any other utility library.
+
+```javascript
+function Stack() {}
+```
+
 
 [1]:https://docs.angularjs.org/api/ng/type/angular.Module "Angular Module"
 [2]:https://docs.angularjs.org/api/auto/service/$provide#factory "module.factory"
 [3]:https://docs.angularjs.org/api/auto/service/$provide#service "module.service"
+[4]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller "MVC"
+[5]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel "MVVM"
+[6]:https://docs.angularjs.org/guide/scope "Angular Scope"
+[7]:https://docs.angularjs.org/api/ng/service/$q "Angular $q"
+[8]:https://en.wikipedia.org/wiki/Observer_pattern "Observer Pattern"
+[9]:https://en.wikipedia.org/wiki/Monkey_patch
