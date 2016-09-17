@@ -1,14 +1,14 @@
 +++
 author = "Michael Hughes"
 banner = ""
-categories = []
+categories = ["software-design"]
 date = "2016-09-11T11:41:50-06:00"
 description = ""
 draft = true
 images = []
 layout = "post"
 menu = ""
-tags = []
+tags = ["javascript", "design"]
 title = "AngularJS injectables and things to not do with them"
 
 +++
@@ -191,13 +191,21 @@ Array.prototype.peek = function() { if (this.length > 0) { return this[this.leng
 
 That's it. Our arrays now have peek functionality without having to inject anything, create an Angular service, or unnecessarily wrap
 the `Array` object's existing methods. To be clear, I'm personally normally against [monkey-patching][9] built-in library objects and is
-broadly not considered a good idea. For a real project I would recommend creating an object that inherits from Array and is included as a
+broadly [not considered a good idea][10]. For a real project I would recommend creating an object that inherits from Array and is included as a
 raw script like any other utility library.
 
 ```javascript
-function Stack() {}
+function Stack() { Array.call(this) }
+Stack.prototype.peek = function() { if (this.length > 0) { return this[this.length - 1]; } else { return undefined; } }
+Stack.prototype = Object.create(Array.prototype)
+stack.prototype.constructor = Stack
 ```
 
+By including the above code it is possible to create a `Stack` object with the relevant `push`, `pop`, and `peek` functions.
+
+Like many application design choices, none of the above structures are **always** bad or need to **always** be avoided. They are, however,
+things will go against the flow of recommended Angular practices and how the framework itself is structured. Breaking with structural 
+norms can make sense in certain scenarios, but should be carefully considered and not done lightly.
 
 [1]:https://docs.angularjs.org/api/ng/type/angular.Module "Angular Module"
 [2]:https://docs.angularjs.org/api/auto/service/$provide#factory "module.factory"
@@ -208,3 +216,4 @@ function Stack() {}
 [7]:https://docs.angularjs.org/api/ng/service/$q "Angular $q"
 [8]:https://en.wikipedia.org/wiki/Observer_pattern "Observer Pattern"
 [9]:https://en.wikipedia.org/wiki/Monkey_patch
+[10]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#Bad_practice_Extension_of_native_prototypes 
