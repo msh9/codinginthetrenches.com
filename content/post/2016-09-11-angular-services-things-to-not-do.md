@@ -21,7 +21,7 @@ covers some logic in AngularJS services which should be avoided save for rare ex
 In particular, today we're going to look at Angular 1.x services and factories. Sorry folks on 2.0, fortunately because of broad similarities in Angular 1.x's and 2.x's dependency
 injection systems much of the following will still apply. 
 
-First, the difference between and Angular [factory][2] and [service][3]. In Angular code can and should be placed into separate [modules][1] based on some schema (business relationship, functionality, something).
+First, the difference between Angular's [factory][2] and [service][3]. In Angular code can and should be placed into separate [modules][1] based on some schema (business relationship, functionality, something).
 Services and factories can be registered by name within a module. Other services, factories, controllers, and directives can subsequently use the registered service or factory by referencing it by name.
 With all that said, the minor, but confusing difference between the two is that a function registered in a module as a service will be called with `new` whereas a function registered in a module as a
 factory will be called as a normal function.
@@ -34,6 +34,8 @@ app.factory('Thinger', ['$http', function thingerFactory($http) {
     theThinger.thingIt() {
         console.log('Thing-ed!');
     }
+
+    return theThinger
 
 }]);
 
@@ -48,7 +50,7 @@ function Fooer($http) {
 app.service('Fooer', ['$http', Fooer]);
 ```
 
-Factories return objects and services are `newed.` 
+Factories return objects and services are `new`ed. 
 
 With that covered let us move on to things to not do.
 
@@ -81,14 +83,14 @@ app.factory('OtherThing', ['Thinger',
 
 There's a couple things wrong here. The lessor of the two issues is that Angular already provides the service pattern 
 if we need to create a new object with `new`. The greater issue is more insidious though and that is the code above breaks
-dependency injection. One of the great things about Angular (1 and 2!) is that it provides a built-in DI system which instantiates
-objects as needed and then injects them based on name. This great feature is both ignored and circumvented by using a factory
-to inject a constructor. It means among other things that `var theThinger` in the above example cannot be used for sharing state. post
-injection instantiation also means that the dependent controller / directive / service is knows more about the service than necessary (eg
-how to build the service). Testing 'OtherThing' is just a little bit more difficult now because we cannot directly spy on or create mocks
+dependency injection. One of the great things about Angular (1 and 2!) is that it provides a built-in DI system that instantiates
+objects as needed and then injects them based on name. This great feature is ignored by using a factory
+to inject a constructor. It means that `var theThinger` in the above example cannot be used for sharing state. Post
+injection instantiation also means that the dependent controller / directive / service knows more about the service than necessary, for example 
+how to build the service. Testing 'OtherThing' is also just a little bit more difficult now because we cannot directly spy on or create mocks
 of `theThinger` since it was instantiated in place.
 
-All in all, while there may some times be valid reasons for injecting a constructor function, as a general rule this is best avoided.
+All in all, while there may occasionally be valid reasons for injecting a constructor function, as a general rule this is best avoided.
 
 This leads nicely into our next topic.
 
@@ -117,11 +119,13 @@ app.factory('Thinger', ['$http',
 
 }]);
 
-app.controller('MyController', ['$scope', 'Thinger', function($scope, TheThinger) {
+app.controller('MyController', ['$scope', 'Thinger',
+ function($scope, TheThinger) {
   var theThinger = new TheThinger($scope);
   theThinger.thingIt();
 }]);
-app.controller('OtherController', ['$scope', 'Thinger', function($scope, TheThinger) {
+app.controller('OtherController', ['$scope', 'Thinger',
+ function($scope, TheThinger) {
   var theThinger = new TheThinger('SomeVariable');
   theThinger.scopeIt($scope)
 }]);
@@ -130,26 +134,24 @@ app.controller('OtherController', ['$scope', 'Thinger', function($scope, TheThin
 [Scope in Angular][6] is analogous to the "model" found in [many][4] [mv*][5] design patterns for user interfaces. Depending on your reading
 of what constitutes a models it may or may not be okay to pass model into a backend service.
 
-I tend to fall on the side of not okay. The Angular framework provides both directives and controllers that are expressly for logic which
+I tend to fall on the side of not okay. The Angular framework provides both directives and controllers that are expressly for logic that
 reacts to UI changes and in turn affect changes to the UI. Services created by either Angular's factory or service patterns on the other hand 
 tend to be more focused on interacting with http services, sharing state, or non-UI related functionality within the application. The division
-between functionality is visible in the frameworks provided services and the controller/directive examples. Given this context, passing a scope
-object to service violates separation of concerns because by passing the scope in we give the service capability to modify the presentation
-shown to the end user.
+between functionality is visible in the framework's provided services and the controller/directive examples. Given this context, passing a scope
+object to a service violates separation of concerns because passing the scope gives the service capability to modify the presentation layer.
 
 Instead of passing the scope object to a service consider having the service return promises (generated [by $q][7]) which can then be used by
-the controller or directive to update the scope as necessary. Alternatively if you are passing the scope to service in order to broadcast and
+the controller or directive to update the scope as necessary. Alternatively, if you are passing the scope to the service in order to broadcast and
 listen to events then it is worth considering the [observer pattern][8] for the service and controller. Broad and hard to debug event broadcasts
-can by making an injected service observable and then appropriately routing actions that need to be observed through the shared service 
+can be avoided by making an injected service observable and then appropriately routing actions that need to be observed through the shared service 
 instance. 
 
 In other cases a less than ideal service pattern, like `new` of an injected constructor, arises not due to need to add something to the object, but
 instead a bit of over-engineering.
 
-## Over-engineering objects into services
+## Over-engineering objects into services and forgetting that JavaScript has inheritance
 
-First let us look a quick example that has been paraphrased from source application:
-
+First let us look at an example that has been paraphrased from a real application's source:
 
 ```javascript
 var app = angular.module('app',[]);
@@ -190,21 +192,27 @@ Array.prototype.peek = function() { if (this.length > 0) { return this[this.leng
 ```
 
 That's it. Our arrays now have peek functionality without having to inject anything, create an Angular service, or unnecessarily wrap
-the `Array` object's existing methods. To be clear, I'm personally normally against [monkey-patching][9] built-in library objects and is
-broadly [not considered a good idea][10]. For a real project I would recommend creating an object that inherits from Array and is included as a
-raw script like any other utility library.
+the `Array` object's existing methods. **To be clear**, I'm personally normally against [monkey-patching][9] built-in library objects and it is
+broadly [not considered a good idea][10]. The above is demostration of the fact that it is not necessary to encapsulate everything in an Angular service.
+For a real project I would recommend creating an object that inherits from `Array` and is included as a raw script like any other utility library.
 
 ```javascript
 function Stack() { Array.call(this) }
-Stack.prototype.peek = function() { if (this.length > 0) { return this[this.length - 1]; } else { return undefined; } }
+Stack.prototype.peek = function() { 
+    if (this.length > 0) { 
+        return this[this.length - 1];
+    } else {
+        return undefined;
+    }
+}
 Stack.prototype = Object.create(Array.prototype)
-stack.prototype.constructor = Stack
+Stack.prototype.constructor = Stack
 ```
 
 By including the above code it is possible to create a `Stack` object with the relevant `push`, `pop`, and `peek` functions.
 
 Like many application design choices, none of the above structures are **always** bad or need to **always** be avoided. They are, however,
-things will go against the flow of recommended Angular practices and how the framework itself is structured. Breaking with structural 
+things that go against the flow of recommended Angular practices and how the framework itself is structured. Breaking with structural 
 norms can make sense in certain scenarios, but should be carefully considered and not done lightly.
 
 [1]:https://docs.angularjs.org/api/ng/type/angular.Module "Angular Module"
