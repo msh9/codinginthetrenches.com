@@ -1,6 +1,6 @@
 ---
 title: About Me
-author: MichaelHughes
+author: Michael Hughes
 layout: page
 date: 2014-07-24
 
