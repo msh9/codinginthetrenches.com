@@ -1,14 +1,15 @@
-baseurl = "https://codinginthetrenches.com/"
+baseurl = "https://codinginthetrenches.com"
 languageCode = "en-us"
 title = "Coding in the Trenches"
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
-googleAnalytics = ""
+googleAnalytics = "UA-43093664-1"
 # Define the number of posts per page
 paginate = 10
 footnotereturnlinkcontents = "↩"
 theme = "hugo-icarus-theme"
+PygmentsCodeFences = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
@@ -41,7 +42,7 @@ theme = "hugo-icarus-theme"
 [[params.menu]]
     before = false
     label  = "About Me"
-    link   = "about-me/index.html"
+    link   = "/about-me/index.html"
 
 # Enter a link for the follow button on the left
 [params.profile]
