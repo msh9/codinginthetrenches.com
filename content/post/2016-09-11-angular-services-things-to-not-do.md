@@ -4,7 +4,6 @@ banner = ""
 categories = ["software-design"]
 date = "2016-09-11T11:41:50-06:00"
 description = ""
-draft = true
 images = []
 layout = "post"
 menu = ""
