@@ -31,13 +31,15 @@ In pictures:
 
 On the left we have how Storm is currently implemented. Circled on the right we have another way of implementing basic and advanced client use scenarios. I am, admittedly, over simplify the Storm project’s “Collector” types here. The project instead of using inheritance has two separate Java package trees and type hierarchies for these different usages. The interesting thing about this though is that the two hierarchies are designed to provide the same fundamental functionality, an API for sending events. The two cannot be used together, however, because they sit in different type hierarchies.
 
-There is, for example, no parent “Collector” type which can be handed to another type for use in sending events. For the sake of the argument let’s look at an example use case, an error handler.<figure id="attachment_463" style="width: 667px" class="wp-caption aligncenter">
+There is, for example, no parent “Collector” type which can be handed to another type for use in sending events. For the sake of the argument let’s look at an example use case, an error handler.
 
-<a href="http://codinginthetrenches.com/wp-content/uploads/2016/02/Story-Decision.png" rel="attachment wp-att-463"><img class="wp-image-463 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2016/02/Story-Decision.png" alt="Emit errors to an error handler" width="667" height="240" srcset="https://codinginthetrenches.com/wp-content/uploads/2016/02/Story-Decision-300x108.png 300w, https://codinginthetrenches.com/wp-content/uploads/2016/02/Story-Decision.png 667w" sizes="(max-width: 667px) 100vw, 667px" /></a><figcaption class="wp-caption-text">Emit errors to an error handler</figcaption></figure> 
+![Emit errors](/images/2016-02-20-class-hierarchy/error-flow.svg "Decision tree for emitting errors to a handler")
+ 
 
 Here is a simplistic logic tree for some component in storm that may emit events using one of the collectors’ interfaces. The error case is the interesting one since it&#8217;s often a scenario where we want to execute the same logic regardless of the contents of “thing” or “data”. We can’t though. In Storm a bolt, the “thing” in the diagram, may emit using two different interfaces which don’t share a type hierarchy. There are ways around using separate but not related types, method overloading is one path.
 
-<pre>public class FooErrorHandler {
+```java
+public class FooErrorHandler {
   public void handleError(IOutputCollector outputer, Thing data) {
     SomeErrMessageType error = this.processError(data);
     outputer.emit(error);
@@ -47,7 +49,7 @@ Here is a simplistic logic tree for some component in storm that may emit even
     outputer.emit(error);
   }
 }
-</pre>
+```
 
 The solution works, it even seems somewhat elegant at first glance. My issue with it is that were the collectors to share a common hierarchy or be built out of a composition of parts we would not need this solution in the first place. The output collectors incidentally also suffer from the 1-1 interface type to class type coding pattern that has been [discussed here before][4]. The proliferation of interfaces used only in one location add to set of incompatible but related types.
 
@@ -59,7 +61,8 @@ I do not mean to be overly critical of Apache Storm, the project is actually a v
 
 Java’s support for compositional style design is more lacking than Go’s, but we can still show what this looks like based on our mini Storm example from above.
 
-<pre>import java.util.List;
+```java
+import java.util.List;
 public class OutputExample {
     public interface Error {
         void reportError(Throwable error);
@@ -86,7 +89,7 @@ public class OutputExample {
         }
     }
 }
-</pre>
+```
 
 Behaviors are now collected as independent interfaces which can be implemented separately. We can now have an output class that reports errors, like the one in the example above, or we can chose to forgo that behavior. Our error handling example from above is now also resolved since the behavior of emitting data is collected in a single interface. Finally, there is only a single implementation of Error and it is composed into the Outputter class via a forwarding method. As mentioned earlier while implementation composition is relatively effortless in Go, it is somewhat awkward in Java due to lack of language support.
 

@@ -1,6 +1,6 @@
 ---
 title: On the use of AWS DynamoDB
-author: MichaelHughes
+author: Michael Hughes
 layout: post
 date: 2014-06-07
 url: /2014/06/07/on-the-use-of-aws-dynamodb/
@@ -11,7 +11,7 @@ tags:
   - design
 
 ---
-In today’s post I’ll cover some of the potential use cases for AWS DynamoDB, why you might want to use it or not.
+In today's post I'll cover some of the potential use cases for AWS DynamoDB, why you might want to use it or not.
 
 <!--more-->
 
@@ -23,7 +23,7 @@ The below workflow is what we will step through:
 
 <img class="align-center" src="/images/2014-06-07-dynamodb/dynamodb-choice.png" alt="Abstract choices leading to use of DynamoDB or not" />
 
-<ol class="arabic">
+<ol>
   <li>
     <p class="first">
       First we&#8217;ll look at some of things DynamoDB does well and scenarios where DynamoDB&#8217;s ca­pa­bil­i­ties would help a project. Things that DynamoDB is good at:
@@ -65,7 +65,7 @@ The below workflow is what we will step through:
     </p>
     
     <p>
-      We&#8217;ll look at some of the trade offs made in using DynamoDB, but let it suffice to say that it should not be used casually. A project con­sid­er­ing DynamoDB really needs (at a high level) to have a lot of queries which look like the following in order to justify using it:
+      We'll look at some of the trade offs made in using DynamoDB, but let it suffice to say that it should not be used casually. A project con­sid­er­ing DynamoDB really needs (at a high level) to have a lot of queries which look like the following in order to justify using it:
     </p>
     
     <p>
@@ -120,4 +120,7 @@ The below workflow is what we will step through:
         </p>
         
         <p>
-          Maybe, it depends on if your project&#8217;s would benefit from the good things DynamoDB has to offer and wouldn&#8217;t be otherwise be affected by DynamoDB&#8217;s weaknesses. Chances are that not everything in a project fits into DynamoDB; only some of a project&#8217;s data sets may fit the table store model. I am fan of the idea of <a class="reference external" href="http://www.martinfowler.com/bliki/PolyglotPersistence.html"><span style="text-decoration: underline"><span style="color: #0066cc">polyglot per­sis­tence</span></span></a>, es­sen­tial­ly storing data in different system depending on how it will be used. Since DynamoDB <em>is</em> easy to get started with it&#8217;s possible to store the biggest, most <span class="caps">IO</span> intensive, <span class="caps">UI</span> driving data sets in DynamoDB and then store other project data in different systems. For example on my current project we drive the user interface using DynamoDB in order to make it speedy and take weekly dumps of the data set to load into a relational system for analysis and reporting.</li> </ol>
+          Maybe, it depends on if your projects would benefit from the good things DynamoDB has to offer and wouldn't be otherwise be affected by DynamoDB's weaknesses. Chances are that not everything in a project fits into DynamoDB; only some of a project&#8217;s data sets may fit the table store model. I am fan of the idea of <a class="reference external" href="http://www.martinfowler.com/bliki/PolyglotPersistence.html"><span style="text-decoration: underline"><span style="color: #0066cc">polyglot per­sis­tence</span></span></a>, es­sen­tial­ly storing data in different system depending on how it will be used. Since DynamoDB <em>is</em> easy to get started with it&#8217;s possible to store the biggest, most <span class="caps">IO</span> intensive, <span class="caps">UI</span> driving data sets in DynamoDB and then store other project data in different systems. For example on my current project we drive the user interface using DynamoDB in order to make it speedy and take weekly dumps of the data set to load into a relational system for analysis and reporting.</p>
+        </li> 
+    </ol>
+        

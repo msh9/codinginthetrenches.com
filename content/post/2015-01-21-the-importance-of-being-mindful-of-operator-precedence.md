@@ -13,6 +13,9 @@ tags:
 ---
 [Operator][1] precedence determines the order [[Operator][1] precedence determines the order][2] and binary operators are executed. In many situations, knowing basic mathematical operator precedence (for +,-,*, etc) is enough. In other situations not knowing the specifics of language can lead to hard to find errors. Quickly, in JavaScript what does `'the boogeyman ' + false ? 'is scary' : 'is not scary'` evaluate to?
 
+ [1]: http://en.wikipedia.org/wiki/Operator_%28computer_programming%29
+ [2]: http://en.wikipedia.org/wiki/Unary_operation
+ 
 <!--more-->
 
 At first glance this statement might appear to produce the phrase &#8216;the boogeyman is not scary&#8217;. Unfortunately, executing in a JavaScript interpreter—try it [here][3]—reveals that the actual result is &#8216;is scary&#8217;.
@@ -32,8 +35,7 @@ For experienced developers the above may have been self-evident. Operator preced
 
 (For a [reference Mozilla has a table][6] describing JavaScript’s operator precedence rules.)
 
- [1]: http://en.wikipedia.org/wiki/Operator_%28computer_programming%29
- [2]: http://en.wikipedia.org/wiki/Unary_operation
+
  [3]: http://repl.it/languages/JavaScript
  [4]: http://en.wikipedia.org/wiki/Type_conversion
  [5]: http://11heavens.com/falsy-and-truthy-in-javascript

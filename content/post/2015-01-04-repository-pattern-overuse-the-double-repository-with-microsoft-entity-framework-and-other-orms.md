@@ -13,6 +13,9 @@ tags:
 ---
 Martin Folwer’s blog and website is a common reference for modern design pattern so we will start with his glossary definition for the [repository pattern][1]. The linked article contains more detail, but in short a ‘repository’ acts as an data store layer on top of the storage system and provides (more) object oriented methods for accessing said system. Unfortunately, something I have also seen is the over application of this pattern in combination with RDBMS [ORM][2]s leading to contorted code with unnecessary interfaces and classes. This post covers what I have seen in some projects in order to provide some of the <a href="http://blog.codinghorror.com/code-smells/" target="_blank">code smells</a> to avoid.
 
+ [1]: http://martinfowler.com/eaaCatalog/repository.html
+ [2]: http://en.wikipedia.org/wiki/Object-relational_mapping
+
 <!--more-->
 
 ORMs are often used to mediate between the application and database system in non-exotic (think business process applications) relational database backed applications. An ORM like Entity Framework or Hibernate generates SQL to interact with a relational back-end and exposes object collections to the application. The object collections exposed by ORMs like Hibernate are also managed in the application’s memory in order to help manage things like transactions and speed up interactions with the database. The prior descriptions should sound familiar since these ORMs are implementing the repository pattern for the application.
@@ -64,8 +67,7 @@ In case of the above issues it may be best to remove the wrapping repositories o
 
 On its own the repository pattern is a good approach to handling the interaction between application logic and data systems. Popular ORMs like Entity Framework do a large part of the heavy lifting necessary to implement the repository pattern for an application. Creating an abstraction on top of an ORM is not necessary a bad idea, but it’s important to do so thoughtfully in order to not create a leaky abstraction or add complexity to the application without justification.
 
- [1]: http://martinfowler.com/eaaCatalog/repository.html
- [2]: http://en.wikipedia.org/wiki/Object-relational_mapping
+
  [3]: http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png
  [4]: http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png
  [5]: http://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application

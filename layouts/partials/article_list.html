@@ -3,24 +3,16 @@
     {{ range $paginator.Pages }}
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
-            {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}
-            <a href="{{ .Permalink }}" itemprop="url">
-                <img src="{{ .Params.banner | absURL }}" class="article-banner">
-            </a>
-            {{ end }}
-
-
             {{ partial "article_header" . }}
             <div class="article-entry" itemprop="articleBody">
-                <p>
-                    {{ printf "%s" .Summary | markdownify }}
-                    <br>
-                </p>
+                {{ .Summary }}
+                {{ if .Truncated }}
                 <p class="article-more-link">
                     <a href="{{ .Permalink }}">
                         {{with .Site.Data.l10n.articles.read_more}}{{.}}{{end}}
                     </a>
                 </p>
+                {{ end }}
             </div>
             {{ partial "article_footer" . }}
         </div>

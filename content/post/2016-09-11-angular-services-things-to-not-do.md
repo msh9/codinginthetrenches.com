@@ -175,7 +175,8 @@ app.factory('Stack', function Stack() {
 
 });
 
-app.controller('MyController', ['$scope', 'Stack', function($scope, Stack) {
+app.controller('MyController', ['$scope', 'Stack', 
+function($scope, Stack) {
   var stack = new stack($scope);
   stack.push(1);
   console.log(stack.peek())
@@ -187,11 +188,17 @@ The above code is OK, the problem with it is that if we really need broad Stack 
 then we could also just do the following,
 
 ```javascript
-Array.prototype.peek = function() { if (this.length > 0) { return this[this.length - 1]; } else { return undefined } }
+Array.prototype.peek = function() { 
+    if (this.length > 0) { 
+        return this[this.length - 1]; 
+    } else { 
+        return undefined 
+    } 
+}
 ```
 
 That's it. Our arrays now have peek functionality without having to inject anything, create an Angular service, or unnecessarily wrap
-the `Array` object's existing methods. **To be clear**, I'm personally normally against [monkey-patching][9] built-in library objects and it is
+the `Array` object's existing methods. **To be clear**, I'm personally against [monkey-patching][9] built-in library objects and it is
 broadly [not considered a good idea][10]. The above is demostration of the fact that it is not necessary to encapsulate everything in an Angular service.
 For a real project I would recommend creating an object that inherits from `Array` and is included as a raw script like any other utility library.
 

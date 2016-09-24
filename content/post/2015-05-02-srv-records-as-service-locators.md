@@ -10,7 +10,10 @@ tags:
   - using software
 
 ---
-Recently I began work on a project to manage the deployment of a product built using a [microservices][1] architecture. As a result of our chosen architecture we have a large number of services which will communicate to each other over HTTP/S. Instead of using fixed IPs we decided to used [DNS SRV][2] records to indicate where services could contact their dependencies. Today&#8217;s post goes into using SRV records in a little more detail and the problem they solve.
+Recently I began work on a project to manage the deployment of a product built using a [microservices][1] architecture. As a result of our chosen architecture we have a large number of services which will communicate to each other over HTTP/S. Instead of using fixed IPs we decided to used [DNS SRV][2] records to indicate where services could contact their dependencies. Today's post goes into using SRV records in a little more detail and the problem they solve.
+
+ [1]: http://martinfowler.com/articles/microservices.html
+ [2]: http://en.wikipedia.org/wiki/SRV_record
 
 <!--more-->
 
@@ -57,8 +60,7 @@ Some times and places to **not** use SRV records:
 
 Hope this article helps bring some ideas to the table for how to have microservices name and communicate with each other. A future article will look at one particular way of setting up DNS in an environment for use with SRV records.
 
- [1]: http://martinfowler.com/articles/microservices.html
- [2]: http://en.wikipedia.org/wiki/SRV_record
+
  [3]: https://codinginthetrenches.com/wp-content/uploads/2015/04/Microservice-vs-Regular.png
  [4]: https://codinginthetrenches.com/wp-content/uploads/2015/04/Load-Balancer.png
  [5]: http://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants

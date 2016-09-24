@@ -13,6 +13,8 @@ tags:
 ---
 IT consulting is an odd place to be when it comes to software engineering practices. We often end up writing software for business groups that have fixed budgets and more importantly fixed deadlines. We also try to follow an agile methodology for software development that roughly [follows scrum][1] (warning: PDF), but with defined roles for a project manager and a development lead. Today’s post discusses some of the difficulties seen in using Agile to deliver business software and how we can mitigate those difficulties, basically things that worked and things that didn’t.
 
+[1]: https://www.scrum.org/Portals/0/Documents/Scrum%20Guides/2013/Scrum-Guide.pdf
+
 <!--more-->
 
 Certain agile (many?) methodologies lay importance on decreasing the resolution of goals that are further into the future.<figure id="attachment_66" style="width: 178px" class="wp-caption aligncenter">
@@ -50,7 +52,7 @@ To summarize
   3. Avoiding rigid, gold plated architectures and project plans is important in order to ensure that failures and problems can be overcome.
   4. Find the [stakeholders][10] by asking questions and looking for answers. If a project is not planned in conjunction with the owners and end users all of the prior advice will be of much less use.
 
- [1]: https://www.scrum.org/Portals/0/Documents/Scrum%20Guides/2013/Scrum-Guide.pdf
+ 
  [2]: http://codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png
  [3]: http://www.solutionsiq.com/agile-glossary/epic/
  [4]: http://codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png

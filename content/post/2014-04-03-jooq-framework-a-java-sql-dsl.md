@@ -1,5 +1,5 @@
 ---
-title: 'jOOQ Framework &#8211; A Java SQL DSL'
+title: 'jOOQ Framework - A Java SQL DSL'
 author: MichaelHughes
 layout: post
 date: 2014-04-04
@@ -12,6 +12,11 @@ tags:
 
 ---
 After reviewing higher level [JPA 2.0][1] ab­strac­tions like [Ec­pliseLink][2] and [TopLink][3] for tieing a service ap­pli­ca­tion to a database I chose to use [jOOQ][4] because of its flex­i­bil­i­ty and ability to provide tight control over the SQL being executed in the ap­pli­ca­tion’s data layer.
+
+ [1]: http://en.wikipedia.org/wiki/Java_Persistence_API
+ [2]: http://www.eclipse.org/eclipselink/
+ [3]: http://www.oracle.com/technetwork/middleware/toplink/overview/index.html
+ [4]: http://www.jooq.org/
 
 <!--more-->
 
@@ -42,8 +47,5 @@ Also beautiful. This is deserving of ex­pla­na­tion though: This particular p
 
 Un­for­tu­nate­ly the best examples I have of jOOQ are also those specific this ap­pli­ca­tion–but imagine logic where the ap­pli­ca­tion needs to insert a large volume data into a temporary table, then process the data with a procedure, and then finally return a value based on a project from two joined tables. jOOQ makes the logic from my ap­pli­ca­tion possible, other frameworks…don’t.
 
- [1]: http://en.wikipedia.org/wiki/Java_Persistence_API
- [2]: http://www.eclipse.org/eclipselink/
- [3]: http://www.oracle.com/technetwork/middleware/toplink/overview/index.html
- [4]: http://www.jooq.org/
+
  [5]: http://en.wikipedia.org/wiki/Domain-specific_language
