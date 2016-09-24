@@ -13,9 +13,6 @@ sdist
 develop-eggs
 .installed.cfg
 
-# Acrylamid specific directories to ignore
-output
-.cache
 
 # vim swap files
 *.swp
