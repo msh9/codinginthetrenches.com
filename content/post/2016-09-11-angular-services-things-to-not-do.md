@@ -181,7 +181,6 @@ function($scope, Stack) {
   stack.push(1);
   console.log(stack.peek())
 }]);
-
 ```
 
 The above code is OK, the problem with it is that if we really need broad Stack like, array based, data structures in our application
