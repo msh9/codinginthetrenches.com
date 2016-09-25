@@ -13,11 +13,11 @@ tags:
 ---
 A 1<sup>st</sup> generation software product will likely miss the mark. It might have missed being that best that it could be by costing too much, being too complex, or just not targeting the right market. In any case, a 1<sup>st</sup> product may lead to another, 2<sup>nd</sup>, product that is cheaper, simpler, or just hits the right notes with the intended customer. Today’s post is about building the wrong product (the 1<sup>st</sup> one) in the right way so that the 2<sup>nd</sup> product can be built better, faster.
 
-<!--more-->The distribution for the 1
+<!--more-->
 
-<sup>st</sup> system may vary between a full blown product (the original Xbox), to skunkworks like internal prototypes that are never consumed by the general public ([CD SNES consoles][1] produced by an unfruitful relationship between Nintendo and Sony Entertainment). In any case, the first generation of a large software product will be wrong.
+The distribution for the 1<sup>st</sup> system may vary between a full blown product (the original Xbox), to skunkworks like internal prototypes that are never consumed by the general public ([CD SNES consoles][1] produced by an unfruitful relationship between Nintendo and Sony Entertainment). In any case, the first generation of a large software product will be wrong.
 
-A product being “wrong” doesn&#8217;t necessarily stop it from being a success. Amazon Web Services has seen continual growth and feature evolution over the last several years. Comparing the feature depth and breadth of AWS’ offerings now and from five years ago is an eye-opening study of how much a product can grow.
+A product being "wrong" doesn't necessarily stop it from being a success. Amazon Web Services has seen continual growth and feature evolution over the last several years. Comparing the feature depth and breadth of AWS’ offerings now and from five years ago is an eye-opening study of how much a product can grow.
 
 A good way to help a product go from wrong to right is to build it up from well tested, modularized components. Because I want to keep your attention let’s place the “How this helps me section” first then get into the prose argument.
 
