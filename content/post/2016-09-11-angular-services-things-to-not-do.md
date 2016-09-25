@@ -146,11 +146,11 @@ can be avoided by making an injected service observable and then appropriately r
 instance. 
 
 In other cases a less than ideal service pattern, like `new` of an injected constructor, arises not due to need to add something to the object, but
-instead a bit of over-engineering.
+instead due to a bit of over-engineering.
 
 ## Over-engineering objects into services and forgetting that JavaScript has inheritance
 
-First let us look at an example that has been paraphrased from a real application's source:
+Let us look at an example that has been paraphrased from a real application's source:
 
 ```javascript
 var app = angular.module('app',[]);
@@ -198,7 +198,7 @@ Array.prototype.peek = function() {
 
 That's it. Our arrays now have peek functionality without having to inject anything, create an Angular service, or unnecessarily wrap
 the `Array` object's existing methods. **To be clear**, I'm personally against [monkey-patching][9] built-in library objects and it is
-broadly [not considered a good idea][10]. The above is demostration of the fact that it is not necessary to encapsulate everything in an Angular service.
+broadly [not considered a good idea][10]. The above is demonstration of the fact that it is not necessary to encapsulate everything in an Angular service.
 For a real project I would recommend creating an object that inherits from `Array` and is included as a raw script like any other utility library.
 
 ```javascript
