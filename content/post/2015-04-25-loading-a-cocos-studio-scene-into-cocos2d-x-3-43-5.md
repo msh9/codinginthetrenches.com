@@ -18,7 +18,7 @@ In the last few weeks I have been slowly learning about the [cocos2d-x][1] frame
   
 <!--more-->
 
-Cocos Studio can output created projects in a couple different formats. I chose to export in the binary format that uses the `.csb` file extension. After doing some web searches I found that there is some confusion in regard to how to load a binary scene and register a listener with an element in the scene. The following code has been tested with cocos2d-x v3.4/3.5 on Windows and OS X.
+Cocos Studio can output created projects in a couple different formats. I chose to export in the binary format that uses the `.csb` file extension. After doing some web searches I found that there is some confusion in regard to how to load a binary scene and register a listener with an element in the scene. The following code has been tested with cocos2d-x v3.4 and 3.5 on Windows and OS X.
 
 The output resource folder from Cocos Studio&#8217;s project export should be placed in a location accessible to the running cocos2d-x application. In my case, I put the generated content in the `Resources` folder in the project directory. I then added the following c++ code inside of a scene class.
 

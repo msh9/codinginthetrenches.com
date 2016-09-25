@@ -39,7 +39,6 @@ Brewing and software development are not the same thing. Regardless of any instr
 
 **Leverage:** The leverage (i.e. output per person) of a developer is lower than a brew master. I&#8217;m obviously fudging the numbers here since there is no way to directly compare liters of beer with implemented features. A single develop can implement a set number of features and tests for features in a day. Similarly a brew master can do a fixed number of tasks per day, but thanks to brewing&#8217;s fixed schedule and reliance on yeast to ferment beer a single brew master can actually be &#8216;making&#8217; several batches of beer simultaneously.
 
-&nbsp;
 
  [1]: http://codinginthetrenches.com/wp-content/uploads/2013/12/Danish_priority_road_sign_merge_ahead_svg.png
  [2]: http://codinginthetrenches.com/wp-content/uploads/2013/12/New_Zealand_TW-35B_svg.png

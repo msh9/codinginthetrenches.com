@@ -73,13 +73,13 @@ td {
   font-weight: inherit;
   font-style: inherit;
   font-family: inherit;
-  font-size: medium;
   vertical-align: baseline;
 }
 body {
   line-height: 1;
   color: #000;
   background: #fff;
+  font-size: medium;
 }
 ol,
 ul {
