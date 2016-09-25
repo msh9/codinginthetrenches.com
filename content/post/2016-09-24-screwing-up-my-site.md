@@ -27,7 +27,7 @@ typically work on back end, non-user facing code, but I also occasionally work o
 is part of the reason is rather embarrassing to admit that my personal website, where I write about such topics, was very broken for a
 week and party broken for a couple **months**. 
 
-First, some background, [a while back I wrote][2] about how I was switching *back* from a static site generator called Acrylamid to 
+First, some background, [a while back I wrote]({{<ref "2014-02-26-from-dynamic-to-static-to-dynamic-or-why-my-blog-is-back-on-wordpress" >}}) about how I was switching *back* from a static site generator called Acrylamid to 
 Wordpress. Fast forward roughly two and one-half years and now my blog is being published using another static site generation tool,
 [Hugo][3] to be specific. I won't go into too much detail at this point in time but suffice to say that Hugo is a "good enough" writing tool to replace
 Wordpress and allows me to take advantage of static site feature such as fast page load times (or so I thought, we'll come back to this in a moment)
@@ -84,10 +84,11 @@ In other words, automated tools help avoid the broken link issues mentioned abov
 #### Suggestions
 
 This is tough because the only way to catch the content issues here is through some clever tooling or manual review. I'm not personally aware of free, easy to use, automated tools
-that will catch duplicated paragraphs and images in an article. If you know of some please [drop me line][8]!
+that will catch duplicated paragraphs and images in an article. If you know of some please [drop me line]({{ <  ref "about-me/index.md"> }})!
 
 This means that we're left with manual review of content in order to catch issues. As before with broken links, this is key to a successful migration of content from one platform
-to another.
+to another. One thing that I can strong recommend is creating a environment to view the website that is produced exactly like the public website, but is not
+publicly available. Several content related issues on this blog were not evident while locally writing content and only became visible after publication.
 
 ### Hey, wait a second, my homepage takes over 2 seconds to render. I thought this was supposed to be fast.
 
@@ -119,15 +120,28 @@ version of a static site and that any perceived slow-ness was due to how my page
 - [GZIP your content][19]. The link goes into a lot more detail on what gzip does for website content and how to enable it with Apache httpd. If the site is being served from
   a CDN like this one, then enabling compression is likely as simple as checking a box in form configuring the CDN's behavior.
 
+I am still working on improving the site in this regard. CloudFront is able to start delivering content to an end user's browser in under one half second, I would like
+it if my site started rendering then too instead of waiting another 1.5 seconds.
+
 ### Not reading the manual
 
-[2]: /2014/02/26/from-dynamic-to-static-to-dynamic-or-why-my-blog-is-back-on-wordpress/
+Effectively using cache control headers is vital to ensuring that a web site's contents are cached correctly both by end clients and by content delivery networks.
+Fortunately, the header is [standardized][20] with ample documentation indicating how it should be used to express the maximum a cached document may be before
+the client should check back with the server. Unfortunately, being standardized does prevent users, such as myself, from putting an invalid character in the header
+and then not reviewing their work. The invalid character caused CloudFront to cache this website for an invalid correct amount of time, not the worst thing in world,
+but very annoying to discover. 
+
+#### Suggestions
+
+- As before, reviewing the real site content is important. Also, reading the standard for cache control headers and not going from memory is advised.
+
+I hope my misadventures with this blog and what I learned along the way help you avoid similar issues in the future.
+
 [3]: https://gohugo.io/ "Hugo"
 [4]: https://codex.wordpress.org/Glossary#Permalink "Permalink"
 [5]: https://www.google.com/webmasters "Google WebMaster"
 [6]: https://www.google.com/analytics "Google Analytics"
 [7]: https://en.wikipedia.org/wiki/HTTP_301 "HTTP 301 Moved Permanently"
-[8]: /about-me "About Me"
 [9]: https://www.webpagetest.org "Web page test"
 [10]: https://www.webpagetest.org/testlog.php?days=365&filter=codinginthetrenches "Recent results"
 [11]: https://wordpress.org/plugins/w3-total-cache/ "W3 Total Cache"
@@ -139,3 +153,4 @@ version of a static site and that any perceived slow-ness was due to how my page
 [17]: https://github.com/msh9/codinginthetrenches.com/blob/master/utilities/optimize-jpg.ps1 "Optimize JPEG"
 [18]: https://github.com/msh9/codinginthetrenches.com/blob/master/utilities/optimize-png.ps1 "Optimize PNG"
 [19]: https://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/ "GZIP"
+[20]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 "Cache Control Header"

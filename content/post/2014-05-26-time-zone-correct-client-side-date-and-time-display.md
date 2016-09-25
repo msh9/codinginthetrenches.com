@@ -11,7 +11,8 @@ tags:
   - web services
 
 ---
-Today’s post one covers one approach for displaying the correct timezone adjusted date and time in a web application. A common example for the problem being addressed is user A located in London, UK uploads a file to a center server located in New York City, US and then user B located in Seoul, SK views the file. When user B attempts to download the file we would like show the user when the file was uploaded in his or her current time zone.
+Today’s post one covers one approach for displaying the correct timezone adjusted date and time in a web application. A common example for the problem 
+being addressed is user A located in London, UK uploads a file to a central server located in New York City, US and then user B located in Seoul, SK views the file. When user B attempts to download the file we would like show the user when the file was uploaded in his or her current time zone.
 
 <!--more-->
 
@@ -24,9 +25,14 @@ To set up the problem we’ll start with a couple assumptions about the environm
 
 Hopefully the above are not onerous assumptions about the application’s operating environment. I will be writing a post soon with tips for date and time management with client-server web applications, but for now we will go forward with the above assumptions.
 
-Given the above assumptions there are a couple approaches that could be used to display a time on a page. For pages that are rendered on the server (with a technology like JSP or Razor) we will need JavaScript to run on page load to read in UTC dates written into the page by the server and then to print out correct local times. Dates must be handled on-demand, however, when processing server responses in dynamic applications that asynchronously get data from the server .
+Given the above assumptions there are a couple approaches that could be used to display a time on a page. For pages that are rendered on the server 
+(with a technology like JSP or Razor) we will need JavaScript to run on page load to read in UTC dates written into the page by the server and then 
+to print out correct local times. Dates must be handled on-demand, however, when processing server responses in dynamic applications that asynchronously 
+get data from the server .
 
-We will discuss the server side rendering scenario first. The HTML5 standard introduced new [data attributes][4] on elements that allow us to store information directly on a tag. In the server side rendering scenario the server can write the date information directly into a page using a data attribute. A .NET Razor example of writing date information into the page is as follows:
+We will discuss the server side rendering scenario first. The HTML5 standard introduced new [data attributes][4] on elements that allow us to store 
+information directly on a tag. In the server side rendering scenario the server can write the date information directly into a page using a data 
+attribute. A .NET Razor example of writing date information into the page is as follows:
 
 ```html
 ...
