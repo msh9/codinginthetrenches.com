@@ -24,10 +24,10 @@ Today's post is about what I'll be doing to avoid these problems and how they ca
 
 My current and past employment has typically had me working in the area of web APIs and rich user applications (in the browser). I
 typically work on back end, non-user facing code, but I also occasionally work on some front end systems as well. This background
-is part of the reason is rather embarrassing to admit that my personal website, where I write about such topics, was very broken for a
+is part of the reason why it is rather embarrassing to admit that my personal website, where I write about such topics, was very broken for a
 week and party broken for a couple **months**. 
 
-First, some background, [a while back I wrote]({{<ref "2014-02-26-from-dynamic-to-static-to-dynamic-or-why-my-blog-is-back-on-wordpress" >}}) about how I was switching *back* from a static site generator called Acrylamid to 
+First, some background, [a while back I wrote]({{<ref "2014-02-26-from-dynamic-to-static-to-dynamic-or-why-my-blog-is-back-on-wordpress.md" >}}) about how I was switching *back* from a static site generator called Acrylamid to 
 Wordpress. Fast forward roughly two and one-half years and now my blog is being published using another static site generation tool,
 [Hugo][3] to be specific. I won't go into too much detail at this point in time but suffice to say that Hugo is a "good enough" writing tool to replace
 Wordpress and allows me to take advantage of static site feature such as fast page load times (or so I thought, we'll come back to this in a moment)
@@ -92,7 +92,9 @@ publicly available. Several content related issues on this blog were not evident
 
 ### Hey, wait a second, my homepage takes over 2 seconds to render. I thought this was supposed to be fast.
 
-
+<video controls>
+ <source src="/images/2016-09-24-screwing-up/codinginthetrenches-com-load-filmstrip-post-compression.mp4" type="video/mp4">
+</video>
 
 [Web page test][9] is a great website for testing how fast websites load and for determining how to make them faster. Here's the [recent results list][10] for this website at time of
 writing. The current (as of September, 2016) test results will expired after a year so for posterity it current takes ~1.9 seconds to render *anything* to the page. A few days ago
