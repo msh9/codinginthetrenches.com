@@ -21,3 +21,19 @@ a static generation tool from Wordpress. [I have previously written about not us
 Using a static site generation tool can be [fraught with challenges]({{<ref "2016-09-24-screwing-up-my-site.md" >}}) for those that are not careful. Indeed, my personal blog has been broken in various ways for a portion of
  this last summer. In spite of the difficulties I have run into I will be staying with my static site based content tools for now.
 
+Before going into the reasoning for using a static tools again, let's look at what tools and steps are involved in getting content onto the web:
+
+1. The `hugo new` command creates posts on my local desktop with pre-filled boilerplate that can be modified as needed.
+2. A [github repository][1] stores the source text, styling, and images for the site's content.
+3. A push hook from GitHub to CircleCI kicks off builds of the site's content
+4. The CircleCI build itself uses a [Docker container][2] with hugo installed in it in order to build the site.
+5. After a successful content build, the CircleCI build updates the site's content to AWS S3
+6. Finally, as the site's cached content in AWS CloudFront naturally expires (due to a max-age setting), new and updated content is pulled from S3.
+
+## Why I am using a static site generator
+
+
+
+
+1: https://github.com/msh9/codinginthetrenches.com "GitHub codinginthetrenches.com"
+2: https://hub.docker.com/r/msh9/hugo-builder/ "Hugo Builder"
