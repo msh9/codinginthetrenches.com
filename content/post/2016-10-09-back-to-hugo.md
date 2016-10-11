@@ -32,7 +32,10 @@ Before going into the reasoning for using a static tools again, let's look at wh
 
 ## Why I am using a static site generator
 
+The primary reason is that in the intervening years I have discovered solutions and better tools for static site generation. 
 
+1. Having an automated build system. While setting up an open source build pipeline was certainly possible in 2014 (CircleCI was
+   founded in 2011), it is easier to setup now than in the past. 
 
 
 1: https://github.com/msh9/codinginthetrenches.com "GitHub codinginthetrenches.com"
