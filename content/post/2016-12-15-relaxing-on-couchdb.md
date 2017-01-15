@@ -3,7 +3,6 @@ author = "Michael Hughes"
 title = "Relaxing on CouchDB"
 description = "Thoughts and a couple tips on using Apache CouchDB 2.0 for the first time"
 date = "2016-12-15T20:10:46-07:00"
-draft = true
 layout = "post"
 tags = ["tips", "using-software","databases"]
 categories = ["data"]
