@@ -54,8 +54,8 @@ executation is still working against *some* indexed key.
 - Have a retry method in place before going to production
 
 One of the [known issues][7] for CouchDB is that it can sometimes return 500s when multiple clients are simultaneously writing or deleting documents in the same collection. We ran into this particular issue with
-an [Apache Storm][8] based system that made a large number of simultaneous HTTP PUTs to a CouchDB collection in our systems. The issue is not as bad as it initiatally sounds. The most important thing to keep in mind
-is that there **must be** failure handling and retry code in whatever client is writing to CouchDB. This is less an issue with couchdb and more just general programming practice. All too often newly written networked software
+an [Apache Storm][8] based system that made a large number of simultaneous HTTP PUTs to a CouchDB collection in our system. The issue is not as bad as it initiatally sounds. The most important thing to keep in mind
+is that there **must be** failure handling and retry code in whatever client is writing to CouchDB. This is less an issue with CouchDB and more just general programming practice. All too often newly written networked software
 just assumes that the [network is reliable and the server will always respond correctly.][9] With CouchDB 2.0's behavior, it becomes important from the beginning of a project that failure handling and retry logic is present.
 
 - Beware of couchdb's space consumption
