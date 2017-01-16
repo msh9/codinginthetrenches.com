@@ -12,7 +12,7 @@ tags:
   - tips
 
 ---
-Previously we have [discussed one approach]({{<ref "2014-05-26-time-zone-correct-client-side-date-and-time-display" >}}) and gave some implementing code for providing time zone adjusted date times to client web applications. Within the space of user facing web applications there are few different approaches to handling the storage and transmission of date time information. Today we will look at a couple broader themes for delivery of date times to client applications from servers and some thoughts on how to do it well.
+Previously we have [discussed one approach]({{<ref "2014-05-26-time-zone-correct-client-side-date-and-time-display.md" >}}) and gave some implementing code for providing time zone adjusted date times to client web applications. Within the space of user facing web applications there are few different approaches to handling the storage and transmission of date time information. Today we will look at a couple broader themes for delivery of date times to client applications from servers and some thoughts on how to do it well.
 
 <!--more-->
 
