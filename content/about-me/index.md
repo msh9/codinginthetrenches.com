@@ -5,7 +5,7 @@ layout: page
 date: 2014-07-24
 
 ---
-[<img class="aligncenter wp-image-205" src="http://codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg" alt="Picture of Michael Hughes" width="500" height="454" />][1]
+[<img class="aligncenter wp-image-205" src="//codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg" alt="Picture of Michael Hughes" width="500" height="454" />][1]
 
 Hello, my name is Michael Hughes. I currently reside in the Salt Lake City area and enjoy various hobbies ranging from home brewing to skiing. Although, having recently purchased a house, pursuits like furniture finishing, painting, and plumbing have become interesting to me as well.
 
@@ -17,7 +17,7 @@ A couple ways to reach out:
   
 <a style="text-decoration: none;" href="http://www.linkedin.com/pub/michael-hughes/33/405/3a"><span style="color: #0783b6;"><img style="vertical-align: middle;" src="https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" alt="View Michael Hughes's LinkedIn profile" width="20" height="15" border="0" />&nbsp;</span></a>
   
-<a style="text-decoration: none;" href="https://github.com/msh9"><img class="alignnone size-full wp-image-209" src="http://codinginthetrenches.com/wp-content/uploads/2014/07/GitHub-Mark-32px.png" alt="GitHub profile" width="20" height="20" />&nbsp;</a>
+<a style="text-decoration: none;" href="https://github.com/msh9"><img class="alignnone size-full wp-image-209" src="//codinginthetrenches.com/wp-content/uploads/2014/07/GitHub-Mark-32px.png" alt="GitHub profile" width="20" height="20" />&nbsp;</a>
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg
+ [1]: //codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg
  [2]: http://www.motorolasolutions.com/

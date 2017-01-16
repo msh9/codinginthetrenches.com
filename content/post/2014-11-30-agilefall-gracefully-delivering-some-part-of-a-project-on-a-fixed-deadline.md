@@ -19,11 +19,11 @@ IT consulting is an odd place to be when it comes to software engineering practi
 
 Certain agile (many?) methodologies lay importance on decreasing the resolution of goals that are further into the future.<figure id="attachment_66" style="width: 178px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-66" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png" alt="Increasingly Blurry" width="178" height="226" />][2]<figcaption class="wp-caption-text">Increasingly blurry, you get the idea.</figcaption></figure> 
+[<img class="size-full wp-image-66" src="//codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png" alt="Increasingly Blurry" width="178" height="226" />][2]<figcaption class="wp-caption-text">Increasingly blurry, you get the idea.</figcaption></figure> 
 
 In other words the next sprint will delivery a specific set of features to the business (although there is no guarantee on what order the developers will work on the tasks). All that may be known about the next month’s sprints though is that they will broadly address certain requests or architectural components (possibly [epics][3]). The business managers we work with often want the following though:<figure id="attachment_67" style="width: 178px" class="wp-caption aligncenter">
 
-[<img class="size-full wp-image-67" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png" alt="Clear steps with no blurriness" width="178" height="226" />][4]<figcaption class="wp-caption-text">Clear steps with no blurriness</figcaption></figure> 
+[<img class="size-full wp-image-67" src="//codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png" alt="Clear steps with no blurriness" width="178" height="226" />][4]<figcaption class="wp-caption-text">Clear steps with no blurriness</figcaption></figure> 
 
 This is not an unreasonable ask, consulting is often an expensive service and typically we&#8217;ve been asked to solve a severe pain point (or several severe pain points) in the business. The stake holder&#8217;s perspective is that he or she needs to know when specific components will be completed. Additionally, contracts often have end dates by which all functionality must be delivered. 
 
@@ -33,7 +33,7 @@ An approach with strict upfront planning and preparation does, however, provide
 
 The best projects I have been on have started with _almost_ waterfall like planning, but in a manner that sets priorities for the deliverables which are due by a certain date.
 
-[<img class="aligncenter wp-image-284 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/11/should-could-must.png" alt="Could Have, Should Have, Must Have" width="557" height="503" />][7]
+[<img class="aligncenter wp-image-284 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/11/should-could-must.png" alt="Could Have, Should Have, Must Have" width="557" height="503" />][7]
 
 The concept of could have, should have, must have is not original nor all that new. It bears to be repeated though because it was highly relevant to the success of the projects whose planning and execution went well. A stratification of the needs for a project across priority levels helped to identify what the team would focus on as a long term goal that had to be completed versus what could be worked on opportunistically. Things that are required for a project to launch, “must haves,”  are transformed into epics that describe the steps necessary to accomplish them. During initial planning an architect’s input is also consulted to help form the overall plan for how the software implementation would support a client’s needs.
 
@@ -53,12 +53,12 @@ To summarize
   4. Find the [stakeholders][10] by asking questions and looking for answers. If a project is not planned in conjunction with the owners and end users all of the prior advice will be of much less use.
 
  
- [2]: http://codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png
+ [2]: //codinginthetrenches.com/wp-content/uploads/2014/03/blurry-steps.png
  [3]: http://www.solutionsiq.com/agile-glossary/epic/
- [4]: http://codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png
+ [4]: //codinginthetrenches.com/wp-content/uploads/2014/03/clear-steps.png
  [5]: https://www.youtube.com/watch?v=tyUkIjDO1-E
  [6]: http://en.wikipedia.org/wiki/Waterfall_model
- [7]: http://codinginthetrenches.com/wp-content/uploads/2014/11/should-could-must.png
+ [7]: //codinginthetrenches.com/wp-content/uploads/2014/11/should-could-must.png
  [8]: http://scrummethodology.com/scrum-sprint/
  [9]: http://www.projectcartoon.com/cartoon/2
  [10]: http://en.wikipedia.org/wiki/Project_stakeholder

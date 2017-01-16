@@ -12,7 +12,7 @@ tags:
 ---
 Something about describing a developer as a rock star is slightly off putting. Maybe it&#8217;s because when I think of rock stars the phrase &#8220;temperamental divas&#8221; comes to mind or maybe it&#8217;s because I never really understand what it means.<figure id="attachment_70" style="width: 400px" class="wp-caption aligncenter">
 
-[<img class="wp-image-70 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/03/4935305381_b2c9929817_b-e1417402364408.jpg" alt="Rwk start license plate -- Photo By gammaman / CC By 2.0" width="400" height="267" />][1]<figcaption class="wp-caption-text">Maybe it means this &#8212;   
+[<img class="wp-image-70 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/03/4935305381_b2c9929817_b-e1417402364408.jpg" alt="Rwk start license plate -- Photo By gammaman / CC By 2.0" width="400" height="267" />][1]<figcaption class="wp-caption-text">Maybe it means this &#8212;   
 Photo By [gammaman][2] / [CC By 2.0][3]</figcaption></figure> 
 
 I think that I understand the intent. Technology firms and start ups really want talented motivated individuals who love what they do to apply for positions. The same phrases (talented, motivated, etc) could also be applied to members of popular bands and pop sensations. It just also happens that a number of other positive (or negative) adjectives may apply to a really popular musician but not to a good team software developer. At my employer very few projects are completed by solo developers.
@@ -23,7 +23,7 @@ My point about teamwork and how rock stars somehow are not good team contributor
 
 That&#8217;s all for now&#8211;Just try to avoid the phrase &#8216;rock star&#8217; in recruiting descriptions.
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2014/03/4935305381_b2c9929817_b.jpg
+ [1]: //codinginthetrenches.com/wp-content/uploads/2014/03/4935305381_b2c9929817_b.jpg
  [2]: http://www.flickr.com/photos/gammaman/
  [3]: http://creativecommons.org/licenses/by/2.0/
  [4]: http://en.wikipedia.org/wiki/Straw_man

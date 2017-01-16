@@ -27,7 +27,7 @@ The [Apache Storm][1] project implements a near real time message processing sys
 
 In pictures:
 
-<a href="http://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png" rel="attachment wp-att-457"><img class="aligncenter size-full wp-image-457" src="http://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png" alt="Storm Interface Inheritence" width="578" height="425" srcset="https://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence-300x221.png 300w, https://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png 578w" sizes="(max-width: 578px) 100vw, 578px" /></a>
+<a href="//codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png" rel="attachment wp-att-457"><img class="aligncenter size-full wp-image-457" src="//codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png" alt="Storm Interface Inheritence" width="578" height="425" srcset="https://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence-300x221.png 300w, https://codinginthetrenches.com/wp-content/uploads/2016/02/Storm-Interface-Inheritence.png 578w" sizes="(max-width: 578px) 100vw, 578px" /></a>
 
 On the left we have how Storm is currently implemented. Circled on the right we have another way of implementing basic and advanced client use scenarios. I am, admittedly, over simplify the Storm project’s “Collector” types here. The project instead of using inheritance has two separate Java package trees and type hierarchies for these different usages. The interesting thing about this though is that the two hierarchies are designed to provide the same fundamental functionality, an API for sending events. The two cannot be used together, however, because they sit in different type hierarchies.
 
@@ -98,6 +98,6 @@ Awkwardness aside, composing implementations gives us more freedom to write othe
  [1]: https://storm.apache.org/
  [2]: https://github.com/apache/storm/blob/a4f9f8bc5b4ca85de487a0a868e519ddcb94e852/storm-core/src/jvm/org/apache/storm/topology/IBasicOutputCollector.java
  [3]: https://github.com/apache/storm/blob/a4f9f8bc5b4ca85de487a0a868e519ddcb94e852/storm-core/src/jvm/org/apache/storm/task/IOutputCollector.java
- [4]: http://codinginthetrenches.com/2014/09/25/interface-mania-considering-when-to-add-an-interface-for-class/
+ [4]: //codinginthetrenches.com/2014/09/25/interface-mania-considering-when-to-add-an-interface-for-class/
  [5]: https://en.wikipedia.org/wiki/Composition_over_inheritance
  [6]: http://talks.golang.org/2012/splash.article#TOC_15.

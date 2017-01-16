@@ -13,7 +13,8 @@ tags:
   - tips
 
 ---
-Today we will look at whether it’s worth developer time to pre-size ArrayList objects in Java application code. We will take a similar approach to the one taken in a prior post on how long it takes to handle an [exception in Java][1].
+Today we will look at whether it’s worth developer time to pre-size ArrayList objects in Java application code. 
+We will take a similar approach to the one taken in a prior post on how long it takes to handle an [exception in Java]({{<ref "2014-09-01-how-long-it-takes-to-throw-an-exception-in-java.md">}}).
 
 <!--more-->
 
@@ -21,7 +22,7 @@ Java has two convenient generic List implementations, [LinkedList][2] and [Arr
 
 ArrayLists **don’t** support guaranteed constant time element insertion because of the following situation:<figure id="attachment_251" style="width: 350px" class="wp-caption aligncenter">
 
-[<img class="wp-image-251 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/09/ArrayListOutOfSpace.png" alt="Inserting into an array which doesn't have enough in space." width="350" height="197" />][5]<figcaption class="wp-caption-text">Insert &#8220;uh oh&#8221; from [Kid Pix][6] here</figcaption></figure> 
+[<img class="wp-image-251 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/09/ArrayListOutOfSpace.png" alt="Inserting into an array which doesn't have enough in space." width="350" height="197" />][5]<figcaption class="wp-caption-text">Insert &#8220;uh oh&#8221; from [Kid Pix][6] here</figcaption></figure> 
 
 Attempting to insert a pointer into an array like this in C would cause a segfault (or at least that is what you hope for as opposed to it silently failing and then crashing at some later date in time.) This is a post about Java though so we have objects, object references, and clever code in the library ArrayList implementation. Prior to each [add][7] operation the ArrayList will ensure that there is sufficient capacity in its backing array for one more element. If there is not sufficient capacity a new array is allocated, the contents of the original backing array are replicated into the new array, and then the insert continues. **Alternatively,** an application can specify the required backing array size when the ArrayList object is instantiated. Pre-sizing the ArrayList avoids unnecessarily object allocations and time spent copying array contents from one array to another on each sizing expansion.
 
@@ -111,11 +112,11 @@ At this point I should point out that I am not against optimization. I don’t t
 
 That&#8217;s all for today. In short, use pre-sized ArrayLists if it is convenient and/or it happens to be a very performance sensitive application.  Otherwise, in terms of performance it is probably more important to make sure that the application’s data layer interactions (SQL queries??) are well written than worrying about pre-sized lists.
 
- [1]: http://codinginthetrenches.com/2014/09/01/how-long-it-takes-to-throw-an-exception-in-java/ "How long it takes to throw an exception in Java"
+ 
  [2]: http://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html
  [3]: http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
  [4]: http://en.wikipedia.org/wiki/Doubly_linked_list
- [5]: http://codinginthetrenches.com/wp-content/uploads/2014/09/ArrayListOutOfSpace.png
+ [5]: //codinginthetrenches.com/wp-content/uploads/2014/09/ArrayListOutOfSpace.png
  [6]: http://en.wikipedia.org/wiki/Kid_Pix
  [7]: http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#add-E-
  [8]: http://en.wiktionary.org/wiki/your_mileage_may_vary

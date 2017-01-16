@@ -16,11 +16,11 @@ I saw an advertisement for a &#8216;smart&#8217; laundry machine yesterday. The 
 
 Smart personal devices are great phones, glasses, and wearable electronics all have made innovative leaps in the last few years and are expected to continue that course [this year][2]. Modern smart phones can and do, do many things that were not previously possible and have in turn enabled users to have more connected mobile lives for [better or worse][3]).
 
-[<img class="aligncenter wp-image-139 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/05/phones.jpg" alt="phones" width="839" height="445" />][4]
+[<img class="aligncenter wp-image-139 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/05/phones.jpg" alt="phones" width="839" height="445" />][4]
 
 A chest freezer on the other hand is still a chest freezer.
 
-[<img class="aligncenter wp-image-138 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/05/chest-freezer.jpg" alt="A chest freezer" width="1900" height="1621" />][5]
+[<img class="aligncenter wp-image-138 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/05/chest-freezer.jpg" alt="A chest freezer" width="1900" height="1621" />][5]
 
 I do not mean to disparage the major home appliance industry, there has been a lot of innovation in the space over the last several years. Modern refrigerators are substantially [more efficient][6] and featureful in terms of food storage than older models. Similarly modern laundry machines now incorporate steam cleaning techniques to help reduce wrinkling in clothing . There is a trend here though, appliances have gotten better by getting better at their primary purpose, lengthening the shelf life of food and cleaning fabrics better in my examples respectively.
 
@@ -35,8 +35,8 @@ So what&#8217;s the conclusions? I love technology, I especially love networke
  [1]: http://en.wikipedia.org/wiki/Internet_of_Things
  [2]: http://bits.blogs.nytimes.com/2013/12/29/disruptions-coming-in-2014-extremely-smart-watches-and-wearable-tvs/?_php=true&_type=blogs&_r=0
  [3]: http://online.wsj.com/news/articles/SB124986371466018299
- [4]: http://codinginthetrenches.com/wp-content/uploads/2014/05/phones.jpg
- [5]: http://codinginthetrenches.com/wp-content/uploads/2014/05/chest-freezer.jpg
+ [4]: //codinginthetrenches.com/wp-content/uploads/2014/05/phones.jpg
+ [5]: //codinginthetrenches.com/wp-content/uploads/2014/05/chest-freezer.jpg
  [6]: http://needtoknow.nas.edu/energy/energy-efficiency/refrigeration/
  [7]: http://en.wikipedia.org/wiki/Durable_good
  [8]: http://www.whitegoodstradeassociation.org/index.php/for-public-mainmenu-43/how-long-should-it-last-

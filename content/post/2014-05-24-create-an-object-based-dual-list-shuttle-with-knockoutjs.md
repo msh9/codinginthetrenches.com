@@ -16,7 +16,7 @@ A quick tip post on using Knockoutjs to create a certain type of common web UI c
 
 <!--more-->A shuttle component, AKA two select boxes with buttons that move things between them is a commonly seen in permission or role assignment scenarios.
 
-[<img class="aligncenter wp-image-152 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/05/shuttle.png" alt="A shuttle" width="426" height="198" />][1]
+[<img class="aligncenter wp-image-152 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/05/shuttle.png" alt="A shuttle" width="426" height="198" />][1]
 
 The general concept is that one list contains the set of all things that the user could select, by selecting items in the list of all things and clicking a button the user can move his or her selection into the other list. The process of selecting and moving can be repeated in order to achieve the desired list of assigned items.
 
@@ -77,7 +77,7 @@ We can tie this all together now so that the left and right arrow buttons move i
 
 I hope this post was helpful since when I initially searched for shuttle implementations I didn’t find anything immediately useful.
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2014/05/shuttle.png
+ [1]: //codinginthetrenches.com/wp-content/uploads/2014/05/shuttle.png
  [2]: http://learn.knockoutjs.com/
  [3]: http://jsfiddle.net/78jN3/2
  [4]: https://gist.github.com/msh9/63c575e043ca2b6800aa#file-twoselects-html

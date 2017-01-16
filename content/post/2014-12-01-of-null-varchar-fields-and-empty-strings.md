@@ -17,7 +17,7 @@ How to represent a blank user input is a reasonably innocent design question. On
 
 Today&#8217;s post is about how represent nothing.<figure id="attachment_281" style="width: 179px" class="wp-caption aligncenter">
 
-[<img class=" wp-image-281" src="http://codinginthetrenches.com/wp-content/uploads/2014/11/blackbox.png" alt="A black box" width="179" height="179" />][1]<figcaption class="wp-caption-text">The box represents the emptiness of input forms implemented in PHP.</figcaption></figure> 
+[<img class=" wp-image-281" src="//codinginthetrenches.com/wp-content/uploads/2014/11/blackbox.png" alt="A black box" width="179" height="179" />][1]<figcaption class="wp-caption-text">The box represents the emptiness of input forms implemented in PHP.</figcaption></figure> 
 
 Although there are lots of cases where an application may take input, handling (human) user input is one of the most interesting because it&#8217;s often highly varied. Recently I worked with a organization that has volunteers enter the manufacturer name of the computer they use for an activity. For a computer made by Dell Inc. the data entered by those volunteers ranged from &#8220;Dell Inc.&#8221; to &#8220;Dell Inc&#8221; to &#8220;Dell&#8221; to &#8220;dell&#8221; and finally, also &#8220;&#8221;. Each user&#8217;s input was then stored in a database along with other user inputs. Since the user&#8217;s inputs were free form text VARCHAR columns were used to store them. We&#8217;ll ignore the [data normalization][2] issues involved in this kind of data for today and instead just focus on what happens when the input is &#8220;&#8221;.
 
@@ -88,6 +88,6 @@ where t.some_varchar &lt;&gt; ''</pre>
 
 The first two of three SQL fragments above look better to my eye by not having to accommodate the overloaded meaning of &#8221; which can be accomplished by storing the absence of user input as NULL and letting a blank just be a blank.
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2014/11/blackbox.png
+ [1]: //codinginthetrenches.com/wp-content/uploads/2014/11/blackbox.png
  [2]: http://en.wikipedia.org/wiki/Data_normalization
  [3]: https://gist.github.com/msh9/8e75f2d2c66d939f7701

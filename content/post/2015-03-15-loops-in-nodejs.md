@@ -159,6 +159,6 @@ It&#8217;s great to use the most basic kind of for–loop because it makes the c
 I want to emphasize that the above results are relevant to NodeJS running on a server. The performance of these different loop types may vary when run in web browsers. As always, when performance testing be sure to test in the environment in which the application will run.
 
  [1]: https://gist.github.com/msh9/cd26957480635f7aa076
- [2]: http://codinginthetrenches.com/2014/09/10/java-arraylist-resize-costs/ "Java ArrayList resize costs"
+ [2]: //codinginthetrenches.com/2014/09/10/java-arraylist-resize-costs/ "Java ArrayList resize costs"
  [3]: http://code.google.com/p/v8/
  [4]: http://en.wikipedia.org/wiki/Just-in-time_compilation

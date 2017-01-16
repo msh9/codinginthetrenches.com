@@ -24,13 +24,13 @@ To following along with the code I used to derive the following results please 
 
 The first case we look at consist of 3 tiers with a very strong separation between tiers, including wrapped exceptions. The picture for this looks like the following image.<figure id="attachment_232" style="width: 346px" class="wp-caption aligncenter">
 
-[<img class="wp-image-232 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/09/Fully-Wrapped-Exceptions.png" alt="A full exception hierarchy" width="346" height="265" />][2]<figcaption class="wp-caption-text">A full exception hierarchy</figcaption></figure> 
+[<img class="wp-image-232 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/09/Fully-Wrapped-Exceptions.png" alt="A full exception hierarchy" width="346" height="265" />][2]<figcaption class="wp-caption-text">A full exception hierarchy</figcaption></figure> 
 
 Each level’s associated exception inherits from `java.lang.Exception` creating a simple checked exception. An application exception thrown by a lower tier is caught and re-thrown at each tier with the _current_ tier’s exception. The full stack of errors took **1770** nanoseconds (on average) to execute. Nanoseconds. 1800 nanoseconds is still admittedly a relatively long time in the context of the speed of modern computer hardware. 1800 nanoseconds in the context of business applications, however, is next to nothing. We will come back to the “next to nothing comment” in a bit though, next we will look at whether this timing scales linearly with the number of exceptions thrown.
 
 In this example the LowLevelClass throws a single LowLevelException which is caught _and not_ re-thrown by the MidLevelClass. In short, this example throws only 1 exception while the prior example threw 3 exceptions. The following is the diagram from above updated for this example.<figure id="attachment_235" style="width: 346px" class="wp-caption aligncenter">
 
-[<img class="wp-image-235 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/09/Single-Exception.png" alt="A single exception is thrown" width="346" height="265" />][3]<figcaption class="wp-caption-text">A single exception is thrown</figcaption></figure> 
+[<img class="wp-image-235 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/09/Single-Exception.png" alt="A single exception is thrown" width="346" height="265" />][3]<figcaption class="wp-caption-text">A single exception is thrown</figcaption></figure> 
 
 In this case the average runtime for the example was 590 nanoseconds. Incidentally, 590 is also one third of 1770, not a particularly surprising result given that lack of application logic beside exception handling in the demo application.
 
@@ -112,7 +112,7 @@ At this point it’s worth noting that all application benchmarking is subjectiv
 
 The network time is useful reference point for myself since several business applications I have worked on in the last few years have depended on both internal corporate resources and external public resources, all of which were accessed over a network connection. The above is not to say that developers should go crazy with exceptions and use them for control flow ([please, please don’t do this][4]), but it does indicate that it is **very incorrect** to say an exception should not be thrown because it’s “too expensive.” In short, in Java at least, figure out an error handling strategy and if it includes exceptions, don&#8217;t worry about the performance impact (too much).
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2014/09/WrappedExceptions.zip
- [2]: http://codinginthetrenches.com/wp-content/uploads/2014/09/Fully-Wrapped-Exceptions.png
- [3]: http://codinginthetrenches.com/wp-content/uploads/2014/09/Single-Exception.png
+ [1]: //codinginthetrenches.com/wp-content/uploads/2014/09/WrappedExceptions.zip
+ [2]: //codinginthetrenches.com/wp-content/uploads/2014/09/Fully-Wrapped-Exceptions.png
+ [3]: //codinginthetrenches.com/wp-content/uploads/2014/09/Single-Exception.png
  [4]: http://en.wikipedia.org/wiki/Spaghetti_code

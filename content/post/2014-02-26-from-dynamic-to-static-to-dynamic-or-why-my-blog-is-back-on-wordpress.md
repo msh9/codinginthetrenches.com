@@ -35,7 +35,7 @@ WordPress is a writing tool. I click a handful of buttons (less than 4) and wri
 
 Essentially I have moved my blog back to WordPress because it doesn't make me do this when writing a post:<figure id="attachment_57" style="width: 400px" class="wp-caption aligncenter">
 
-[<img class="wp-image-57 size-full" src="http://codinginthetrenches.com/wp-content/uploads/2014/02/497374910_9d8bfb7898_o-e1417402428878.jpg" alt="" width="400" height="300" />][5]<figcaption class="wp-caption-text">Photo By [umjanedoan][6] / [CC By 2.0][7]</figcaption></figure> 
+[<img class="wp-image-57 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/02/497374910_9d8bfb7898_o-e1417402428878.jpg" alt="" width="400" height="300" />][5]<figcaption class="wp-caption-text">Photo By [umjanedoan][6] / [CC By 2.0][7]</figcaption></figure> 
 
 Is there a takeaway from this post? Why yes there is. A good user facing application (that is really any application internally or externally that has human users) must make the core purpose of the application at least intelligible. I have poked at [this topic before][8], but it's so important that I'm going to mention it again from my own perspective. I originally used static site generators because I placed value on keeping my original text content in restructured text format and acrylamid **made this easy**. Similarly I am back to WordPress now because I have (much) less time to write and therefore value ease of post creation and publishing, something that WordPress **makes really easy. **Continuing this theme there are [other examples][9] of [easier to use][10] products and more [customer centric][11] policies doing better with consumers. Admittedly the later two of those linked articles are more opinion than fact, but you get the idea.
 
@@ -45,10 +45,10 @@ In short: If you're building a tool that solves a problem make sure that the too
  [2]: http://daringfireball.net/projects/markdown/
  [3]: http://docutils.sourceforge.net/rst.html
  [4]: https://www.google.com/search?q=simple+things+simple+complex+things+possible
- [5]: http://codinginthetrenches.com/wp-content/uploads/2014/02/497374910_9d8bfb7898_o-e1417402428878.jpg
+ [5]: //codinginthetrenches.com/wp-content/uploads/2014/02/497374910_9d8bfb7898_o-e1417402428878.jpg
  [6]: http://www.flickr.com/photos/umjanedoan/
  [7]: http://creativecommons.org/licenses/by/2.0/
- [8]: http://codinginthetrenches.com/2014/01/07/ux-is-important-for-business-applications-too/ "UX is important for business applications too"
+ [8]: //codinginthetrenches.com/2014/01/07/ux-is-important-for-business-applications-too/ "UX is important for business applications too"
  [9]: http://arstechnica.com/information-technology/2014/01/quarkxpress-the-demise-of-a-design-desk-darling/
  [10]: http://techland.time.com/2012/05/07/six-reasons-why-apple-is-successful/
  [11]: http://www.tibco.com/blog/2013/04/06/valves-steam-is-beloved-by-gamers-while-eas-origin-is-loathed-why/

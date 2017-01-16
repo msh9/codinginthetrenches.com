@@ -20,7 +20,7 @@ Martin Folwer’s blog and website is a common reference for modern design patte
 
 ORMs are often used to mediate between the application and database system in non-exotic (think business process applications) relational database backed applications. An ORM like Entity Framework or Hibernate generates SQL to interact with a relational back-end and exposes object collections to the application. The object collections exposed by ORMs like Hibernate are also managed in the application’s memory in order to help manage things like transactions and speed up interactions with the database. The prior descriptions should sound familiar since these ORMs are implementing the repository pattern for the application.
 
-[<img class="alignnone wp-image-316" src="http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png" alt="ORM Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][3]
+[<img class="alignnone wp-image-316" src="//codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png" alt="ORM Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][3]
 
 There are legitimate reasons for wrapping an ORM inside of another set of repositories. An oft cited reason for wrapping an ORM is to improve the testability of application logic that depends on querying the data layer. Fortunately, with recent iterations of Hibernate and Entity Framework testing application logic has become much easier than it was previously. In some cases though it can still be valid to create a veneer over the ORM in order to make mock creation easier.
 
@@ -28,7 +28,7 @@ A slightly less legitimate reason for applying the repository pattern over an OR
 
 Unfortunately on applications that I have worked on, it appears that the applications’ ORMs were wrapped in a set of repositories because it seemed like a “good thing to do” ™. The result of this wrapping often yields an application that looks likes the following:
 
-[<img class="alignnone wp-image-317" src="http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png" alt="ORM Repository Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][4]
+[<img class="alignnone wp-image-317" src="//codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png" alt="ORM Repository Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][4]
 
 I’ve never been fond of this design because it promotes creating access classes with single line methods.
 
@@ -68,6 +68,6 @@ In case of the above issues it may be best to remove the wrapping repositories o
 On its own the repository pattern is a good approach to handling the interaction between application logic and data systems. Popular ORMs like Entity Framework do a large part of the heavy lifting necessary to implement the repository pattern for an application. Creating an abstraction on top of an ORM is not necessary a bad idea, but it’s important to do so thoughtfully in order to not create a leaky abstraction or add complexity to the application without justification.
 
 
- [3]: http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png
- [4]: http://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png
+ [3]: //codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png
+ [4]: //codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png
  [5]: http://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application

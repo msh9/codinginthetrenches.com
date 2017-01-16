@@ -17,7 +17,7 @@ I&#8217;ve been brewing and developing systems for a few years now. Today&#8217;
 
 ## Similarities<figure id="attachment_25" style="width: 200px" class="wp-caption alignleft">
 
-[<img class="    wp-image-25 size-full" style="border: 2px solid black; margin-right: 5px;" title="Merge the similarities!" src="http://codinginthetrenches.com/wp-content/uploads/2013/12/Danish_priority_road_sign_merge_ahead_svg-e1417402557144.png" alt="" width="200" height="266" />][1]<figcaption class="wp-caption-text">Merge the similarities!</figcaption></figure> 
+[<img class="    wp-image-25 size-full" style="border: 2px solid black; margin-right: 5px;" title="Merge the similarities!" src="//codinginthetrenches.com/wp-content/uploads/2013/12/Danish_priority_road_sign_merge_ahead_svg-e1417402557144.png" alt="" width="200" height="266" />][1]<figcaption class="wp-caption-text">Merge the similarities!</figcaption></figure> 
 
 There are a surprising number of similarities between good brewing practice and good development project practices. Why shouldn&#8217;t there be? Both brewing and professional development have the end goals of repeatability and quality products. So what can we learn from brewing?
 
@@ -29,7 +29,7 @@ There are a surprising number of similarities between good brewing practice and 
 
 ## Differences<figure id="attachment_26" style="width: 200px" class="wp-caption alignleft">
 
-[<img class="wp-image-26 size-full" style="border: 2px solid black; margin-right: 2px;" title="or not" src="http://codinginthetrenches.com/wp-content/uploads/2013/12/New_Zealand_TW-35B_svg-e1417402571769.png" alt="or don't merge" width="200" height="200" />][2]<figcaption class="wp-caption-text">or not</figcaption></figure> 
+[<img class="wp-image-26 size-full" style="border: 2px solid black; margin-right: 2px;" title="or not" src="//codinginthetrenches.com/wp-content/uploads/2013/12/New_Zealand_TW-35B_svg-e1417402571769.png" alt="or don't merge" width="200" height="200" />][2]<figcaption class="wp-caption-text">or not</figcaption></figure> 
 
 Brewing and software development are not the same thing. Regardless of any instructive similarities the two practices have significant differences.
 
@@ -40,5 +40,5 @@ Brewing and software development are not the same thing. Regardless of any instr
 **Leverage:** The leverage (i.e. output per person) of a developer is lower than a brew master. I&#8217;m obviously fudging the numbers here since there is no way to directly compare liters of beer with implemented features. A single develop can implement a set number of features and tests for features in a day. Similarly a brew master can do a fixed number of tasks per day, but thanks to brewing&#8217;s fixed schedule and reliance on yeast to ferment beer a single brew master can actually be &#8216;making&#8217; several batches of beer simultaneously.
 
 
- [1]: http://codinginthetrenches.com/wp-content/uploads/2013/12/Danish_priority_road_sign_merge_ahead_svg.png
- [2]: http://codinginthetrenches.com/wp-content/uploads/2013/12/New_Zealand_TW-35B_svg.png
+ [1]: //codinginthetrenches.com/wp-content/uploads/2013/12/Danish_priority_road_sign_merge_ahead_svg.png
+ [2]: //codinginthetrenches.com/wp-content/uploads/2013/12/New_Zealand_TW-35B_svg.png
