@@ -117,7 +117,7 @@ version of a static site and that any perceived slow-ness was due to how my page
   will flash an unstyled font, hide text until the web font is loaded, or (in the least optimized case delay) rendering all content until the fonts are loaded. Another alternative
   is to consider if a custom font is needed. In my case, I don't consider the font to be part of the site's brand. Additionally in the last few years built-in system fonts
   have become a credible alternative. In order to save time, my site now renders using fonts like Cambria, Georgia, Segoe UI, and San Francisco.
-- [optipng][15] and [imagemagick][16] are our friends. Un-optimized images can be considerable larger without any noticeable improvement in picture quality. In order to save space
+- [optipng][15] and [imagemagick][16] are our friends. Un-optimized images can be considerably larger without any noticeable improvement in picture quality. In order to save space
   many of the diagrams in the newer posts in the blog are SVG documents that can be easily compressed since SVGs are described using a text format. For png and jpeg images
   optipng and imagemagick can be used to minimize the amount of space they consume. See [here][17] and [here][18] for some examples on how to use the two tools.
 - [GZIP your content][19]. The link goes into a lot more detail on what gzip does for website content and how to enable it with Apache httpd. If the site is being served from
@@ -131,7 +131,7 @@ it if my site started rendering then too instead of waiting another 1.5 seconds.
 Effectively using cache control headers is vital to ensuring that a web site's contents are cached correctly both by end user clients and by content delivery networks.
 Fortunately, the header is [standardized][20] with ample documentation indicating how it should be used to express the maximum time a cached document may be held before
 the client should check back with the server. Unfortunately, being standardized does not prevent developers, such as myself, from putting an invalid character in the header
-and then not reviewing their own work. The invalid character caused CloudFront to cache this website for an invalid amount of time, not the worst thing in world,
+and then not reviewing their own work. The invalid character caused CloudFront to cache this website for an infinite amount of time, not the worst thing in world,
 but very annoying to discover. 
 
 #### Suggestions
