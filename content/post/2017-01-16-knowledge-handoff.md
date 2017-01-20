@@ -49,8 +49,9 @@ tends to always been some amount of [institutional technical knowledge][1].
 
 ### Bug hunting
 
-- Worked well: Time in code is the most valuable way to how to make code changes. Cosmetic bugs tend to be easier to solve and track down that other types of bugs.
-- Didn't work (well): Bugs don't help with overarching design of the system. It
+- Worked well: Time in code is the most valuable way to how to make code changes. Bugs tend to be close ended and (more) well specified tasks than new features, making them more approachable for beginners.
+  While bug work is not exciting or glamorous, it improves the product and we've seen success with onboarding new developers using bug work on a number of projects.
+- Didn't work (well): Non-comsetic Bugs don't help with understanding of the overarching design of the system. Because bugs are so focused it is hard to get the larger picture
 
 
 
