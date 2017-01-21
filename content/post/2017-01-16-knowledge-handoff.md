@@ -5,7 +5,6 @@ categories = ["software-management"]
 tags = ["tips", "pm", "philosophy"]
 date = "2017-01-16"
 title = "Software Development Knowledge Handoff"
-draft = true
 author = "Michael Hughes"
 
 +++
