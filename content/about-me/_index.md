@@ -1,8 +1,8 @@
 ---
 title: About Me
 author: Michael Hughes
-layout: page
 date: 2014-07-24
+layout: post
 
 ---
 [<img class="aligncenter wp-image-205" src="//codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg" alt="Picture of Michael Hughes" width="500" height="454" />][1]
@@ -20,4 +20,4 @@ A couple ways to reach out:
 <a style="text-decoration: none;" href="https://github.com/msh9"><img class="alignnone size-full wp-image-209" src="//codinginthetrenches.com/wp-content/uploads/2014/07/GitHub-Mark-32px.png" alt="GitHub profile" width="20" height="20" />&nbsp;</a>
 
  [1]: //codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg
- [2]: http://www.motorolasolutions.com/
+ [2]: https://www.motorolasolutions.com/
