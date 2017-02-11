@@ -11,10 +11,11 @@
     {{ else }}
       <meta name="description" content="{{ .Site.Params.site_description }}">
     {{ end }}
-    {{ if .RSSlink }}
-      <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ if .RSSLink }}
+      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+      <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
+    <link rel="canonical" href="{{ .Permalink }}"/>
     <link rel="icon" href="{{ .Site.BaseURL }}/favicon.ico">
     <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}/apple-touch-icon.png" />
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
@@ -35,6 +36,10 @@
         }
     </style>
     {{ end }}
+
+
+    <!-- needs to be loaded first for following scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
