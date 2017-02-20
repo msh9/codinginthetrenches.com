@@ -1,8 +1,8 @@
 ---
 title: About Me
 author: Michael Hughes
-layout: page
 date: 2014-07-24
+layout: post
 
 ---
 [<img class="aligncenter wp-image-205" src="//codinginthetrenches.com/wp-content/uploads/2014/05/linkedin.jpg" alt="Picture of Michael Hughes" width="500" height="454" />][1]
