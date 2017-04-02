@@ -1,7 +1,7 @@
 ---
 title: 'Repository pattern overuse: The double repository with Microsoft Entity Framework and other ORMs'
 author: MichaelHughes
-layout: post
+
 date: 2015-01-04
 url: /2015/01/04/repository-pattern-overuse-the-double-repository-with-microsoft-entity-framework-and-other-orms/
 categories:

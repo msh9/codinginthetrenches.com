@@ -1,7 +1,7 @@
 ---
 title: I want a good, competent developer not necessarily a rock star
 author: MichaelHughes
-layout: post
+
 date: 2014-03-05
 url: /2014/03/04/i-want-a-good-competent-developer-not-necessarily-a-rock-star/
 categories:

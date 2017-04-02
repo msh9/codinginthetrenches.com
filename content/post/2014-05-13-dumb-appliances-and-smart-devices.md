@@ -1,7 +1,7 @@
 ---
 title: Dumb appliances and smart devices
 author: MichaelHughes
-layout: post
+
 date: 2014-05-14
 url: /2014/05/13/dumb-appliances-and-smart-devices/
 categories:

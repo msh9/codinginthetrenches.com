@@ -1,7 +1,7 @@
 ---
 title: Catching value change events from the GWT SuggestBox
 author: MichaelHughes
-layout: post
+
 date: 2014-04-04
 url: /2014/04/03/catching-value-change-events-from-the-gwt-suggestbox/
 categories:

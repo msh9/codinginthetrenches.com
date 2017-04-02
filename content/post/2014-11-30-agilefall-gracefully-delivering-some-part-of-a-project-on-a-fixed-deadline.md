@@ -1,7 +1,7 @@
 ---
 title: 'Agilefall: gracefully delivering (some part of) a project on a fixed deadline'
 author: MichaelHughes
-layout: post
+
 date: 2014-11-30
 url: /2014/11/30/agilefall-gracefully-delivering-some-part-of-a-project-on-a-fixed-deadline/
 categories:

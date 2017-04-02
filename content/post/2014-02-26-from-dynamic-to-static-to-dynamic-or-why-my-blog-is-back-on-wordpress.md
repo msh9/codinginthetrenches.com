@@ -1,7 +1,7 @@
 ---
 title: From dynamic to static to dynamic or why my blog is back on WordPress
 author: MichaelHughes
-layout: post
+
 date: 2014-02-27
 url: /2014/02/26/from-dynamic-to-static-to-dynamic-or-why-my-blog-is-back-on-wordpress/
 categories:

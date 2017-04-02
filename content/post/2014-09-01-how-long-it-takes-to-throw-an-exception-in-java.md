@@ -1,7 +1,7 @@
 ---
 title: How long it takes to throw an exception in Java
 author: MichaelHughes
-layout: post
+
 date: 2014-09-01
 url: /2014/09/01/how-long-it-takes-to-throw-an-exception-in-java/
 categories:

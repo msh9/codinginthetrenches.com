@@ -1,7 +1,7 @@
     ---
 title: 'Fun with Kivy & drawing graphics'
 author: MichaelHughes
-layout: post
+
 date: 2014-04-04
 url: /2014/04/03/fun-with-kivy-drawing-graphics/
 categories:

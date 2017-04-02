@@ -1,7 +1,7 @@
 ---
 title: NodeJS counter implementation
 author: MichaelHughes
-layout: post
+
 date: 2016-02-20
 url: /2016/02/20/nodejs-counter-implementation/
 categories:

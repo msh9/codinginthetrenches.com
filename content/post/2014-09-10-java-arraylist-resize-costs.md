@@ -1,7 +1,7 @@
 ---
 title: Java ArrayList resize costs
 author: MichaelHughes
-layout: post
+
 date: 2014-09-11
 url: /2014/09/10/java-arraylist-resize-costs/
 categories:

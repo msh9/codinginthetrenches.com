@@ -7,7 +7,6 @@ images = []
 menu = ""
 tags = ["tips", "design"]
 title = "DNS Round Robin Failures"
-layout = "post"
 author = "Michael Hughes"
 +++
 

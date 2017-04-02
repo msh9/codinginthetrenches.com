@@ -1,7 +1,7 @@
 ---
 title: 'Java: It is a variety of things'
 author: MichaelHughes
-layout: post
+
 date: 2014-04-04
 url: /2014/04/03/java-it-is-a-variety-of-things/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: .NET custom cultures and SQLServer Reporting Services
 author: MichaelHughes
-layout: post
+
 date: 2014-04-04
 url: /2014/04/03/net-custom-cultures-and-sqlserver-reporting-services/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Slicing vs. aggregating big data
 author: MichaelHughes
-layout: post
+
 date: 2014-03-30
 url: /2014/03/30/slicing-vs-aggregating-big-data/
 categories:

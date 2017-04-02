@@ -1,7 +1,7 @@
 ---
 title: NodeJS modules should export object constructors
 author: MichaelHughes
-layout: post
+
 date: 2015-10-03
 url: /2015/10/03/nodejs-modules-should-export-object-constructors/
 categories:

@@ -1,7 +1,6 @@
 ---
 title: Class hierarchy design
 author: MichaelHughes
-layout: post
 date: 2016-02-20
 url: /2016/02/20/class-hierarchy-design/
 categories:

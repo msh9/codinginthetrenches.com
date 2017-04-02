@@ -1,7 +1,7 @@
 ---
 title: 'jOOQ Framework - A Java SQL DSL'
 author: MichaelHughes
-layout: post
+
 date: 2014-04-04
 url: /2014/04/03/jooq-framework-a-java-sql-dsl/
 categories:

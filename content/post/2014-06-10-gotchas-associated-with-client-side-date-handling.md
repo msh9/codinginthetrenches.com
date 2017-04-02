@@ -1,7 +1,7 @@
 ---
 title: Gotchas associated with client side date handling
 author: MichaelHughes
-layout: post
+
 date: 2014-06-11
 url: /2014/06/10/gotchas-associated-with-client-side-date-handling/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Brewing and development
 author: MichaelHughes
-layout: post
+
 date: 2013-12-23
 url: /2013/12/23/brewing-and-development/
 categories:

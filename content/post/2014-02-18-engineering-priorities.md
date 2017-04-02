@@ -1,7 +1,7 @@
 ---
 title: Engineering Priorities
 author: MichaelHughes
-layout: post
+
 date: 2014-02-18
 url: /2014/02/18/engineering-priorities/
 categories:

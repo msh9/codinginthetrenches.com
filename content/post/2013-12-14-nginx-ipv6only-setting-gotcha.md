@@ -1,7 +1,7 @@
 ---
 title: Nginx ipv6only setting gotcha
 author: MichaelHughes
-layout: post
+
 date: 2013-12-14
 url: /2013/12/14/nginx-ipv6only-setting-gotcha/
 categories:

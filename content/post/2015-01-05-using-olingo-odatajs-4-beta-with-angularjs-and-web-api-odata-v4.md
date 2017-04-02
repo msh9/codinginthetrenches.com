@@ -1,7 +1,7 @@
 ---
 title: Using Olingo ODataJS 4 Beta with AngularJS and Web API OData V4
 author: MichaelHughes
-layout: post
+
 date: 2015-01-05
 url: /2015/01/05/using-olingo-odatajs-4-beta-with-angularjs-and-web-api-odata-v4/
 categories:

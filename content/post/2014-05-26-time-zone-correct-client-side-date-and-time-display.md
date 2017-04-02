@@ -1,7 +1,7 @@
 ---
 title: Time zone correct client side date and time display
 author: MichaelHughes
-layout: post
+
 date: 2014-05-26
 url: /2014/05/26/time-zone-correct-client-side-date-and-time-display/
 categories:

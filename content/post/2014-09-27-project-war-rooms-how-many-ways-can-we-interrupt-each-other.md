@@ -1,7 +1,7 @@
 ---
 title: 'Project War Rooms: How many ways can we interrupt each other?'
 author: MichaelHughes
-layout: post
+
 date: 2014-09-27
 url: /2014/09/27/project-war-rooms-how-many-ways-can-we-interrupt-each-other/
 categories:

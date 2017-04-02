@@ -1,7 +1,7 @@
 ---
 title: The importance of being mindful of operator precedence
 author: MichaelHughes
-layout: post
+
 date: 2015-01-21
 url: /2015/01/21/the-importance-of-being-mindful-of-operator-precedence/
 categories:

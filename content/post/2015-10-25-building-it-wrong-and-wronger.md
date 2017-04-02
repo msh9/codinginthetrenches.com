@@ -1,7 +1,7 @@
 ---
 title: Building it wrong and wronger
 author: MichaelHughes
-layout: post
+
 date: 2015-10-25
 url: /2015/10/25/building-it-wrong-and-wronger/
 categories:

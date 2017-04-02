@@ -1,7 +1,7 @@
 ---
 title: Patterns, learning on the job, and college graduates
 author: MichaelHughes
-layout: post
+
 date: 2013-12-22
 url: /2013/12/22/patterns-learning-on-the-job-and-college-graduates/
 categories:

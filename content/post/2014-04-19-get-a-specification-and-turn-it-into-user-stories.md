@@ -1,7 +1,7 @@
 ---
 title: Get a specification and turn it into user stories
 author: MichaelHughes
-layout: post
+
 date: 2014-04-20
 url: /2014/04/19/get-a-specification-and-turn-it-into-user-stories/
 categories:

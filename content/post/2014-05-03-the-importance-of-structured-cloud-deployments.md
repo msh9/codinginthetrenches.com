@@ -1,7 +1,7 @@
 ---
 title: The importance of structured cloud deployments
 author: MichaelHughes
-layout: post
+
 date: 2014-05-03
 url: /2014/05/03/the-importance-of-structured-cloud-deployments/
 categories:

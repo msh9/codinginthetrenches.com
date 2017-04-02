@@ -1,7 +1,7 @@
 ---
 title: SRV records as service locators
 author: MichaelHughes
-layout: post
+
 date: 2015-05-02
 url: /2015/05/02/srv-records-as-service-locators/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: UX is important for business applications too
 author: MichaelHughes
-layout: post
+
 date: 2014-01-07
 url: /2014/01/07/ux-is-important-for-business-applications-too/
 categories:

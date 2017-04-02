@@ -1,7 +1,7 @@
 ---
 title: Server-client date time management in web applications
 author: MichaelHughes
-layout: post
+
 date: 2014-07-25
 url: /2014/07/25/server-client-date-time-management-in-web-applications/
 categories:

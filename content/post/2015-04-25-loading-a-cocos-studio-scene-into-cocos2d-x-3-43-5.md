@@ -1,7 +1,7 @@
 ---
 title: Loading a Cocos Studio scene into cocos2d-x 3.4/3.5
 author: MichaelHughes
-layout: post
+
 date: 2015-04-25
 url: /2015/04/25/loading-a-cocos-studio-scene-into-cocos2d-x-3-43-5/
 categories:

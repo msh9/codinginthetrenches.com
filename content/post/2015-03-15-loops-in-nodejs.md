@@ -1,7 +1,7 @@
 ---
 title: Loops in NodeJS
 author: MichaelHughes
-layout: post
+
 date: 2015-03-15
 url: /2015/03/15/loops-in-nodejs/
 categories:

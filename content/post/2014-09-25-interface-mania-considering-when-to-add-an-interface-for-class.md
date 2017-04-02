@@ -1,7 +1,7 @@
 ---
 title: 'Interface mania: Considering when to add an interface for class.'
 author: MichaelHughes
-layout: post
+
 date: 2014-09-26
 url: /2014/09/25/interface-mania-considering-when-to-add-an-interface-for-class/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Of null VARCHAR fields and empty strings
 author: MichaelHughes
-layout: post
+
 date: 2014-12-01
 url: /2014/12/01/of-null-varchar-fields-and-empty-strings/
 categories:

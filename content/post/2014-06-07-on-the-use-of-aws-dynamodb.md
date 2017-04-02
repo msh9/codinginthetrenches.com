@@ -1,7 +1,7 @@
 ---
 title: On the use of AWS DynamoDB
 author: Michael Hughes
-layout: post
+
 date: 2014-06-07
 url: /2014/06/07/on-the-use-of-aws-dynamodb/
 categories:

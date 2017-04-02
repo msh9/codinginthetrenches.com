@@ -1,7 +1,7 @@
 ---
 title: Create an object based dual list shuttle with Knockoutjs
 author: MichaelHughes
-layout: post
+
 date: 2014-05-24
 url: /2014/05/24/create-an-object-based-dual-list-shuttle-with-knockoutjs/
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Logging and Monitoring
 author: MichaelHughes
-layout: post
+
 date: 2015-06-28
 url: /2015/06/28/logging-and-monitoring/
 categories:
