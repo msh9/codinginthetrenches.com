@@ -1,7 +1,7 @@
 +++
 date = "2017-09-28"
 author = "Michael Hughes"
-title = "When to replace a service or system."
+title = "When to prioritize maintenance of a system"
 categories = ["software-design"]
 tags = ["tips","agile","design"]
 description = "In this post we will consider factors which indicate a system is not receiving enough maintenance."
@@ -40,7 +40,7 @@ HATAOS combined with HAL is design approach for enabling self-discovery in HTTP 
 
 On the other hand, a problematic application of the pattern involved a service making multiple HTTP calls to itself in order to retrieve data that it (the service) managed. This made performance of the design somewhat unpredictable since a single HTTP call may result in tens or possible hundreds of self referencing HTTP calls being made. This is HAL and HATAOS taken to a logical extreme; if a response can include discovery information, why not make the service that returns the response fully dynamic and use the response it sends to discover more information that it has in its own data store. The result was a service that could only handle one class of business use cases and no others (without exponential rising in cost of work).
 
-Another example of ornateness is a service that took a non-idiomatic usage of a language and framework too far.
+Another example of ornateness is a service that took a non-idiomatic usage of a language and framework too far. JavaScript on top of Node.JS can be used as a object oriented (OO) language, in the past [I've written about this]({{<ref "2015-10-03-nodejs-modules-should-export-object-constructors.md">}}); more recently I would argue that it might be more appropriately used in a functional way with some OO mixed in. In either case though it is vital that the design paradigm be used in the context of the language and not the other way around. For example, design decisions that make sense in the context of a sprawling application written using a class based language like Java may not make sense in the context of Node.JS micro-service. In face, it may be damaging to long term maintainability to use approaches such as creating DI containers (not the same as inversion of control which _is_ generally good to follow), extensive abstract base 'class' prototypes, and (pseudo) interfaces.
 
 ![This data flow should look really wierd to you](/images/2017-09-28-when-to-replace/self-ref-api.svg "Data flow diagram of a self-references API")
 
