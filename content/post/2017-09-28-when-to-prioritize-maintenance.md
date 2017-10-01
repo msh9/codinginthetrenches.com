@@ -27,7 +27,12 @@ Sometimes the system just looks like this,
 
 ### Costs ###
 
-Actual times to completion on new work can be indicative of growing problems in a code base.
+Actual times to completion on new work can be indicative of growing problems in a code base. There are two types of growth related cost growth. The innocuous kind involves trying to satisfy new unexpected use cases with existing tools. The other is indicative of underlying issues in the application. If the construction of the system is such that adding new features costs more for every feature then it may be time to re-approach how the system is structured. A couple examples,
+
+- A micro-services architecture where multiple services are tightly interconnected such that individual services are not independent. This system becomes more expensive to maintain overtime due to the need for changes across multiple services in order to implement every new feature. Improving this design can mean moving functionality between services in order collocate future changes.
+- At the other end of the spectrum are large single application that have been extended to support multiple customer use cases. Generally, adding new features becomes more expensive over time due to the cumulative complexity of changes to the service. There are ways to refactor and avoid this, ironically, one option is split the functionality across multiple microservices.
+
+It's worth noting that the reasons for cost increase are myriad. For example, fixes for the above scenarios are not just different but opposite, one is to combine elements of the system and the other is to break apart elements of the system. While there are many causes for high feature cost, the one I have personally seen the most is unnecessarily complex service design.
 
 ### 'Ornateness' ###
 
@@ -43,6 +48,8 @@ On the other hand, a problematic application of the pattern involved a service m
 ![This data flow should look really wierd to you](/images/2017-09-28-when-to-replace/self-ref-api.svg "Data flow diagram of a self-references API")
 
 Another example of ornateness is a service that took a non-idiomatic usage of a language and framework too far. JavaScript on top of Node.JS can be used as a object oriented (OO) language, in the past [I've written about this]({{<ref "2015-10-03-nodejs-modules-should-export-object-constructors.md">}}); more recently I would argue that it might be more appropriately used in a functional way with some OO mixed in. In either case though it is vital that the design paradigm be used in the context of the language and not the other way around. For example, design decisions that make sense in the context of a sprawling application written using a class based language like Java may not make sense in the context of Node.JS micro-service. In face, it may be damaging to long term maintainability to use approaches such as creating DI containers (not the same as inversion of control which _is_ generally good to follow), extensive abstract base 'class' prototypes, and (pseudo) interfaces.
+
+The two examples show different sides of the same problem, introduced complexity that did not add any new functionality. On one hand a service was made more complex by not knowing where to stop applying a design pattern and on the other a service was made significantly harder to work with due to non-idiomatic patterns and practices.
 
 
 
