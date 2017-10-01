@@ -5,7 +5,6 @@ title = "When to prioritize maintenance of a system"
 categories = ["software-design"]
 tags = ["tips","agile","design"]
 description = "In this post we will consider factors which indicate a system is not receiving enough maintenance."
-draft = true
 +++
 
 Have you ever considered a service or suite of services and thought, "that looks like a ball of yarn."
