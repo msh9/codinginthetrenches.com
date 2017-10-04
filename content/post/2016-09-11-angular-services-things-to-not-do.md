@@ -129,7 +129,7 @@ app.controller('OtherController', ['$scope', 'Thinger',
 ```
 
 [Scope in Angular][6] is analogous to the "model" found in [many][4] [mv*][5] design patterns for user interfaces. Depending on your reading
-of what constitutes a models it may or may not be okay to pass model into a backend service.
+of what constitutes a model it may or may not be okay to pass model into a backend service.
 
 I tend to fall on the side of not okay. The Angular framework provides both directives and controllers that are expressly for logic that
 reacts to UI changes and in turn affect changes to the UI. Services created by either Angular's factory or service patterns on the other hand 
