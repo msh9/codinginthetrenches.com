@@ -2,7 +2,6 @@
 tags = ["javascript", "tips"]
 categories = ["projects"]
 description = "A quick post on creating sleeps in JavaScript"
-draft = true
 author = "Michael Hughes"
 date = "2017-10-02"
 title = "Creating a sleep loop in JavaScript" 
