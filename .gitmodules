@@ -1,3 +1,9 @@
 [submodule "themes/hugo-icarus-theme"]
 	path = themes/hugo-icarus-theme
 	url = https://github.com/digitalcraftsman/hugo-icarus-theme.git
+[submodule "themes/zen"]
+	path = themes/zen
+	url = https://github.com/frjo/hugo-theme-zen.git
+[submodule "themes/hugo-PaperMod"]
+	path = themes/hugo-PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git

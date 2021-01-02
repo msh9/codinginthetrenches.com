@@ -1,91 +1,51 @@
-baseurl = "https://codinginthetrenches.com"
+baseURL = "https://codinginthetrenches.com"
 languageCode = "en-us"
 title = "Coding in the Trenches"
-# Enable comments by entering your Disqus shortname
-disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-43093664-1"
 # Define the number of posts per page
 paginate = 10
-footnotereturnlinkcontents = "↩"
-theme = "hugo-icarus-theme"
-PygmentsCodeFences = true
+theme = "hugo-PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+    disableXML = true
+    minifyOutput = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
 
 [params]
-    # Tell me who you are
+    env = "production"
+    title = "Coding in the Trenches"
     author = "Michael Hughes"
-    bio = "Technologist working in software development and related fields"
-    location = "Earth"
-    site_description = "Coding in the Trenches is thoughts, tips, and methodologies for technology, typically in relation to full-stack web development"
-    copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    avatar = "images/michael-hughes.jpg"
-    logo = ""
-    disable_comments = true
-    disable_mathjax = true
+    description = "Coding in the Trenches is thoughts, tips, and methodologies for software development"
 
-    # Format dates with Go's time formatting
-    date_format = "2006-01-02"
+[[params.socialIcons]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/michael-hughes-03a40533/"
 
-# Create custom menu entries by defining a label and a link for
-# them. Since you can a so link posts, you've the option the
-# place the links before or after them.
-#
-# E.g.: "Home" appears before all linked posts in the menu
-# and "Tags" / "Categories" after them.
-[[params.menu]]
-    before = true
-    label  = "Home"
-    link   = "/"
-
-[[params.menu]]
-    before = false
-    label  = "About Me"
-    link   = "/about"
-
-# Enter a link for the follow button on the left
-[params.profile]
-    follow_button = "https://github.com/msh9"
+[params.homeInfoParams]
+    title = "Coding in the Trenches"
+    content = "Technologist blog"
 
 
-[social]
-# Add your social network accounts to the profile section on the left
-# by entering your username. The links to your account will be
-# created automatically.
-    github          = "msh9"
-    gitlab          = ""
-    bitbucket       = ""
-    jsfiddle        = ""
-    codepen         = ""
-    foursquare      = ""
-    dribbble        = ""
-    deviantart      = ""
-    behance         = ""
-    flickr          = ""
-    instagram       = ""
-    youtube         = ""
-    vimeo           = ""
-    vine            = ""
-    medium          = ""
-    wordpress       = ""
-    tumblr          = ""
-    xing            = ""
-    linkedin        = ""
-    slideshare      = ""
-    stackoverflow   = ""
-    reddit          = ""
-    pinterest       = ""
-    googleplus      = ""
-    facebook        = ""
-    facebook_admin  = ""
-    twitter_domain  = ""
-    twitter         = ""
-
-# Enable and disable widgets for the right sidebar
-[params.widgets]
-    recent_articles = false
-    categories = true
-    tags = true
-    tag_cloud = false
+[[menu.main]]
+    identifier = "categories"
+    name = "categories"
+    url = "/categories/"
+    weight = 10
+[[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags/"
+    weight = 20
+[[menu.main]]
+    identifier = "about"
+    name = "about"
+    url = "/about/"
+    weight = 30
