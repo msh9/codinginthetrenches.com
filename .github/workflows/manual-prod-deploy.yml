@@ -6,25 +6,23 @@ name: Manual workflow
 # or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
   deploy:
-    # The type of runner that the job will run on
+    environment: website-prod
     runs-on: ubuntu-latest
-    environment: production
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0 
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.4.13
+      with:
+        extended: false
+    - name: Build public
+      run: hugo
     - name: "Configure AWS Credentials Action For GitHub Actions"
       # You may pin to the exact commit or the version.
       # uses: aws-actions/configure-aws-credentials@e97d7fbc8e0e5af69631c13daa0f4b5a8d88165b
