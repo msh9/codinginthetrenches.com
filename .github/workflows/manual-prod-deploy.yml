@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Manual website deploy
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -23,15 +23,13 @@ jobs:
         extended: false
     - name: Build public
       run: hugo
-    - name: "Configure AWS Credentials Action For GitHub Actions"
-      # You may pin to the exact commit or the version.
-      # uses: aws-actions/configure-aws-credentials@e97d7fbc8e0e5af69631c13daa0f4b5a8d88165b
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-        aws-secret-access-key: $ {{ secrets.AWS_SECRET }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET }}
         aws-region: us-west-2
     - name: "Deploy written content"
       run: 'aws s3 cp public s3://codinginthetrenches.com/ --recursive --exclude "*" --include "*.html" --include "*.xml" --content-language "en" --cache-control "max-age=3600"'
     - name: "Deploy static content"
-      run:  'aws s3 cp public s3://codinginthetrenches.com/ --recursive --exclude "*.html" --exclude "*.xml" --cache-control "max-age=43000"'
+      run: 'aws s3 cp public s3://codinginthetrenches.com/ --recursive --exclude "*.html" --exclude "*.xml" --cache-control "max-age=43000"'
