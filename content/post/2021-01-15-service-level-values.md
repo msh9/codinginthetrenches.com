@@ -19,7 +19,7 @@ The following will illustrate a couple challenges associated with determining a 
 
 Calculations or measurements.
 
-There are two approaches that can be applied. Calculation of a target uses estimates of a dependent system's SLO or SLAs and assumptions about the architecture of an application to determine an expected availability.
+There are two approaches that can be applied. Calculation of a target uses estimates of dependent systems' SLOs or SLAs and assumptions about the architecture of an application to determine an expected availability.
 
 !["Box Diagram"](/images/2020-01-15-slos/slo-by-calc.svg "A service with two dependencies")
 
@@ -29,7 +29,7 @@ Alternatively, we can observe and measure the system.
 
 !["Box Diagram"](/images/2020-01-15-slos/slo-by-measure.svg "A service treated as a blackbox")
 
-Treat the system like a black box and use an external tool to exercise it while measuring success and failure rates. The availability measurement from this approach is representative of actual customer experience. This is good. Unfortunately, measurement of availability is also limited by the granularity of its test results and the scenarios tested.
+Treat the system like a black box and use an external tool to exercise it while measuring success and failure rates. The availability measurement from this approach is representative of actual customer experience. This is good. Unfortunately, measurement of availability is limited by the granularity of test executed and the scenarios tested.
 
 # Always some kind of catch
 
