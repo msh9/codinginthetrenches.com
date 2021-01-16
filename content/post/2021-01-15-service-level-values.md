@@ -11,7 +11,7 @@ What is the expected availability of a service API? What does a "99.9%" availabi
 
 <!--more-->
 
-The last decade has seen some books from Google and others popularize service level indicators and objectives (SLIs and SLOs) as a way of establishing the reliability of a service. The Google SRE books (links) are an excellent starting place for those unfamiliar with these concepts.
+The last decade has seen some books from Google and others popularize service level indicators and objectives (SLIs and SLOs) as a way of establishing the reliability of a service. The Google [SRE books][1] are an excellent starting place for those unfamiliar with these concepts.
 The following will illustrate a couple challenges associated with determining a SLO value for a service's features as deployed in a cloud environment.
 
 
@@ -48,3 +48,5 @@ Executing tests against a system on some scheduled basis replicates actual behav
 For all practical purposes, I suggest doing what is, well, practical. When dealing with new services being developed now, estimate based on known available data. This means starting with provider SLAs from Microsoft, AWS, and others. How provider SLAs are combined is determined by the design of the new service and what steps are taken to create redundancy. Keep in mind that values from major cloud providers are SLAs, not SLOs, and that there is a good chance that at some point they will be violated. An SLA violation costs AWS some money; consider what a provider's SLA violation means for a system and design accordingly. 
 
 In the presence of an established service, I prefer empirical data from synthetic test runs and events. The topic of synthetic testing and its value is a short essay for another day. Assuming that they are built to match typical customer workflows, these tests will more closely match the customer's perceived reliability of the service than anything else. 
+
+[1]:https://sre.google/books/ "Google SRE Books"
