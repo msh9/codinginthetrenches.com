@@ -16,19 +16,17 @@ I will not stretch the analogy of jugglers juggling and engineering teams engine
 
 No. Prioritization of work for software and engineering teams is the act of determining what work is the most important to the business and system.
 
-# Where do these numbers come from anyway?
-
 !["Multiple work items"](/images/2021-02-27-juggling-as-pm/multiple-work-areas.svg "Multiple items for the team in priority")
 
 This is about what comes after prioritization and when the team starts executing on prioritized work. Given our above illustration, does the team focus on the priority one item alone or does it take on additional work?
 
 # Well, it depends
 
-Is the team skilled at juggling? Does the team have multiple hands (more than two people)? Are the work items bowling balls, handkerchiefs, or tenpins? As far as the analogy goes this is a question of how many things the team can work on simultaneously without dropping need quality or execution pace.
+Is the team skilled at juggling? Does the team have multiple hands (more than two people)? Are the work items bowling balls, handkerchiefs, or tenpins? As far as the analogy goes this is a question of how many things the team can work on simultaneously without dropping needed quality or execution pace.
 
 Last reference to juggling, the things being juggled are work areas. Okay, enough with it. The point is that even with a Kanban or Scrum type of process it makes sense to bucket an engineering team’s work into areas.
 
-!["Multiple work areas with identifying boxes"](/images/2021-02-27-juggling-as-pm/multiple-work-areas-with-boxes.svg "Multiple areas for the team")
+!["Multiple work areas with identifying boxes"](/images/2021-02-27-juggling-as-pm/multiple-work-areas-boxes.svg "Multiple areas for the team")
 
 In a team of 7-12 engineers, it is counterproductive to setup work in a way that results in the entire team working on the same features or components simultaneously or for all 7-12 engineers to be working alone. I have seen the former happen most often on established teams taking on new projects building services or features. The team's product management prioritizes the new work, the entire team piles into it, and then the team's output slows down because of duplicated effort as the team ramps up.
 
@@ -42,8 +40,8 @@ The other end of the spectrum where the team is on a number of work areas equal 
 
 !["Engineers on isolated work items"](/images/2021-02-27-juggling-as-pm/isolated-people.svg "Engineers on isolated work items")
 
-No person on this hypothetical four-person team can ask for help from another person without causing a context switch. Each time a context switch happens progress is lost and worse the person asked for help must go through a miniature version of the learning steps above to help. What we want instead for established team is something like,
+No person on this hypothetical four-person team can ask for help from another person without causing a context switch. Each time a context switch happens progress is lost and, worse, the person asked for help must go through a miniature version of the learning steps above to help. What we want instead for established team is something like,
 
 !["Engineers grouped on work items"](/images/2021-02-27-juggling-as-pm/assigned-engineers.svg "Engineers grouped on work items")
 
-Where items 1 and 2 are small enough for individuals and item 3 ends up being subdivided. Is this always possible? Of course, but it does make a for good goal that prioritizes the team's efficiency and ability to help each; something that is perhaps more important that progress on any single work item.
+Where items 1 and 2 are small enough for individuals and item 3 ends up being subdivided. Is this always possible? Of course not, but it does make a for good goal that prioritizes the team's efficiency and ability to help each; something that is perhaps more important that progress on any single work item.
