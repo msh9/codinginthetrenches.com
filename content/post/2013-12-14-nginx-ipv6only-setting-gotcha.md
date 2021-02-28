@@ -23,7 +23,9 @@ The host has both IPv4 and IPv6 addresses and normally should serve content to b
 
 In an Nginx con­fig­u­ra­tion file the [listen directive][3] sets how Nginx listens for con­nec­tions. My old setting which worked fine was as follows:
 
-<pre>listen [::]:80;</pre>
+```
+listen [::]:80;
+```
 
 The above set Nginx to listen on port 80 with a wildcard ipv6 address. There are other con­fig­u­ra­tion parameters for the listen directive. In particular the ipv6only setting indicates whether to **only** accept IPv6 con­nec­tions.
 
@@ -31,9 +33,11 @@ What I found was that in Nginx version 1.3.4 a change to socket settings default
 
 > “Prior to version 1.3.4, if this parameter was omitted then the operating system’s settings were in effect for the socket.”
 
-In my case, running on Arch linux the OS default was to accept such con­nec­tions. Post Nginx version 1.3.4 the default for ipv6only is set to **‘on’** meaning that **only** IPv6 con­nec­tions will be handled. Resolving the issue on my host involed changing the con­fig­u­ra­tion line to the following:
+In my case, running on Arch linux the OS default was to accept such con­nec­tions. Post Nginx version 1.3.4 the default for ipv6only is set to **‘on’** meaning that **only** IPv6 con­nec­tions will be handled. Resolving the issue on my host involved changing the con­fig­u­ra­tion line to the following:
 
-<pre>listen [::]:80 ipv6only=off;</pre>
+```
+listen [::]:80 ipv6only=off;
+```
 
 A simple fix–note though that the ipv6only parameter can only be set once. If there are other vhosts con­fig­u­ra­tions they cannot specify the ipv6only parameter.
 
