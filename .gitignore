@@ -33,3 +33,7 @@ pip-log.txt
 ## theme stuff
 node_modules
 public
+
+# vscode
+.metals
+.vscode

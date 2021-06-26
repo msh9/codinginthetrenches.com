@@ -21,6 +21,7 @@ jobs:
       uses: peaceiris/actions-hugo@v2.4.13
       with:
         extended: false
+        hugo-version: '0.84.1'
     - name: Build public
       run: hugo
     - name: Configure AWS Credentials
