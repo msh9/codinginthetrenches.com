@@ -14,28 +14,73 @@ After reading this you will hopefully never wonder again why that little error a
 <!--more-->
 
 The personal irony of the post is that I have written education materials and taught engineers at work about CORS. Yet here I am admitting that I had my own personal
-website misconfigured for some time. In any case, we will start with a primer,
+website misconfigured for some time. Also, this is a somewhat long post for an issue fixed by two small settings. It is long because of the amount of context needed to understand why we need to make to the two small setting changes; please bear with me.
+
+
+With that all said, we will start with a primer,
 
 # What
 
 CORS and the server side settings for it to work are as much as about the browser's security model as they are about sharing resources across origins. In the briefest 
-of summaries, 'CORS' is a specification that defines a way for servers to indicate which remote resources may be loaded by web applications loaded from
+of summaries, 'CORS' is a specification that defines a way for servers to indicate which remote resources may be downloaded by web applications loaded from
 a domain other than the servers' domains. Sometimes defining what something is _not_ helps. CORS is not,
 
-- applicable to native applications making calls to remote services
+- applicable to native (non-web-browser based) applications making calls to remote services
 - applicable to loading redirects or things that cause the browser location to change
 - (intentional repeat here), **CORS is not** a way to secure resources stored on a server
 
 CORS is,
 
 - helpful in modern web application where an application may make calls to multiple, different, backend APIs
-- is sometimes configured dynamically when serving resources that require authenticated access
+- sometimes configured dynamically when serving resources that require authenticated access
+- a method to help prevent malicious javascript from surreptitiously loading resources across domains 
 
 [Mozilla has a great page](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) that provides an overview of CORS and then goes into the technical details of the
 HTTPs headers involved.
 
+# Context
+
+I've used various ways of hosting my personal blog over the years. In recent times I've [used the Hugo generator](https://gohugo.io/) to create static pages that are
+then hosted on AWS S3 and Cloudfront. My site is available at two domains currently, `www.codinginthetenches.com` and `codinginthetrenches.com` with the latter being
+the primary domain. The former domain is available via Cloudfront and loads resources like CSS and Javascript from the primary domain.
+
+After recently updating a Hugo theme I noticed that the styling of the home page on `www.codinginthetrenches.com` was broken and Firefox was showing a new-to-me CORS
+error in the browser console.
+
+At this point I could have followed AWS' guide for using S3 buckets to create redirects between domains. Instead of hosting the entire homepage at `www.codinginthetrenches.com`, a visitor to that domain would receive a HTTP 301 Moved Permanent redirect to `codinginthetrenches.com`. I'm moderately allergic to mysteries though.
+
 # My problem
 
-In order to 
+Turns out two things were broken.
 
-# My problem
+## First,
+
+ Hugo is a static site generator that takes as input templates and content written in Markdown and emits as output HTML, CSS, and Javascript. Sometime recently support was for hashing minimized resources, like CSS, and linking to them using HTML link tags with the integrity attribute. More can be read about this [feature here](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). It is a neat capability that helps to ensure that our web browser is receiving the content that was originally intended to be included with the page. This helps to prevent a scenario where a CDN like CloudFront manipulates hosted content and serves something other than what the author original intended.
+
+The linked page mentions several times that configuring CORS headers is important for integrity checking. What is not mentioned obviously is that the web browser itself will not participate in sending CORS headers unless another attribute is added to the link tag.
+
+In other words the head section of my website contained a link tag similar to this,
+
+```
+<head>
+    <link href="{some url}" integrity="sha256-{some hash value}">
+</head>
+```
+
+Loading this page when `{some url}` pointed to a domain other than the one which hosted the page resulted in an error similar to the following, "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."
+
+This is not a server side error. The browser is telling us that the link tag must be configured to _tell the browser_ to send CORS headers as part of the request. Doing this is simple,
+
+```
+<head>
+    <link href="{some url}" integrity="sha256-{some hash value}" crossorigin="anonymous">
+</head>
+```
+
+Anonymous works for me since my website is public without any authentication. A different attribute value may be needed if the server requires an authorization header or some kind of authentication state.
+
+This resolved issued number one.
+
+## Second,
+
+Hosting a static website on AWS S3 with CloudFront is not a new practice. AWS even have some guides how to make sure that CORS headers are appropriately handled by S3 and CloudFront. These guides are [here](https://aws.amazon.com/premiumsupport/knowledge-center/no-access-control-allow-origin-error/) and [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManageCorsUsing.html).
