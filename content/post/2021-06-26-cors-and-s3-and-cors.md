@@ -14,9 +14,14 @@ After reading this you will hopefully never wonder again why that little error a
 <!--more-->
 
 The personal irony of the post is that I have written education materials and taught engineers at work about CORS. Yet here I am admitting that I had my own personal
-website misconfigured for some time. Also, this is a somewhat long post for an issue fixed by two small settings. It is long because of the amount of context needed to understand why we need to make to the two small setting changes; please bear with me.
+website misconfigured for some time. 
 
-With that all said, we will start with a primer,
+Also, this is a somewhat long post for an issue fixed by two small settings. The short, short, summary is,
+
+- The `crossorigin` attribute must also be specified when using the HTML `link` tag with the `integrity` attribute. 
+- The CloudFront distribution must be configured to use CORS headers, such as `origin` as the cache key and pass those headers to the backend when hosting static resources that need to be served with CORS headers.
+
+With that said, let's chat about details,
 
 # What
 
@@ -93,3 +98,9 @@ After fixing issue one, I was still seeing an error in the browser console indic
 My issue was not paying attention to CloudFront's caching configuration. Each CloudFront distribution can have one or more 'behaviors' that determine
 how requests are handled. Among other settings, behaviors determine how many different versions of a response are stored by CloudFront and what header values
 are passed to the backend. AWS' documentation covers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-the-cache-key.html) the how the behavior policy works in more detail.
+
+I had configured my distribution to pass header values to the backend but only store responses based on the requested domain and path. This meant that CloudFront did not return different CORS headers regardless of what `origin` header was sent with the response. It instead sent back headers associated with whatever request it first handled. Since I have a simple public website adding the `origin` header to the cache set of keys resolved the issue.
+
+Issued number two resolved.
+
+If you got this first, thanks for reading and hopefully I covered something new.
