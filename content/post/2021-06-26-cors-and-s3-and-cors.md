@@ -16,7 +16,6 @@ After reading this you will hopefully never wonder again why that little error a
 The personal irony of the post is that I have written education materials and taught engineers at work about CORS. Yet here I am admitting that I had my own personal
 website misconfigured for some time. Also, this is a somewhat long post for an issue fixed by two small settings. It is long because of the amount of context needed to understand why we need to make to the two small setting changes; please bear with me.
 
-
 With that all said, we will start with a primer,
 
 # What
@@ -84,3 +83,13 @@ This resolved issued number one.
 ## Second,
 
 Hosting a static website on AWS S3 with CloudFront is not a new practice. AWS even have some guides how to make sure that CORS headers are appropriately handled by S3 and CloudFront. These guides are [here](https://aws.amazon.com/premiumsupport/knowledge-center/no-access-control-allow-origin-error/) and [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManageCorsUsing.html).
+
+As a CDN, CloudFront generally accepts requests from clients and either serves a cached response or retrieves a value from some backend, caches it, and then serves a 
+response. The definition has become somewhat fuzzier recently because of capabilities like Lambda at edge. Still, in general CloudFront caches content and serves it. This is
+important because part of is cached by CloudFront involves HTTP headers. The above guides note that CloudFront must be configured to forward CORS headers, such as `origin` to the backend. The above guides also show how to configure AWS S3 to respond with appropriate CORS headers given a request.
+
+After fixing issue one, I was still seeing an error in the browser console indicating that this CSS file was being served without an appropriate CORS header.
+
+My issue was not paying attention to CloudFront's caching configuration. Each CloudFront distribution can have one or more 'behaviors' that determine
+how requests are handled. Among other settings, behaviors determine how many different versions of a response are stored by CloudFront and what header values
+are passed to the backend. AWS' documentation covers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-the-cache-key.html) the how the behavior policy works in more detail.
