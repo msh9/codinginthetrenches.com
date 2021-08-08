@@ -44,6 +44,20 @@ Another scenarios involves a DevOps extensions or GitHub actions that accept cre
 
 I do not like security hyperbole. So, it is important to note that attacks involving pipeline extensions like GitHub Actions and DevOps do require multiple elements to align in order to be successful.
 
+For example,
+
 - A package maintainer must be compromised on both GitHub and Azure's extension marketplace _or_ in the case of namespace confusing the maintainer or project must miss that an incorrect package has been approved for use.
 - Attacks against resources like cloud infrastructure require high(er) privilege secrets to be issued and given to the extensions
-- 
+- Azure DevOps Pipeline extensions state what permissions (read source code, write, etc) will be used before it can be approved for use in the project
+
+# What now
+
+3rd party extensions to GitHub Actions and Azure DevOps pipeline simplify automating both continuous integration and deployment. A little care must be taken though when taking 3rd party code, granting it access to read source code, granting it access to critical infrastructure, and then running it.
+
+This takes some of the shine off the ease of use of these extensions. Using them safely requires some care to be taken. Some thoughts,
+
+- The vast majority of these extensions are open source. Review the code, understand what it does. This will take time but less than writing the extension from nothing.
+- Never pass broadly authorized credentials to extensions. Extensions (or actions) that manipulate resources like cloud infrastructure only need credentials authorized for the intended of the extension. This both helps minimize damage in cases of either the extensions *or* the credentials being compromised.
+- Do not blindly accept version updates. Unfortunately, Azure DevOps makes this hard because patch version updates to extensions are automatically distributed and installed once an extension in approved in a project. GitHub Actions provide more flexibility and allowing pinning specific releases or even specific commit hashes of extensions.
+
+Microsoft has a good starting place for evaluating [third party extensions](https://docs.microsoft.com/en-us/azure/devops/marketplace/trust?view=azure-devops) and GitHub provides guidance as part of there [developer guide](https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions).
