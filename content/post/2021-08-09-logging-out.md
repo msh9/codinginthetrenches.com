@@ -67,7 +67,8 @@ On the logout side something odd happens. The user logs out of the Twitch applic
 1. Nothing, the is logged out of _Twitch_ a this point. That the user might be able to immediately regain access if they are still logged into Facebook does not detract from this fact.
 1. The Twitch IdP, IdP **B**, can redirect to Facebook (IdP **Q** in our example) and request that the user log out there. It is between Facebook and the end user if logout occurs at this point, Twitch has no control over this. If logout does not occur then the overall system matches #1 where the user can potentially immediately regain access without re-authenticating.
 
+## SLO
 
+Single _Log Out_ is much more constrained in scope than Single _Sign On_. Referring to our example diagrams, we can suppose that 
 
-what's the problem?
 what to do about it?
