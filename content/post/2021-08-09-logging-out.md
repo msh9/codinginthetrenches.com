@@ -13,7 +13,7 @@ Today we'll explain some simple and some complex sign-on and sign-out integratio
 
 <!--more-->
 
-The following is targeted at individuals that build and integrate identity systems, but may be of interest to anyone curious about the behavior of applications and authentication systems. First, some terminology that will be frequently used. SAML and OpenId Connect define different terminology for similar system components. For the sake of clarity, we will use SAML-like terminology for the majority of this post. Please note that while the jargon is different the conceptual problems and solutions are the same. The terms 'authenticate', 'log in', and 'sign-on' are used interchangeably throughout the post. Similarly, 'sign-out', 'logoff', 'logout', etc will also be used interchangeably.
+The following is targeted at individuals that build and integrate identity systems, but may be of interest to anyone curious about the behavior of applications and authentication systems. We will use SAML-like terminology for the majority of this post but the concepts apply equally to OpenId Connect based specifications. The terms 'authenticate', 'log in', and 'sign-on' are used interchangeably throughout the post. Similarly, 'sign-out', 'logoff', 'logout', etc will also be used interchangeably.
 
 # Lots of context, single sign-on and trust relationships
 
@@ -60,7 +60,7 @@ Let's suppose our example service is Twitch now instead of the NY Times. When so
 
 During sign out, the user logs out of the Twitch application (exemplified by SP **Set B** again) which in turn requests that the Twitch identity provider log the user out (IdP **B**). If the user directly authenticated with Twitch then the process is done and the goal of preventing access until re-authentication occurs is achieved. If the user authenticated with Facebook then a couple different things we can happen,
 
-1. Nothing, the is logged out of _Twitch_ at this point. That the user might be able to immediately regain access if they are still logged into Facebook does not detract from this fact.
+1. Nothing, the user is logged out of _Twitch_ at this point. That the user might be able to immediately regain access if the individual is still logged into Facebook does not detract from this fact.
 1. The Twitch IdP, IdP **B**, can redirect to Facebook (IdP **Q** in our example) and request that the user log out there. It is between Facebook and the end user if logout occurs at this point, Twitch has no control over this. If logout does not occur then the overall system matches #1 where the user _can_ potentially immediately regain access without re-authenticating. Although somewhat tangential an earlier [post on this blog deals with this scenario]({{<ref "2021-01-02-on-user-inactivity.md">}}). It may be completely legitimate for the user to not re-authenticate because his or her Facebook session is still active.
 
 On one hand, it would be annoying if logging out of Twitch automatically logged out of Facebook despite logging into Facebook providing identity assertions to Twitch. On the other hand, an example, Google runs a centralized identity provider for both their own services (Gmail, YouTube, etc) and other companies such as the NY Times. Today, if I logout out of my Google profile on YouTube I am also logged out of Gmail; this example is not only not annoying, but expected.
