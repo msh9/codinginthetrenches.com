@@ -18,10 +18,10 @@ jobs:
         submodules: true  # Fetch Hugo themes (true OR recursive)
         fetch-depth: 0 
     - name: Hugo setup
-      uses: peaceiris/actions-hugo@c03b5dbed22245418539b65eb9a3b1d5fdd9a0a6
+      uses: peaceiris/actions-hugo@v2
       with:
-        extended: false
-        hugo-version: '0.84.1'
+        hugo-version: '0.110.0'
+        extended: true
     - name: Build public
       run: hugo
     - name: Configure AWS Credentials

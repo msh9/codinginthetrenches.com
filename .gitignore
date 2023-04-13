@@ -37,3 +37,5 @@ public
 # vscode
 .metals
 .vscode
+
+.hugo_build.lock
