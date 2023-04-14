@@ -1,16 +1,15 @@
 ---
 title: About Me
 author: Michael Hughes
-date: 2014-07-24
+date: 2023-04-13
 
 
 ---
 
-Hello, my name is Michael Hughes. I currently reside in the Salt Lake City area and enjoy various hobbies ranging from home brewing to skiing. Although, having recently 
-purchased a house, pursuits like furniture finishing, painting, and plumbing have become interesting to me as well (not necessarily by choice).
+Hello, my name is Michael Hughes. I currently reside in the Salt Lake City area and enjoy spending time ranging from home maintenance, being a father, running, and skiing. I have also work in the technology parts of various industries
+for over 11 years now, ranging from online travel to automotive manufacturing to public safety and, most recently, to financial services. Today I provide context and guidance for teams as an engineering manager and occasionally still do hands on work. 
 
-Coding in the trenches is a place where I generally write about technically related subjects; some times posts here are tips on specific technologies, other times posts 
-here are longer winded pieces with general commentary on technology. Hopefully, at the very least, the blog is useful and sometimes entertaining.
+Coding in the Trenches is a place where I generally write about technology-related subjects. Sometimes posts here are tips on specific technologies other times they are more in-depth pieces with general commentary on technology. I hope, at the very least, the blog is useful and sometimes entertaining.
 
-For work inquiries please reach out to me on [LinkedIn](https://www.linkedin.com/in/michael-hughes-03a40533/)
- or [contact me via email.](mailto:work@codinginthetrenches.com)
+For work inquiries please reach out to me on [LinkedIn](https://www.linkedin.com/in/michael-hughes-03a40533/).
+
