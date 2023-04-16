@@ -5,7 +5,7 @@ description = "Commentary on whether we care about low code anymore"
 draft = true
 author = "Michael Hughes"
 date = 2023-04-13T20:09:21-06:00
-title = "Is low code all that anymore?"
+title = "Is low code all that?"
 +++
 
 Should organizations that need to build software care about low code? Should they ever have cared about low code? Will code be the future of how software is built? Will large language models trained to write code based on text prompts replace all developers? Do I have answers to these questions?
@@ -14,4 +14,10 @@ Nope, but I can still editorialize.
 
 <!--more-->
 
-It's spring of 2023, it would be almost irrespondable for me to write post on a technology focused blog without mentioning the phrases large language models (LLM), generative AI, AI, or just 'ChatGPT'. The commercialization AI hype machine is in full swing. Even one of the high profile companies, OpenAI, has published a white)paper about 
+It's spring of 2023, it would be almost irresponsible for me to write post on a technology focused blog without mentioning the following phrases: large language model (LLM), generative AI, AI, or just 'ChatGPT'. The commercialization hype machine for AI is in full swing. One of the high profile companies, OpenAI, has even published a white paper about how technology, like the ones they sell, will be used in 100s of millions of jobs. *News that company uses technology, **X**, they sell to prove that **X** is tranformative and will be used by many at 11.* 
+
+Let's chat first about something that was predicted by purveyers of said technologies to reduce need for expensive developers for years now. Low code.
+
+I have experience with low code tools both as a developer and as a manager responsible for teams. They work, but not in the way they are advertised.
+
+Let's suppose I have a system which processes some kind of workflow. It could be a workflow that replaced a previously paper and signature based approval process like a project approval. Or we could be talking about a workflow that integrates spreadsheets from multiple people 
