@@ -1,1 +1,0 @@
-﻿get-childitem -Path .\ -Filter *.jpg -Recurse -Name | ForEach-Object { magick.exe $_ -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% $_ }
