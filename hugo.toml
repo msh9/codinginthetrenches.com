@@ -33,7 +33,6 @@ buildExpired = false
     title = "Coding in the Trenches"
     content = "Technologist blog"
 
-
 [[menu.main]]
     identifier = "categories"
     name = "categories"
@@ -49,3 +48,7 @@ buildExpired = false
     name = "about"
     url = "/about/"
     weight = 30
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
