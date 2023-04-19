@@ -10,7 +10,7 @@ tags:
   - logging
 
 ---
-Operational monitoring of a software application is one of the activities the ensures a successful public launch. Too often it seems like a service’s course to public availability looks something like, Conceptualization → Development → &#8230; → SHIP IT. The “&#8230;” component is an important step at large enterprises with large public services (like Expedia, Amazon.com, etc) and involves developing a way to monitor an application whilst running it. At smaller organizations though I have seen this smaller step get discarded or not looked at. Today&#8217;s post offers a few thoughts on what logging and monitoring looks like today.
+Operational monitoring of a software application is one of the activities the ensures a successful public launch. Too often it seems like a service’s course to public availability looks something like, Conceptualization → Development → &#8230; → SHIP IT. The "&#8230;" component is an important step at large enterprises with large public services (like Expedia, Amazon.com, etc) and involves developing a way to monitor an application whilst running it. At smaller organizations though I have seen this smaller step get discarded or not looked at. Today&#8217;s post offers a few thoughts on what logging and monitoring looks like today.
 
 #### <!--more-->Why
 
