@@ -13,23 +13,23 @@ tags:
   - rant
 
 ---
-Something introduced fairly early in programming courses is the concept of an [interface][1]. In practice interfaces help to define the boundaries between components of a system, define the behavior of underlying implementors of the interface, and make it easier to switch implementations of said behavior down the road. Today’s post offers a few thoughts on where interfaces should and should not be used.
+Something introduced fairly early in programming courses is the concept of an [interface][1]. In practice interfaces help to define the boundaries between components of a system, define the behavior of underlying implementors of the interface, and make it easier to switch implementations of said behavior down the road. Today's post offers a few thoughts on where interfaces should and should not be used.
 
 [1]: http://en.wikipedia.org/wiki/Interface_(computing)
 
 <!--more-->
 
-Car analogies seems to come up a lot when giving introductory examples to interfaces, so let’s have another. A typical interface example might look like the following:<figure id="attachment_262" style="width: 304px" class="wp-caption aligncenter">
+Car analogies seems to come up a lot when giving introductory examples to interfaces, so let's have another. A typical interface example might look like the following:<figure id="attachment_262" style="width: 304px" class="wp-caption aligncenter">
 
 [<img class="wp-image-262 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/09/Good-Interfaces.png" alt="An interface is implemented by two objects" width="304" height="475" />][2]<figcaption class="wp-caption-text">Using an interface</figcaption></figure> 
 
-This diagram displays a couple useful features of an interface, it creates a contract defining what a ‘Car’ is and it hides (from client code) whether the implementation is a ‘Ford car’ or a ‘GM car.’ Were we to implement software following the above diagram it would be possible to switch out the ‘drivenCar’ with another implementer of the Car interface and the entire application would continue operate.
+This diagram displays a couple useful features of an interface, it creates a contract defining what a ‘Car' is and it hides (from client code) whether the implementation is a ‘Ford car' or a ‘GM car.' Were we to implement software following the above diagram it would be possible to switch out the ‘drivenCar' with another implementer of the Car interface and the entire application would continue operate.
 
-Conceptually this is all well and good. The reason for this post’s existence is that a number of Java [Spring][3] applications seem to end up looking like this:<figure id="attachment_263" style="width: 486px" class="wp-caption aligncenter">
+Conceptually this is all well and good. The reason for this post's existence is that a number of Java [Spring][3] applications seem to end up looking like this:<figure id="attachment_263" style="width: 486px" class="wp-caption aligncenter">
 
 [<img class="wp-image-263 size-full" src="//codinginthetrenches.com/wp-content/uploads/2014/09/Bad-Interfaces.png" alt="Each interface has only one implementer" width="486" height="247" />][4]<figcaption class="wp-caption-text">A poor usage of the interface type</figcaption></figure> 
 
-The problem with this is that the interfaces in this diagram don’t serve a purpose. They are not helping to encapsulate multiple implementers, helping to facilitate switching between providers in a client classes, nor helping to define the behavior of the implementing classes any more than the implementing classes have already.
+The problem with this is that the interfaces in this diagram don't serve a purpose. They are not helping to encapsulate multiple implementers, helping to facilitate switching between providers in a client classes, nor helping to define the behavior of the implementing classes any more than the implementing classes have already.
 
 Creating an interface without regard for whether one is needed creates extraneous project files that have to be tracked and modified throughout the life of the application. It is, arguably, easy to maintain extra interface definitions and of little effort to track extra files in a modern IDE. In a prior blog [post I made a point][5] to point out that minor time saving optimizations for the code or the developer are usually not worth it in monetary terms.
 
@@ -47,14 +47,14 @@ The above is something see often in Spring applications. An interface that is im
 
 ### Objections
 
-  * It’s easier to add implementers to the interface should new ones ever be needed in the future. 
-      * True—but it’s also extremely easy to extract an interface from an existing concrete class by hand and even easier by using a tool
+  * It's easier to add implementers to the interface should new ones ever be needed in the future. 
+      * True—but it's also extremely easy to extract an interface from an existing concrete class by hand and even easier by using a tool
   * It makes testing easier in a dependency injection environment 
       * Not true, using setter injection or constructor injection makes unit testing classes easier. Modern mocking frameworks like EasyMock and [Mockito are just as capable of mocking][9] a concrete implementation class as they are at mocking interfaces.
-  * That’s how I have always done it… 
-      * There is definitely some credence to not changing the status quo. Having common practices makes it easier for new developers to get ramped up on frameworks and applications. The point of this post, however, is that using interfaces everywhere just doesn’t make sense.
+  * That's how I have always done it… 
+      * There is definitely some credence to not changing the status quo. Having common practices makes it easier for new developers to get ramped up on frameworks and applications. The point of this post, however, is that using interfaces everywhere just doesn't make sense.
 
-Let’s try using interfaces in the following situations where they are needed.
+Let's try using interfaces in the following situations where they are needed.
 
   * Multiple classes with similar external behavior, but dissimilar internal behavior; this is the payment processor example.
   * Component boundaries where a defined external behavior is exposed to an unknown set of clients; this is an example of a SDK or API in a library intended for distribution.

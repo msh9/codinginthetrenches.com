@@ -31,9 +31,9 @@ The above set Nginx to listen on port 80 with a wildcard ipv6 address. There are
 
 What I found was that in Nginx version 1.3.4 a change to socket settings defaults occurred for the ipv6only parameter:
 
-> “Prior to version 1.3.4, if this parameter was omitted then the operating system’s settings were in effect for the socket.”
+> "Prior to version 1.3.4, if this parameter was omitted then the operating system's settings were in effect for the socket."
 
-In my case, running on Arch linux the OS default was to accept such con­nec­tions. Post Nginx version 1.3.4 the default for ipv6only is set to **‘on’** meaning that **only** IPv6 con­nec­tions will be handled. Resolving the issue on my host involved changing the con­fig­u­ra­tion line to the following:
+In my case, running on Arch linux the OS default was to accept such con­nec­tions. Post Nginx version 1.3.4 the default for ipv6only is set to **'on'** meaning that **only** IPv6 con­nec­tions will be handled. Resolving the issue on my host involved changing the con­fig­u­ra­tion line to the following:
 
 ```
 listen [::]:80 ipv6only=off;

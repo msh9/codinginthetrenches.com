@@ -12,7 +12,7 @@ context of how to guarantee availability.
 
 <!--more-->
 
-The following discussion covers why reliability derived from redundancy is one of the best tools available in our context to improve system availability. We’ll set the stage by discussing availability, limits to it, and then discuss the need for redundancy with a brief example. The discussion here largely revolves around Microsoft Azure, but similar
+The following discussion covers why reliability derived from redundancy is one of the best tools available in our context to improve system availability. We'll set the stage by discussing availability, limits to it, and then discuss the need for redundancy with a brief example. The discussion here largely revolves around Microsoft Azure, but similar
 thinking can be applied to other cloud providers or on premises scenarios.
 
 # Availability
@@ -32,7 +32,7 @@ Unfortunately we cannot control everything. Lightning strikes happen, power util
 
 Microsoft offers a SLA with credits for failure to meet it on many services. This SLA offers insight into what level of service might be expected out of different Azure products.
 
-  - In the case of virtual machines, the offered level of availability of connectivity to any single virtual machine is 99.9%. Furthermore, they offer for two virtual machines in two different availability zones in a region that you will be able to connect to at least one of them 99.99% of the time. Microsoft’s own SLA is expressed in terms of the above concepts.
+  - In the case of virtual machines, the offered level of availability of connectivity to any single virtual machine is 99.9%. Furthermore, they offer for two virtual machines in two different availability zones in a region that you will be able to connect to at least one of them 99.99% of the time. Microsoft's own SLA is expressed in terms of the above concepts.
   - CosmosDB comes with a 99.99% availability SLA for many facets of the system and, when deployed in multiple regions, it increases to 99.999% for read/write operations.
   - Microsoft Azure Traffic Manager, used to provide DNS naming services, has a SLA of 99.99% availability of providing a valid response to a DNS query.
 
@@ -44,6 +44,6 @@ The math gets messy quickly. For availability, suffice to say we want to avoid l
 
 Reliability and availability are closely tied. We can drive the likelihood of availability higher by using system components that are more reliable. Continuing our example from before,
 
-The reliability of a virtual machine based solution in Azure can be improved by deploying identical, independent, copies of the system to two virtual machines in two different availability zones in a region. Per Microsoft's guidelines the availability of that component is now 99.99% instead of 99.9%. Our solution’s final calculated availability is now 99.97%, significantly better for critical use cases than 99.88%. Referring to our earlier conclusions, the system’s availability is now higher than the availability of an individual component, a single virtual machine, but still limited by the availability of CosmosDB. Redundancy improved the overall availability of the system.
+The reliability of a virtual machine based solution in Azure can be improved by deploying identical, independent, copies of the system to two virtual machines in two different availability zones in a region. Per Microsoft's guidelines the availability of that component is now 99.99% instead of 99.9%. Our solution's final calculated availability is now 99.97%, significantly better for critical use cases than 99.88%. Referring to our earlier conclusions, the system's availability is now higher than the availability of an individual component, a single virtual machine, but still limited by the availability of CosmosDB. Redundancy improved the overall availability of the system.
 
-Components that run directly on Azure including applications that rely on databases, even software deployed on things like Azure Kubernetes Service (AKS), must be mindful that we have to take the offered reliability of Microsoft’s services as is. For example, we cannot ‘vet’ virtual machines to remove the unreliable hardware underneath them. Instead, we must start with the assumption that underlying hosts will fail and that our main tool to improve reliability is redundancy.
+Components that run directly on Azure including applications that rely on databases, even software deployed on things like Azure Kubernetes Service (AKS), must be mindful that we have to take the offered reliability of Microsoft's services as is. For example, we cannot ‘vet' virtual machines to remove the unreliable hardware underneath them. Instead, we must start with the assumption that underlying hosts will fail and that our main tool to improve reliability is redundancy.

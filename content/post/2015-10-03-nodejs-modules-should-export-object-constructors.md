@@ -11,8 +11,8 @@ tags:
   - javascript
 
 ---
-Note I didn’t say _always_ should export objects, but for the sanity of everyone involved, in many cases a required module should return a constructor and 
-not a fully instantiated object. Today’s post is about why your NodeJS modules should look like this:
+Note I didn't say _always_ should export objects, but for the sanity of everyone involved, in many cases a required module should return a constructor and 
+not a fully instantiated object. Today's post is about why your NodeJS modules should look like this:
 
 ```javascript
 /**
@@ -36,11 +36,11 @@ module.exports = myObj;
 
 <!--more-->
 
-The reason for preferring the former over the latter goes back to principals of [object oriented programming][1]. Just because we are in the land of JavaScript does not mean that we get to throw out the last ~40 years of practice in regards to building reusable object models. This is not to say that the latter example (the thing we shouldn&#8217;t be doing) doesn’t involve objects. Rather that instead NodeJS’ module system makes it very easy to unintentionally create a network of singleton objects.
+The reason for preferring the former over the latter goes back to principals of [object oriented programming][1]. Just because we are in the land of JavaScript does not mean that we get to throw out the last ~40 years of practice in regards to building reusable object models. This is not to say that the latter example (the thing we shouldn't be doing) doesn't involve objects. Rather that instead NodeJS' module system makes it very easy to unintentionally create a network of singleton objects.
 
-When `require()` is used the file being loaded from a path is [read only once][2] during the lifetime of a node process. This means that I will always get the same code regardless of how many times something like `require('my-npm-installed-module')` is executed. Back to objects, if the `module.exports` property in &#8216;my-npm-installed-module&#8217; is set to a fixed object then that same object is given to all of the different callers. In other words &#8216;my-npm-installed-module&#8217;—intentionally or not—implements the [Singleton Pattern][3].
+When `require()` is used the file being loaded from a path is [read only once][2] during the lifetime of a node process. This means that I will always get the same code regardless of how many times something like `require('my-npm-installed-module')` is executed. Back to objects, if the `module.exports` property in 'my-npm-installed-module' is set to a fixed object then that same object is given to all of the different callers. In other words 'my-npm-installed-module'—intentionally or not—implements the [Singleton Pattern][3].
 
-I won’t go into general issues with broad usage of the singleton pattern other than it is something which should only be used intentionally and with deliberation. In terms of NodeJS based applications the unintentional usage of the singleton pattern is problematic because it complicates testing and makes the application’s design brittle. Let’s compare the two following snippets of code.
+I won't go into general issues with broad usage of the singleton pattern other than it is something which should only be used intentionally and with deliberation. In terms of NodeJS based applications the unintentional usage of the singleton pattern is problematic because it complicates testing and makes the application's design brittle. Let's compare the two following snippets of code.
 
 File a.js is a module written using `module.exports` to directly return an object.
 

@@ -21,14 +21,14 @@ any given individual leaving a team potentially takes valuable knowledge about t
 to clients; as great as it would be to hand off a software product which never needs maintenance that is rarely the case. 
 
 Several of my past projects have involved knowledge transfers either because my team had become domain experts or we built the products from the ground up for the client.
-The below are some collected notes on what worked well and what didn’t work well.
+The below are some collected notes on what worked well and what didn't work well.
 
 ### Manuals and other documentation separated from the code
 
 Manuals and written documentation are great when the team is given time to read them and write them. I have never been in that group. This is not to say that 
 written documentation is bad. In fact, well written documentation including architecture diagrams, how to guides, setup guides, and styles guides all help developers ramp up quicker.
 
-- What worked well: Architecture diagrams, they’re relatively quick to create post-fact and convey a lot meaning in a small amount of space. Development environment setup guides are 
+- What worked well: Architecture diagrams, they're relatively quick to create post-fact and convey a lot meaning in a small amount of space. Development environment setup guides are 
   also good, they take more time to develop, but can save a lot of time as new developers are added to the project.
 - What didn't work well: Development guides and low level component documentation take the most time to write, are the hardest to update (or conversely the most likely to be 
   out of date), and the least read due to time constraints. To some extent, out of date documentation is worse than no documentation because it's misleading and can misinform design decisions

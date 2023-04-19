@@ -12,7 +12,7 @@ tags:
   - tips
 
 ---
-I recently starting using [Kivy][1], a cross platform Python based native UI framework for a personal project. While searching forums, documentation, and Stackoverflow I have noticed several posts with code that takes the hard road to updating an on screen graphic. This post presents an example of using Kivy&#8217;s Kv language in combination with Python to draw an object that rotates in response to user input.
+I recently starting using [Kivy][1], a cross platform Python based native UI framework for a personal project. While searching forums, documentation, and Stackoverflow I have noticed several posts with code that takes the hard road to updating an on screen graphic. This post presents an example of using Kivy's Kv language in combination with Python to draw an object that rotates in response to user input.
 
 [1]: http://kivy.org
 <!--more-->
@@ -22,7 +22,7 @@ One of the reasons why I picked Kivy for a project was the included
 [Kv][2] language. Kv provides a way to declaratively describe how an object looks when drawn on screen. The Kivy framework can also automatically tie variables used in the Kv description of an object to code in a python file. The other thing that Kv does is expose a way to manipulate the underlying OpenGL [transformation matrix][3]. Using the underlying transformation matrix we can scale, translate (move within a coordinate space), and rotate an object seen by the end user.
 
 
-Let&#8217;s suppose that I want to draw an ellipse that rotates around a circle anchored to the left side of the screen.  We&#8217;ll represent the collection of both the circle and ellipse using a single Kivy <a href="http://kivy.org/docs/api-kivy.uix.widget.html">Widget</a>.<a href="//codinginthetrenches.com/wp-content/uploads/2014/04/rotate_ellipse.png"><img class="size-full wp-image-108 aligncenter" title="A rotating ellipse" alt="A rotating ellipse" src="//codinginthetrenches.com/wp-content/uploads/2014/04/rotate_ellipse.png" width="181" height="184" /></a> Here is the definition of the widget code:
+Let's suppose that I want to draw an ellipse that rotates around a circle anchored to the left side of the screen.  We'll represent the collection of both the circle and ellipse using a single Kivy <a href="http://kivy.org/docs/api-kivy.uix.widget.html">Widget</a>.<a href="//codinginthetrenches.com/wp-content/uploads/2014/04/rotate_ellipse.png"><img class="size-full wp-image-108 aligncenter" title="A rotating ellipse" alt="A rotating ellipse" src="//codinginthetrenches.com/wp-content/uploads/2014/04/rotate_ellipse.png" width="181" height="184" /></a> Here is the definition of the widget code:
 
 
 ```python
@@ -36,11 +36,11 @@ class MyWidget(Widget):
         self.angle = math.degrees(radians)
 ```
 
-The class uses the Kivy NumericProperty class to add a &#8216;angle&#8217; property to each instance of MyWidget, we&#8217;ll see where that value gets used in a few moments. The class also implements the <span class="lang:default decode:true crayon-inline">on_touch_down(self, touch) </span>method which gets called when a user clicks inside of the Kivy application window.
+The class uses the Kivy NumericProperty class to add a 'angle' property to each instance of MyWidget, we'll see where that value gets used in a few moments. The class also implements the <span class="lang:default decode:true crayon-inline">on_touch_down(self, touch) </span>method which gets called when a user clicks inside of the Kivy application window.
 
-That&#8217;s it, the only thing that needs to be done in Python is the calculation of the angle that the ellipse should rotate to when the user clicks in the application window.
+That's it, the only thing that needs to be done in Python is the calculation of the angle that the ellipse should rotate to when the user clicks in the application window.
 
-Now let&#8217;s look at the Kv for the widget:
+Now let's look at the Kv for the widget:
 
 <pre>&lt;MyWidget&gt;:
     canvas.before:

@@ -11,7 +11,7 @@ tags:
   - tips
 
 ---
-Performance counters can be implemented in applications to help operators determine where bottlenecks are in the design. Microsoft has a decent page, that’s somewhat Windows centric, about [performance counters][1]. This post is about implementing the most basic type of counter, a value which monotonically increases, in JavaScript for NodeJS and the performance implications of different designs.
+Performance counters can be implemented in applications to help operators determine where bottlenecks are in the design. Microsoft has a decent page, that's somewhat Windows centric, about [performance counters][1]. This post is about implementing the most basic type of counter, a value which monotonically increases, in JavaScript for NodeJS and the performance implications of different designs.
 
 
  [1]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa371643(v=vs.85).aspx
@@ -26,13 +26,13 @@ All of the following timing information was done on a desktop PC with an Intel 
 
 In order to cast a wide net the following methods for incrementing an integer were tested:
 
-  1. Calling a method on a “Counter” object that adds an argument value or 1 if the argument was falsey. 
+  1. Calling a method on a "Counter" object that adds an argument value or 1 if the argument was falsey. 
       * `this.val += incrVal || 1;`
-  2. Calling a method on a “Counter” object that adds an argument value or 1 if the argument was falsey. 
+  2. Calling a method on a "Counter" object that adds an argument value or 1 if the argument was falsey. 
       * `if(incrVal) { this.val += incrVal; } else { this.val += 1; }`
-  3. Calling a method on a “Counter” object that always adds 1 
+  3. Calling a method on a "Counter" object that always adds 1 
       * `this.val += 1;`
-  4. Calling a method on a “Counter” object that always adds 1 
+  4. Calling a method on a "Counter" object that always adds 1 
       * `this.val++;`
   5. Always add 1 to a bare number 
       * `myVal++;`
@@ -50,11 +50,11 @@ See [the full source][5] for the tests in a Gist.
 | #5           | 0.0135 seconds |
 | #6           | 0.0134 seconds |
 
-The results are not particularly surprising. The indirection of calling an object’s method adds time to the overall total, roughly about double in the worst case between #1 and #6. While using an object adds overhead, individually maintaining numerous objects throughout a JS application is asking for pain. Please don’t use methods #5 and #6 throughout a production application.
+The results are not particularly surprising. The indirection of calling an object's method adds time to the overall total, roughly about double in the worst case between #1 and #6. While using an object adds overhead, individually maintaining numerous objects throughout a JS application is asking for pain. Please don't use methods #5 and #6 throughout a production application.
 
 Something else interesting to note, at least with NodeJS 4.3.0 the [KISS][6] method of using an If statement instead of a 1-liner is faster (see #1 vs. #2).
 
-In conclusion, if you don&#8217;t need variable increments method #4 looks the best, otherwise method #2 looks good. As with all benchmarking please do not take these numbers out of context and remember that these are timing values for **10 million total** operations. In other words, every method presented here is very fast in all but the most extreme of circumstances.
+In conclusion, if you don't need variable increments method #4 looks the best, otherwise method #2 looks good. As with all benchmarking please do not take these numbers out of context and remember that these are timing values for **10 million total** operations. In other words, every method presented here is very fast in all but the most extreme of circumstances.
 
  [2]: https://codinginthetrenches.com/2014/09/10/java-arraylist-resize-costs/
  [3]: https://codinginthetrenches.com/2014/09/01/how-long-it-takes-to-throw-an-exception-in-java/

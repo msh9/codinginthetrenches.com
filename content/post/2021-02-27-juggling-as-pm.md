@@ -24,7 +24,7 @@ This is about what comes after prioritization and when the team starts executing
 
 Is the team skilled at juggling? Does the team have multiple hands (more than two people)? Are the work items bowling balls, handkerchiefs, or tenpins? As far as the analogy goes this is a question of how many things the team can work on simultaneously without dropping needed quality or execution pace.
 
-Last reference to juggling, the things being juggled are work areas. Okay, enough with it. The point is that even with a Kanban or Scrum type of process it makes sense to bucket an engineering team’s work into areas.
+Last reference to juggling, the things being juggled are work areas. Okay, enough with it. The point is that even with a Kanban or Scrum type of process it makes sense to bucket an engineering team's work into areas.
 
 !["Multiple work areas with identifying boxes"](/images/2021-02-27-juggling-as-pm/multiple-work-areas-boxes.svg "Multiple areas for the team")
 

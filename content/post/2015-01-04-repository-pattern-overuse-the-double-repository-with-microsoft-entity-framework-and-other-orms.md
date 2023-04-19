@@ -11,14 +11,14 @@ tags:
   - rant
 
 ---
-Martin Folwer’s blog and website is a common reference for modern design pattern so we will start with his glossary definition for the [repository pattern][1]. The linked article contains more detail, but in short a ‘repository’ acts as an data store layer on top of the storage system and provides (more) object oriented methods for accessing said system. Unfortunately, something I have also seen is the over application of this pattern in combination with RDBMS [ORM][2]s leading to contorted code with unnecessary interfaces and classes. This post covers what I have seen in some projects in order to provide some of the <a href="http://blog.codinghorror.com/code-smells/" target="_blank">code smells</a> to avoid.
+Martin Folwer's blog and website is a common reference for modern design pattern so we will start with his glossary definition for the [repository pattern][1]. The linked article contains more detail, but in short a ‘repository' acts as an data store layer on top of the storage system and provides (more) object oriented methods for accessing said system. Unfortunately, something I have also seen is the over application of this pattern in combination with RDBMS [ORM][2]s leading to contorted code with unnecessary interfaces and classes. This post covers what I have seen in some projects in order to provide some of the <a href="http://blog.codinghorror.com/code-smells/" target="_blank">code smells</a> to avoid.
 
  [1]: http://martinfowler.com/eaaCatalog/repository.html
  [2]: http://en.wikipedia.org/wiki/Object-relational_mapping
 
 <!--more-->
 
-ORMs are often used to mediate between the application and database system in non-exotic (think business process applications) relational database backed applications. An ORM like Entity Framework or Hibernate generates SQL to interact with a relational back-end and exposes object collections to the application. The object collections exposed by ORMs like Hibernate are also managed in the application’s memory in order to help manage things like transactions and speed up interactions with the database. The prior descriptions should sound familiar since these ORMs are implementing the repository pattern for the application.
+ORMs are often used to mediate between the application and database system in non-exotic (think business process applications) relational database backed applications. An ORM like Entity Framework or Hibernate generates SQL to interact with a relational back-end and exposes object collections to the application. The object collections exposed by ORMs like Hibernate are also managed in the application's memory in order to help manage things like transactions and speed up interactions with the database. The prior descriptions should sound familiar since these ORMs are implementing the repository pattern for the application.
 
 [<img class="alignnone wp-image-316" src="//codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png" alt="ORM Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram-300x70.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][3]
 
@@ -26,11 +26,11 @@ There are legitimate reasons for wrapping an ORM inside of another set of reposi
 
 A slightly less legitimate reason for applying the repository pattern over an ORM would be in order to (attempt to) make it easy to switch ORMs or data storage systems. Conceptually this seems like a good idea, but often the data model for the application is stored in one of these systems making it difficult to switch systems.
 
-Unfortunately on applications that I have worked on, it appears that the applications’ ORMs were wrapped in a set of repositories because it seemed like a “good thing to do” ™. The result of this wrapping often yields an application that looks likes the following:
+Unfortunately on applications that I have worked on, it appears that the applications' ORMs were wrapped in a set of repositories because it seemed like a "good thing to do" ™. The result of this wrapping often yields an application that looks likes the following:
 
 [<img class="alignnone wp-image-317" src="//codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png" alt="ORM Repository Diagram" width="400" height="94" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram-300x71.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Repository-Diagram.png 631w" sizes="(max-width: 400px) 100vw, 400px" />][4]
 
-I’ve never been fond of this design because it promotes creating access classes with single line methods.
+I've never been fond of this design because it promotes creating access classes with single line methods.
 
 <pre>// Java / C# pseudocode
 public class MyDomainTypeVeneerRepository {
@@ -55,7 +55,7 @@ The final thing which has been present in some projects is an attempt to over ge
      …
  }</pre>
 
-While the above code doesn’t itself lead to anything terrible, it does essentially re-implement functionality that is already written into Entity Framework’s and Hibernate’s base classes. The problem with the generic repository and the single line veneer repositories is that they don’t add anything to the application other than more classes and interfaces to manage. The above methods are _not_ inherently evil, they make sense in cases where the application repositories contain significant logic (and possibly use the unit of work pattern). In many cases though the application’s repositories consist of single line adapter methods that do not do anything beyond pass calls onto the next layer down.
+While the above code doesn't itself lead to anything terrible, it does essentially re-implement functionality that is already written into Entity Framework's and Hibernate's base classes. The problem with the generic repository and the single line veneer repositories is that they don't add anything to the application other than more classes and interfaces to manage. The above methods are _not_ inherently evil, they make sense in cases where the application repositories contain significant logic (and possibly use the unit of work pattern). In many cases though the application's repositories consist of single line adapter methods that do not do anything beyond pass calls onto the next layer down.
 
 To summarize the collected code smells:
 
@@ -65,7 +65,7 @@ To summarize the collected code smells:
 
 In case of the above issues it may be best to remove the wrapping repositories or, alternatively, create a more substantial abstraction layer, possibly using the unit of work pattern with the repository pattern.
 
-On its own the repository pattern is a good approach to handling the interaction between application logic and data systems. Popular ORMs like Entity Framework do a large part of the heavy lifting necessary to implement the repository pattern for an application. Creating an abstraction on top of an ORM is not necessary a bad idea, but it’s important to do so thoughtfully in order to not create a leaky abstraction or add complexity to the application without justification.
+On its own the repository pattern is a good approach to handling the interaction between application logic and data systems. Popular ORMs like Entity Framework do a large part of the heavy lifting necessary to implement the repository pattern for an application. Creating an abstraction on top of an ORM is not necessary a bad idea, but it's important to do so thoughtfully in order to not create a leaky abstraction or add complexity to the application without justification.
 
 
  [3]: //codinginthetrenches.com/wp-content/uploads/2015/01/ORM-Diagram.png

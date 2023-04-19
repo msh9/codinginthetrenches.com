@@ -11,7 +11,7 @@ tags:
   - tips
 
 ---
-Just a quick fun post on a wonder of Sun and Oracle marketing: The product named &#8216;Java&#8217;.
+Just a quick fun post on a wonder of Sun and Oracle marketing: The product named 'Java'.
 
 There is no one thing that the product name Java refers to and depending on the context it may be a cloud service or a programming language.
 
