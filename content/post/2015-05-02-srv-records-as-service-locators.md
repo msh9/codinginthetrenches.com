@@ -25,7 +25,7 @@ Build and, in particular, test in this type of distributed environment can becom
 
 A naïve solution may be to run each service on a fixed host and port (and fixed IP address). The IP and port combination for each service would then be given to dependent services as a piece of configuration. A slightly better approach would be to use a load balancer with different configurations for each microservice. The load balancer is a better approach since then at least we can start thinking about zero or minimal downtime deployments.
 
-�<figure class="wp-caption aligncenter" id="attachment_371" style="width: 385px">
+<figure class="wp-caption aligncenter" id="attachment_371" style="width: 385px">
 
 [<img alt="Load balancing between instances of an application" class="size-full wp-image-371" height="334" sizes="(max-width: 385px) 100vw, 385px" src="https://codinginthetrenches.com/wp-content/uploads/2015/04/Load-Balancer.png" srcset="https://codinginthetrenches.com/wp-content/uploads/2015/04/Load-Balancer-300x260.png 300w, https://codinginthetrenches.com/wp-content/uploads/2015/04/Load-Balancer.png 385w" style="background-color: white;" width="385"/>][4]<figcaption class="wp-caption-text">Load balancing between instances of an application</figcaption></figure> 
 
