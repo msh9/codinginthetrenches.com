@@ -21,7 +21,7 @@ Like any other data storage system DynamoDB has trade offs between its features 
 
 The below workflow is what we will step through:
 
-<img class="align-center" src="/images/2014-06-07-dynamodb/dynamodb-choice.png" alt="Abstract choices leading to use of DynamoDB or not" />
+<img alt="Abstract choices leading to use of DynamoDB or not" class="align-center" src="/images/2014-06-07-dynamodb/dynamodb-choice.png" style="background-color: white;"/>
 
 First we'll look at some of things DynamoDB does well and scenarios where DynamoDB's ca­pa­bil­i­ties would help a project. Things that DynamoDB is good at:
 
@@ -38,17 +38,17 @@ To sum it up DynamoDB is good for situations where fast CRUD per­for­mance is 
    
 We'll look at some of the trade offs made in using DynamoDB, but let it suffice to say that it should not be used casually. A project con­sid­er­ing DynamoDB really needs (at a high level) to have a lot of queries which look like the following in order to justify using it:
     
-<img class="aligncenter" src="/images/2014-06-07-dynamodb/dynamodb-query.png" alt="A hypothetical query for an item in a set" width="300" height="408" />The above picture represents what should be a common query pattern. The ap­pli­ca­tion asks for a single or small set of records (ABC) all associated with a single identifier ('A' in this case.) If the project is not expected to benefit for high per­for­mance single record or small batch CRUD operations then stop here and consider another technology.
+<img alt="A hypothetical query for an item in a set" class="aligncenter" height="408" src="/images/2014-06-07-dynamodb/dynamodb-query.png" style="background-color: white;" width="300"/>The above picture represents what should be a common query pattern. The ap­pli­ca­tion asks for a single or small set of records (ABC) all associated with a single identifier ('A' in this case.) If the project is not expected to benefit for high per­for­mance single record or small batch CRUD operations then stop here and consider another technology.
 
 Second we'll look at the reasons why DynamoDB might be in­ap­pro­pri­ate for an ap­pli­ca­tion even if it might otherwise provide value. DynamoDB requires a very particular "shape" of data to operate well. Let's first illustrate with a couple diagrams then discuss what they mean; first hash keys should identify small sets of data like the following:
         
-<img class="aligncenter" src="/images/2014-06-07-dynamodb/dynamodb-small-hk-collection.png" alt="A small collection of records identified by a hash key" width="400" height="221" />and definitely **not** like the following:
+<img alt="A small collection of records identified by a hash key" class="aligncenter" height="221" src="/images/2014-06-07-dynamodb/dynamodb-small-hk-collection.png" style="background-color: white;" width="400"/>and definitely **not** like the following:
 
-<img class="aligncenter" src="/images/2014-06-07-dynamodb/dynamodb-large-hk-collection.png" alt="A large collection of records identified by a hash key" width="400" height="221" />Finally queries into the data set should look like the one above in #1 and **not** like the following:
+<img alt="A large collection of records identified by a hash key" class="aligncenter" height="221" src="/images/2014-06-07-dynamodb/dynamodb-large-hk-collection.png" style="background-color: white;" width="400"/>Finally queries into the data set should look like the one above in #1 and **not** like the following:
 
 
 
-<img class="aligncenter" src="/images/2014-06-07-dynamodb/dynamodb-scan.png" alt="A query that resulted in a scan of records" width="300" height="372" />In words the important take away from these diagrams is that data should be stored in small hunks; hash keys in DynamoDB should only identify 1 or a small number of records. Similarly a frequently repeated request should use a hash key to retrieve a small number of records at a time (although there are benefits to batch reads in this case). There are couple reasons why data should be worked with in small ‘hunks' in DynamoDB.
+<img alt="A query that resulted in a scan of records" class="aligncenter" height="372" src="/images/2014-06-07-dynamodb/dynamodb-scan.png" style="background-color: white;" width="300"/>In words the important take away from these diagrams is that data should be stored in small hunks; hash keys in DynamoDB should only identify 1 or a small number of records. Similarly a frequently repeated request should use a hash key to retrieve a small number of records at a time (although there are benefits to batch reads in this case). There are couple reasons why data should be worked with in small ‘hunks' in DynamoDB.
 
 - **JSON API**: The base API for DynamoDB (even if your project uses the Java SDK) is a JSON HTTP interface. For every request to get data from and put data in DynamoDB there is the overhead of de/se­ri­al­iz­ing JSON and making a HTTP request. Se­ri­al­iz­ing and de­se­ri­al­iz­ing JSON is not a bad thing in and of itself, but doing it thousands of times is bad if it needs to be done on every request.
 - **Design Lim­i­ta­tions**: Placing large data sets underneath any given hash key means that a client ap­pli­ca­tion has to sort through all of the data for a hash key to find a needed record. Ad­di­tion­al­ly the use of local secondary indices places hard lim­i­ta­tions on the amount of data assocated with any given hash key in the system.
