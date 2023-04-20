@@ -2,7 +2,7 @@
 tags = ["using-software"]
 categories = ["commentary"]
 description = "Commentary on whether we care about low code anymore; rest in peace development as a job role, long live development as a job role."
-draft = true
+draft = false
 author = "Michael Hughes"
 date = 2023-04-13T20:09:21-06:00
 title = "Is low code all that? AI???"
@@ -32,7 +32,7 @@ Where I've seen these tools generally fail to live up to their advertised claims
 
 I see parallels between this and in language models that translate text descriptions of functionality into application code.
 
-Tools like CoPilot (and the to be generally available CoPilot X) are powerful aides that can write code, documentation, tests, and can even define infrastructure as code to execute said code. Many of these capabilities were previously for humans. For these capabilities though, a technical human being is still needed to define what the generative model is to produce, validate its output, and, most importantly, ensure the outputs of the model over time form a cohesive working application. Today's models do well to generate applications or functions in constrainted environments with specific well defined goals. This is not very far from low code tools helping to quickly automation application integrations. Both are within constrained problem domains, do not solve for ground up novel functionality or new use cases, and ultimately both are productivity boosting tools that still need significant operator input to work well.
+Tools like CoPilot (and the to be generally available CoPilot X) are powerful aides that can write code, documentation, tests, and can even define infrastructure as code to execute said code. Many of these capabilities were previously reserved for humans. For these capabilities though, a technical human being is still needed to define what the generative model is to produce, validate its output, and, most importantly, ensure the outputs of the model over time form a cohesive working application. Today's models do well to generate applications or functions in constrained environments with specific well defined goals. This is not very far from low code tools helping to quickly automation application integrations. Both are within constrained problem domains, do not solve for ground up novel functionality or new use cases, and ultimately both are productivity boosting tools that still need significant operator input to work well.
 
 Time for some assertions that will likely be found wrong at some point in the future,
 
@@ -40,6 +40,8 @@ Time for some assertions that will likely be found wrong at some point in the fu
 2. Low code wasn't and isn't the future of novel application development. I don't expect generative AI to be either. I do expect that generative AI will be more widely deployed and used by technical people that low code tooling has been to date. 
 3. Companies building products and services will still need to hire developers and other technical staff; system design and architecture will become an ever more important part of developers' professional roles.
 
-I started out this post poking fun as OpenAI's whitepaper which estimated the impact of current LLMs on jobs. Their paper attempts to articulate how much of many professional roles will be touched by LLMs. Development is a highly impacted category in their paper. The breathless and attention grabbing way of reading this is to conclude that the profession will go away. A more boring and, I'm venturing, more accurate prediction is that professional development is about to get a lot of new producitivity enhancing tools. The bar for the complexity of system that requires technical staff to build *will* absolutely be raised. Perhaps in the near future non-technical users will be able to describe simple and useful applications in text and get a complete working system in return, but this is the sort of problem that low-code and no-code tools were already out in the market solving. 
+I started out this post poking fun at OpenAI's whitepaper which estimated the impact of current LLMs on jobs. The paper attempts to articulate how much of many professional roles will be touched by LLMs. Development is a highly impacted category in their paper. The breathless and attention grabbing way of reading this is to conclude that the profession will go away. A more boring and, I'm venturing, more accurate prediction is that professional development is about to get a lot of new productivity enhancing tools. The bar for the complexity of system that requires technical staff to build *will* absolutely be raised. Perhaps in the near future non-technical users will be able to describe simple and useful applications in text and get a complete working system in return, but this is the sort of problem that low-code and no-code tools were already out in the market solving. 
 
-For more complex services, the kinds of software that we use daily for messaging, social networking, banking, etc we will still need professional developers. LLMs will enable technical staff to do, more, faster; similar to yesterday's low code tools, LLMs will free up professional developer time to solve bigger and harder problems than before. 
+For more complex services, the kinds of software that we use daily for messaging, social networking, banking, etc we will still need professional developers. LLMs will enable technical staff to do, more and faster; similar to yesterday's low code tools, LLMs will free up professional developer time to solve bigger and harder problems than before. 
+
+Okay, so what's the punchline here? If there is one it's that low code tools are likely to be pushed out of the market in coming years by predictive ML models.
