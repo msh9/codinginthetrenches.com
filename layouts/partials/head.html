@@ -34,6 +34,8 @@
 {{- else}}
 <link href="{{ $stylesheet.Permalink }}" rel="preload stylesheet" as="style">
 {{- end}}
+<!--local styles -->
+<link href="/addon-styles.css" rel="prelod stylesheet" as="style">
 <!-- Search -->
 {{- if (eq .Layout `search`) -}}
 <link rel="preload" as="fetch" href="../index.json" crossOrigin="anonymous">

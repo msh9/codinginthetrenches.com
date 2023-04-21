@@ -2,7 +2,6 @@
 tags = ["tips"]
 categories = ["review?"]
 description = "Commentary on why I stopped using AWS WorkMail for email hosting."
-draft = false
 author = "Michael Hughes"
 date = 2023-04-14T19:03:37-06:00
 title = "AWS WorkMail is meh."
