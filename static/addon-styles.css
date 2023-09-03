@@ -2,3 +2,8 @@
     float: left;
     margin: 5px;
 }
+
+.post-footer .copyright {
+    font-size: 14px;
+    color:var(--content);
+}
