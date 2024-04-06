@@ -23,6 +23,7 @@ buildExpired = false
     env = "production"
     title = "Coding in the Trenches"
     author = "Michael Hughes"
+    math = true
     description = "Coding in the Trenches is thoughts, tips, and methodologies for software development"
 
 [[params.socialIcons]]
@@ -52,3 +53,9 @@ buildExpired = false
     [markup.goldmark]
         [markup.goldmark.renderer]
             unsafe = true
+        [markup.goldmark.extensions]
+            [markup.goldmark.extensions.passthrough]
+                enable = true
+                [markup.goldmark.extensions.passthrough.delimiters]
+                block = [['\[', '\]'], ['$$', '$$']]
+                inline = [['\(', '\)']]
