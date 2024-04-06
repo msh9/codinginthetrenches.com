@@ -23,7 +23,7 @@ buildExpired = false
     env = "production"
     title = "Coding in the Trenches"
     author = "Michael Hughes"
-    math = true
+    math = false
     description = "Coding in the Trenches is thoughts, tips, and methodologies for software development"
 
 [[params.socialIcons]]
