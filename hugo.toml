@@ -2,7 +2,6 @@ baseURL = "https://codinginthetrenches.com"
 languageCode = "en-us"
 title = "Coding in the Trenches"
 # Enable Google Analytics by entering your tracking code
-googleAnalytics = "G-ZJQZNY3V6D"
 # Define the number of posts per page
 paginate = 10
 theme = "hugo-PaperMod"
