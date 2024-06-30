@@ -16,17 +16,31 @@ Currently, this blog, Coding in the Trenches, is hosted on AWS using a combinati
 
 Some important reasons for why,
 
-- B2 progress egress to CloudFlare CDN free of charge
-- For hobbiest / personal projects CloudFlare CDN is free. For all intents and purposes there is not uptime SLA but that's okay for this particular personal site.
-- I want give myself a reason to play around with CloudFlare's tools given their prevalence.
+- B2 provides egress to Cloudflare CDN free of charge
+- Cloudflare CDN is free For hobby / personal projects. For all intents and purposes, there is no uptime SLA but that's okay for this particular personal site.
+- I wanted give myself a reason to play around with Cloudflare's tools given their prevalence.
 
-My starting point for how to make this integration work was Backblaze's [integration guide](https://www.backblaze.com/docs/cloud-storage-deliver-public-backblaze-b2-content-through-cloudflare-cdn). If you want to implement this style of hosting yourself, I recommend given the guide a thorough read. Critical highlights that are worth copying here are,
+My starting point for how to make this integration work was Backblaze's [integration guide](https://www.backblaze.com/docs/cloud-storage-deliver-public-backblaze-b2-content-through-cloudflare-cdn). If you want to implement, I recommend giving the guide a thorough read. Critical highlights that are worth copying here are,
 
 - Backblaze B2 uses shared domains for hosting different public bucket content. Buckets are segregated by URI path prefixes of the form `/file/{bucket name}`.
-- Backblaze B2 does automatically route a request for a folder to an index file. For example, a request for `/file/my-bucket/some-folder` will return 404 if that exact name does not exist instead of returning the contents of `/file/my-bucket/some-folder/index.html`. This makes sense given that B2 is an object store, but means that static website hosting requires a workaround.
-- For both of the above, B2's integration guide recommends using a CloudFlare CDN feature called 'Page Rules'.
+- Backblaze B2 does **not** automatically route a request for a folder to an index file. For example, a request for `/file/my-bucket/some-folder` will return 404 if that exact name does not exist instead of returning the contents of `/file/my-bucket/some-folder/index.html`. This makes sense given that B2 is an object store, but means that static website hosting requires a workaround.
+- For both of the above, B2's integration guide recommends using a Cloudflare CDN feature called 'Page Rules'.
 
-After creating my site in Cloudflare though, I found that while [Page Rule](https://developers.cloudflare.com/rules/page-rules/) documentation still exists, [it's a deprecated feature.](https://developers.cloudflare.com/rules/reference/page-rules-migration/). Instead, transform rules and redirects serve a similar purpose to direct traffic from CloudFlare's edge to the Backblaze B2 bucket. In order to solve for the critical items above we need the following,
+After creating my site in Cloudflare though, I found that while [Page Rule](https://developers.cloudflare.com/rules/page-rules/) documentation still exists, [it's a deprecated feature.](https://developers.cloudflare.com/rules/reference/page-rules-migration/). Instead, transform rules and redirects serve a similar purpose to direct traffic from Cloudflare's edge to the Backblaze B2 bucket. In order to solve for the critical items above we need the following,
 
-- *Two* transform rules per B2 bucket. The rules rewrite URI paths for directories and direct links to files separately.
+- *Two* transform rules per B2 bucket that perform URL rewriting. The rules rewrite URI paths for directories and direct links to files separately and, importantly, transparently to clients.
 - Appropriate DNS settings for hosting a domain
+
+With those two settings set, content should be loaded from the B2 buckets to Cloudflare and then served to end users. Since pictures help explain better than words, here are some screenshots from my own site's transform rule configuration,
+
+- For directories:
+
+{{<figure src="directory-filter.webp" alt="A rewrite transform filter for paths ending in '/'">}}
+{{<figure src="directory-rewrite-rule.webp" alt="The matching rewrite rule for directories">}}
+
+- For files and assets:
+
+{{<figure src="asset-filter.webp" alt="A rewrite transform filter for paths not ending in '/'">}}
+{{<figure src="asset-rewrite-rule.webp" alt="The matching rewrite rule for assets">}}
+
+I hope this helps folks in the future!
