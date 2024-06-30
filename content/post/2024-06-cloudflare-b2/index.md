@@ -1,8 +1,7 @@
 +++
-tags = []
-categories = []
+tags = ["cloud computing", "tips", "web services"]
+categories = ["projects"]
 description = "Information on using Backblaze b2 and Cloudflare CDN for static website hosting"
-draft = true
 author = "Michael Hughes"
 date = 2024-06-26T20:49:54-06:00
 title = "Hosting a static site on Cloudflare CDN and Backblaze B2"
