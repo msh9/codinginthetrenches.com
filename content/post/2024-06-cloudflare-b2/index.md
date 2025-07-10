@@ -11,7 +11,7 @@ I recently bought a new domain and wanted to host a couple new static pages on i
 
 <!--more-->
 
-Currently, this blog, Coding in the Trenches, is hosted on AWS using a combination of AWS S3 and CloudFront CDN. Both being AWS services that are mature and well integrated, static site hosting is reasonably well documented and supported with out of the box defaults. I wanted to intentionally try something different for a new site, eventually landing on a combination of Backblaze B2 and Cluudflare CDN.
+Currently, this blog, Coding in the Trenches, is hosted on AWS using a combination of AWS S3 and CloudFront CDN. Both being AWS services that are mature and well integrated, static site hosting is reasonably well documented and supported with out of the box defaults. I wanted to intentionally try something different for a new site, eventually landing on a combination of Backblaze B2 and Cloudflare CDN.
 
 Some important reasons for why,
 
