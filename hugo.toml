@@ -4,6 +4,7 @@ title = "Coding in the Trenches"
 # Enable Google Analytics by entering your tracking code
 theme = "hugo-PaperMod"
 
+defaultContentLanguage = 'en'
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
@@ -51,6 +52,9 @@ pagerSize = 10
     weight = 30
 [markup]
     [markup.goldmark]
+        [markup.goldmark.renderHooks]
+            [markup.goldmark.renderHooks.link]
+                useEmbedded = 'fallback'
         [markup.goldmark.renderer]
             unsafe = true
         [markup.goldmark.extensions]
