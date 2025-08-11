@@ -67,12 +67,16 @@ $$
 
 What if did it in the hypothetical Audi Q7 45 instead? 
 
+Utah
 $$
 1490 miles \times {1 gallon \over 22 miles} \times {$3.824 \over 1 gallon} \approx $258
+$$
+Texas
+$$
 1490 miles \times {1 gallon \over 22 miles} \times {$3.627 \over 1 gallon} \approx $246
 $$
 
-Ouch. Some more math, each gallon of gasoline is,
+Ouch. Some more math for context, each gallon of gasoline is,
 
 $$
 1 gallons \times {120214 BTU \over 1 gallon} \times {1 kWh \over 3412 BTU} \approx 35 kWh
@@ -86,6 +90,8 @@ Let's use the Tesla Model X. The Model Y is more efficient, but the Model X is c
 
 $$
 1490 miles \times {360 Wh \over 1 mile} \approx 536 kWh
+$$
+$$
 536 kWh \times {$0.48 \over 1 kWh} \approx $257
 $$
 
