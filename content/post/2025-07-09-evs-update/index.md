@@ -49,7 +49,7 @@ $$
 
 [The prior post does some math to show that electric motors are more efficient at turning stored energy into motion.]({{<ref "2024-04-04-evs">}}). I will not repeat that here, but will comment its unclear to me why this has become a point of contention. As country we switched to diesel **electric** locomotives over 70 years ago because the efficiency and capability of electric motors were so great that it make sense to relegate the internal combustion engine to power generation. Hybrid cars deliver similar benefits. Pure EVs take this a setup further and deliver even better efficiency.
 
-## DC Fast Charing is expensive
+## DC Fast Charging is expensive
 
 With that out of the way, let's discuss DC fast charging using services like Electrify America.
 
