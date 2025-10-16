@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Coding in the Trenches"
 # Enable Google Analytics by entering your tracking code
 theme = "hugo-PaperMod"
+copyright = "© 2025 Michael Hughes"
+enableGitInfo = true
 
 defaultContentLanguage = 'en'
 enableRobotsTXT = true
@@ -25,6 +27,7 @@ pagerSize = 10
     title = "Coding in the Trenches"
     author = "Michael Hughes"
     math = false
+    defaultTheme = "auto"
     description = "Coding in the Trenches is thoughts, tips, and methodologies for software development"
 
 [[params.socialIcons]]
