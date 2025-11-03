@@ -60,6 +60,6 @@ A little reading suggests that Claude Code has a better sandbox mechanism. For n
 
 I've been out of frontend javascript development for a while and both vite and vitest are new to me. It's great that Codex could 'fix' issues in the project due to its own sandboxing mechanism. I am, yet again, reminded of a post I read recently by [Anil Dash on how these tools are just that, merely tools.](https://www.anildash.com/2025/10/17/the-majority-ai-view/)
 
-Finally, and I know that I have beaten this point to death, but I'm going to keep making it until these tools get better, if I did not have a background in *nix tools and software development I might have found myself submitting a bug report like this. Why I see that as a problem is left as an exercise for the reader.
+Finally, and I know that I have beaten this point to death, but I'm going to keep making it until these tools get better, if I did not have a background in *nix tools and software development I might have found myself submitting a bug [report like this](https://github.com/openai/codex/issues/6068). Why I see that as a problem is left as an exercise for the reader.
 
 Nevertheless, my misadventures continue and hopefully I'll publish more results soon.
