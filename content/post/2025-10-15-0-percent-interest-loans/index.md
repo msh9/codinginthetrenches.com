@@ -70,7 +70,7 @@ Now we can compute the second month, we remove $200 for the loan payment and add
 
 We can continue, but we'll use a spreadsheet to generate a graph.
 
-{{<figure src="2025-10-07-0-apr-loansPer-month Accrual .svg"  caption="Accruals per month" alt="A chart showing a total of $12 of accruals spread across six months">}} 
+{{<figure src="2025-10-07-0-apr-loansPer-month Accrual.svg"  caption="Accruals per month" alt="A chart showing a total of $12 of accruals spread across six months">}} 
 
 The approach earns ~$12 cumulatively over the six months or one fast‐food lunch.
 
