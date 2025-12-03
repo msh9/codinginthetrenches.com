@@ -56,7 +56,7 @@ With that out of the way, let's discuss DC fast charging using services like Ele
 We recently took a road trip. For simplicity, we'll say that we drove ~745 miles each direction, 1490 miles roundtrip. On that trip we had an average power consumption of 40.175 kWh per 100 miles. Or,
 
 $$
-1490 miles \times {40.175 \over 100 miles} \approx 599 kWh
+1490 miles \times {40.175 kWh \over 100 miles} \approx 599 kWh
 $$
 
 We spent a bit on DC fast charging while on the trip,
