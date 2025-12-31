@@ -19,6 +19,8 @@ To make it concrete, let's suppose that we need a new mattress which costs $1200
 
 <!--more-->
 
+**--December, 2025 update, a calculator based on this post is now [available here](/apr-apy-comparer), original post is as follows:--**
+
 At first, taking the 0% interest "buy now, pay later" option AKA "a loan" makes the most sense. That said, businesses offering purchase financing are trying to make a profit too and may not always have our best interests at heart. We will do a bit of math to learn for ourselves.
 
 ## Conclusion first
