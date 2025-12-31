@@ -30,9 +30,9 @@ Those of you who have read the above post are aware that there are no *realistic
 * a deposit account APY
 * and, for rewards, the credit card rewards rate
 
-Optionally, you can choice the use 'Real world calendar' calcuation mode which returns slightly more accurate numbers and a credit card APR to estimate the interest charge if the purchase was not paid off.
+Optionally, you can chose 'Real world calendar' calculation mode which returns slightly more accurate numbers and supply a credit card APR to estimate the interest charge if the purchase was not paid off.
 
 With this information, the calculator returns data like,
-* the loan month payment and interest charges, if any, for non-zero nominal rates
+* the loan's monthly payment and interest charges, if any, for non-zero nominal rates
 * the potential benefit gained by holding loan payments in a high yield savings account for the duration of the loan
 * and credit card rewards from the single purchase
