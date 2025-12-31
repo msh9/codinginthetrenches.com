@@ -53,6 +53,11 @@ pagerSize = 10
     name = "about"
     url = "/about/"
     weight = 30
+[[menu.main]]
+    identifier = "0% APR Purchase Calculator"
+    name = "0% APR Purchase Calculator"
+    url = "/apr-apy-comparer"
+    weight = 40
 [markup]
     [markup.goldmark]
         [markup.goldmark.renderHooks]
