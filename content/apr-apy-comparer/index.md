@@ -12,9 +12,9 @@ The background on why this page exists are a pair of post (series) from the blog
 
 After this page is posted, roughly end of year 2025, there will be more posts about AI coming. The discussion on 0% APR purchase loans is complete though and the below calculator is the result. For the curious, the implementation and [README are over on Github.](https://github.com/msh9/apy-apr-tradeoff/tree/main)
 
-Please find additional instructions **below the calculator and fold.**
+Please note fields marked with a '*' are required and find additional instructions **below the calculator and fold.**
  
-<script type="module" crossorigin src="index-0wMfooAW.js"></script>
+<script type="module" crossorigin src="index-BCZItn4g.js"></script>
 <tradeoff-widget></tradeoff-widget>
 
 We are comparing three ways of making purchases,
