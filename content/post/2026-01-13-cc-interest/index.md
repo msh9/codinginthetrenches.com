@@ -19,7 +19,7 @@ I spent about a day and a half acquiring economic data and thinking about a UI f
 
 First though, if you are just mad about credit card interest and not interested in my amateur level thoughts then I recommend reading a blog post, ["Why Are Credit Card Rates So High?"](https://libertystreeteconomics.newyorkfed.org/2025/03/why-are-credit-card-rates-so-high/), by the New York Federal Reserve Bank that summarizes one of their cited staff reports. The result of this post are my own personal armchair thoughts on credit card interest.
 
-Lastly, I acknowledge the following writing is loose with terminology at times, using the words 'bank' and '(credit card) issuer' interchangeably. This is because ***most*** companies that issue credit cards in the US are also functionally banks (or bank holding companies, but I digress). Also I often interchange 'interest' and 'annual percentage rate' (APR). These are not always the same because APR is an inclusive measure of both interest charges and certain fees. In a marketplace where many credit cards do not carry annual fees though the APR is often representative of the underlying interest charges.
+Lastly, I acknowledge the following writing is loose with terminology at times, using the words 'bank' and '(credit card) issuer' interchangeably. This is because the ***predominant*** companies that issue credit cards in the US are also functionally banks (or bank holding companies, but I digress). Also I often interchange 'interest' and 'annual percentage rate' (APR). These are not the same because APR is an annual inclusive measure of both interest charges and certain fees. In a marketplace where many credit cards do not carry annual fees though the APR is often representative of the underlying annual interest charges.
 
 Onwards.
 
@@ -29,7 +29,7 @@ My armchair predictions for the results of a 10% "interest" cap?
 
 * Many, if not most, credit card reward programs disappear  
 * Annual or monthly fees start to apply to more cards  
-* Smaller and more specialized banks take over a great share of the credit card market
+* Smaller and more specialized banks take over a greater share of the credit card market
 
 ## Credit cards are weird.
 
@@ -50,7 +50,7 @@ Here's a chart of recent credit overall annual rates, APRs,
 
 {{<figure src="2026-01-13-cc-interest-fred-avg-apr-origination.avif"  caption="Source: Federal Reserve Bank of Philadelphia, Large Bank Consumer Credit Card Originations: Average Original Purchase APR: General Purpose [RCCCOAPRAVGPCTGP], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/RCCCOAPRAVGPCTGP, January 13, 2026." alt="A chart of recent average credit card APRs">}}
 
-An average APR of 27.21%\! As an example, for a $1200 purchase that is $27.13 in finance charges over a 30-day month. For comparison comparison here are mortgage loan rates,
+An average APR of 27.21%\! As an example, for a $1200 purchase that is $27.13 in finance charges over a 30-day month. For comparison here are mortgage loan rates,
 
 {{<figure src="2026-01-13-cc-interest-fred-avg-mortgage-apr.avif"  caption="Source: Federal Reserve Bank of Philadelphia, Large Bank Consumer Mortgage Originations: Average Interest Rate at Origination by LTV - 30-YR Fixed Rate Mortgage: >=80 LTV [RCMFLRIGIRAPCTF30LTVGTE80], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/RCMFLRIGIRAPCTF30LTVGTE80, January 13, 2026." alt="A chart of recent average mortgage loan APRs">}}
 
@@ -68,7 +68,7 @@ This all matters because credit cards are unsecured, open ended, loans with limi
 
 To be clear, I am not a defender of banks here, they should be regulated in order to ensure a competitive marketplace and so consumers understand what they are agreeing to when opening a credit card account. Credit cards are enormously profitable for banks due to a combination of merchant fees (interchange), interest, and fees. 
 
-With that said though, there is reason to believe that high interest rates are compensating for long-tail risk of default. In other words, a given credit card account has a high risk of default and loss because it is an open ended loan with no collateral to secure it and, also, limits on how it can be priced. Issuers compensate for the higher lifetime risk of default and loss with higher interest rates (Drechsler et al., 2025\) and (Fleckenstein et al., 2025).
+With that said though, there is reason to believe that high interest rates are compensating for long-tail risk of default. In other words, a given credit card account has a high risk of default and loss because it is an open ended loan with no collateral to secure it and, also, has limits on how it can be priced. Issuers compensate for the higher lifetime risk of default and loss with higher interest rates (Drechsler et al., 2025\) and (Fleckenstein et al., 2025).
 
 This is the conclusion of both the New York Fed's [Liberty Street paper](https://www.newyorkfed.org/research/staff_reports/sr1143) and [this working paper b](https://www.nber.org/system/files/working_papers/w28029/w28029.pdf)y the National Bureau of Economic Research.
 
@@ -82,7 +82,7 @@ A 10% cap on what?
 * A 10% cap on the marginal spread added to the prime rate?  
 * A 10% cap on total finance charges, but not fees?
 
-Regardless. I'm going to somewhat arbitrarily and very generously assume the most sane implementation of a "10% cap", a 10% cap on marginal spread. This would imply a maximal APR of \~16.7% on accounts issued today. This is lower than any APR charged in recent history. See the historical margin chart below from the CFPB's report:
+Regardless. I'm going to somewhat arbitrarily and very generously assume the most sane implementation of a "10% cap", a 10% cap on marginal spread. This would imply a maximal APR of \~16.7% on accounts issued today. This is lower than any APR charged in recent history. See the historical margin chart below from the CFPB's report, superprime APR margins in Q1 of 2015 were close to but still above 10%:
 
 {{<figure src="2026-01-13-cc-interest-apr-margin.avif"  caption="Source: CFPB. The Consumer Credit Card Market., 2025" alt="A chart of credit card margin rate over time">}}
 
@@ -90,7 +90,7 @@ WIth that said, I do not believe the industry doomsayers that claim a 10% cap wi
 
 While the high interest rates price in lots risk, both of the above papers also note that issuers enjoy significant positive profit margins. The New York Fed paper demonstrates higher margins even after default losses on some of the least credit worthy individuals (Drechsler et al., 2025).
 
-Instead I expect a repeat of what happened to debit cards in the wake of 2009 rule changes that reduced the fee and interchange profits from debit card purchases. The result was a near completion elimination of debit card rewards and cobranded debit cards. Less credit card interest profit means less money to spend on account perks and rewards. 
+Instead I expect a repeat of what happened to debit cards in the wake of 2009 rule changes that reduced the fee and interchange profits from debit card purchases. The result was a near complete elimination of debit card rewards and cobranded debit cards. Less credit card interest profit means less money to spend on account perks and rewards. 
 
 Another lens to look at this comes from an annual report on credit card profitability,
 
@@ -102,13 +102,13 @@ My other expectation is the further retreat of large banks from the lower tiers 
 
 {{<figure src="2026-01-13-cc-interest-balances-by-issuer-size.avif"  caption="Source: CFPB. The Consumer Credit Card Market., 2025" alt="A table of credit card balances held by different institution sizes">}}
 
-Again from the CFPB's biennial report–given high margin requirements for business operations, I would expect smaller, lower overhead, issuers to take over more of the market. There's a counterargument to this that large banks and issuers have a lower cost of funds, but that doesn't track with market dynamics today already.
+Again from the CFPB's biennial report–given high margin requirements for large bank business operations, I would expect smaller, lower overhead, issuers to take over more of the market. There's a counterargument to this that large banks and issuers have a lower cost of funds, but that doesn't track with market dynamics today already.
 
 ## Conclusions?
 
 I'm not sure I have any other than that arbitrary price caps will likely have, potentially many, unintended side effects. 
 
-Credit card interest is high; it is generally the most expensive way to pay for a purchase over time. I don't think arbitrary price caps will fix that. Similar to how rent control doesn't fix general affordability of apartments or how Californian property tax rules do not result in fair property taxation.
+Credit card interest is high; it is generally the most expensive way to pay for a purchase over time. I don't think arbitrary price caps will fix that similar to how rent control doesn't fix general affordability of apartments or how Californian property tax rules do not result in fair property taxation.
 
 If I could wave a wand I'd focus on cheap, easy to use, payment rails that could replace existing credit and debit platforms in a way that eliminates the 2%-5% payment cost baked into all retail goods. I don't care what it is, it could be crypto/stablecoins. It could be FedNow or something else.
 
