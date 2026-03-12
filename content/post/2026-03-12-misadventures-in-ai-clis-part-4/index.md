@@ -1,7 +1,7 @@
 +++
 tags = ['design', 'using software', 'cloud computing']
 categories = ['commentary']
-description = "I wrote a mapping web applications without looking at the code using Codex. Advice base on therein"
+description = "I wrote a mapping web application without looking at code using Codex. Advice based on therein"
 author = "Michael Hughes"
 date = 2026-03-12
 title = "(Mis)adventures in AI CLIs Part 4: Building the wrong thing, again, but still succeeding"

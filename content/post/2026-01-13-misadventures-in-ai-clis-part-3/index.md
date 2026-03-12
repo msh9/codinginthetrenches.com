@@ -1,7 +1,7 @@
 +++
 tags = ['design', 'using software', 'cloud computing']
 categories = ['commentary']
-description = "some gotchas and successes using codex CLI to build a financial calculator"
+description = "Gotchas and successes using codex CLI to build a financial calculator"
 author = "Michael Hughes"
 date = 2026-01-14
 title = "Misadventures in AI CLIs Part 3: Great Success?"
