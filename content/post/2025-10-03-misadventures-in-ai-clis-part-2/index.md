@@ -4,7 +4,7 @@ categories = ['commentary']
 description = "A story about using OpenAI codex and gemini to work on legacy javascript"
 author = "Michael Hughes"
 date = 2025-10-03
-title = "(Mis)adventures in AI CLIs: Part 2 Confidently Building the Wrong Thing"
+title = "(Mis)adventures in AI CLIs Part 2: Confidently Building the Wrong Thing"
 [params]
     math = false
 +++
@@ -118,6 +118,6 @@ I am unsure of what to make of this and as an LLM novice, at best, can only spec
 
 Overall, codex and Gemini were more helpful working on legacy Javascript than they were with scratch authoring golang text templates. Both tools worked well with tight workflows that relied on a human, me, giving incremental direction and guidance in the form of prompts and handwritten code. Occasionally, weird things happened that surprised me. If I did not have a software development background then there were a couple spots I might have gotten stuck for a while, but there were no insurmountable problems.
 
-Yet again, I marvel at the claims by OpenAI and, most recently, Anthropic where their agents work independently for tens of hours at a time. I wonder how much time was spent crafting the initial specifications for the agent to follow and how many *failed* attempts were made before the successful run used for market materials occurred. 
+Yet again, I marvel at the claims by OpenAI and, most recently, Anthropic where their agents work independently for tens of hours at a time. I wonder how much time was spent crafting the initial specifications for the agent to follow and how many *failed* attempts were made before the successful run used for marketing materials occurred. 
 
 In a single sentence, these tools **are** useful assistance that have saved me time, but are not magic senior or staff developer level replacements. If there is a Part 3 to this series, it will likely focus on (re)developing functionality from a more appropriate baseline toolset. 
