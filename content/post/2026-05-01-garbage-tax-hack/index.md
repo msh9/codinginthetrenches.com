@@ -174,7 +174,7 @@ Note significantly lower costs.
 
 In summary, a child's over funded 529 is a poor excuse to do real estate investing. This post was never about 529s though. It's a thinly veiled advertisement using buzzword hooks to get attention.
 
-I am aware that there's lot to pick apart in this analysis. I skipped over property taxes, property maintenance, and insurance costs, all of which make the ROI worse. I could have assumed higher or lower growth rates with corresponding ROI impacts too. Ultimately though the point is 529 room & board disbursements are small compared to the total cost of buying a property. 
+I am aware that there is a lot to pick apart in this analysis. I skipped over property taxes, property maintenance, and insurance costs, all of which make the ROI worse. I could have assumed higher or lower growth rates with corresponding ROI impacts too. Ultimately the point is 529 room & board disbursements are small compared to the total cost of buying a property. 
 
 If "wealthy parents" are doing this, it is because they wanted to buy a property in that specific area for themselves or for their kid. It is not because of some tax law, 529 account, hack that generates a tax free mortgage payments from investments. 
 
