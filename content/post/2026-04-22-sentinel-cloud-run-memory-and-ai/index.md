@@ -89,7 +89,7 @@ I decided to test compression settings as part of one of several rounds of hand 
 
 Claude Code generated both standard resiliency changes and some pretty useless changes. On the good side, adding HTTP request retries with exponential backoff was helpful when dealing with the Copernicus STAC API which is heavily rate limited.
 
-On the useless side of things, Claude Code generated a write-then-copy scheme where outputs are written to a temporary file in `/tmp` and then copied to the final output. I understand the intuitive logic of this and why source material across the internet might suggest it, but the approach makes assumptions about the application's operating environment that are not always true. In our case, the Google Cloud Storage FUSE drive includes caching and retries anyway that make this feature superfluous.
+On the useless side of things, Claude Code generated a write-then-copy scheme where outputs are written to a temporary file in `/tmp` and then copied to the final output. I understand the intuitive logic of this and why source material across the internet might suggest it, but the approach makes assumptions about the application's operating environment that are not always true. In our case, the Google Cloud Storage FUSE driver includes caching and retries anyway that make this feature superfluous.
 
 Much less helpfully, Claude Code generated non-pythonic code that failed to use python context handlers in multiple locations meaning that try-finally statements were need to clean up file handles. I fixed these manually.
 
