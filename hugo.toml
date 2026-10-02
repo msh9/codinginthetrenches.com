@@ -1,9 +1,9 @@
 baseURL = "https://codinginthetrenches.com"
-languageCode = "en-us"
+locale = "en-us"
 title = "Coding in the Trenches"
 # Enable Google Analytics by entering your tracking code
 theme = "hugo-PaperMod"
-copyright = "© 2025 Michael Hughes"
+copyright = "© 2026 Michael Hughes"
 enableGitInfo = true
 
 defaultContentLanguage = 'en'
